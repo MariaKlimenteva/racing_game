@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/masha/code_projects/mipt-cs-cpp/oop/bank.cpp
+bank.h
+/home/masha/code_projects/mipt-cs-cpp/oop/bank.h
+iostream
+-
+
+/home/masha/code_projects/mipt-cs-cpp/oop/bank.h
+string
+-
+
+/home/masha/code_projects/mipt-cs-cpp/oop/main.cpp
+iostream
+-
+bank.h
+/home/masha/code_projects/mipt-cs-cpp/oop/bank.h
+

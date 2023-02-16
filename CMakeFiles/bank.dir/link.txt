@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/bank.dir/main.o CMakeFiles/bank.dir/bank.o  -o bank 
