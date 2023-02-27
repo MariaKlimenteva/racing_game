@@ -1,0 +1,99 @@
+Package: vcpkg-cmake-config
+Version: 2022-02-06
+Port-Version: 1
+Architecture: x64-linux
+Multi-Arch: same
+Abi: faf445443a476badcba43e0a965032813d339642b7731a7650fccc80a90e1c3c
+Type: Port
+Status: install ok installed
+
+Package: vcpkg-cmake
+Version: 2022-12-22
+Architecture: x64-linux
+Multi-Arch: same
+Abi: fd91e156e392252c7e2683744c20e7818b4c2def7cdfc1f31411cf4085fc38f1
+Type: Port
+Status: install ok installed
+
+Package: abseil
+Version: 20230125.0
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 40ccf55597b84dc6bb74e82c3e5a137454472b07cd3d689b2ca1ec866e0dba58
+Description: an open-source collection designed to augment the C++ standard library.
+    Abseil is an open-source collection of C++ library code designed to augment the C++ standard library. The Abseil library code is collected from Google's own C++ code base, has been extensively tested and used in production, and is the same code we depend on in our daily coding lives.
+    In some cases, Abseil provides pieces missing from the C++ standard; in others, Abseil provides alternatives to the standard for special needs we've found through usage in the Google code base. We denote those cases clearly within the library code we provide you.
+    Abseil is not meant to be a competitor to the standard library; we've just found that many of these utilities serve a purpose within our code base, and we now want to provide those resources to the C++ community as a whole.
+Type: Port
+Status: install ok installed
+
+Package: abseil
+Feature: cxx17
+Architecture: x64-linux
+Multi-Arch: same
+Description: Enable compiler C++17.
+Type: Port
+Status: install ok installed
+
+Package: egl-registry
+Version: 2022-09-20
+Architecture: x64-linux
+Multi-Arch: same
+Abi: e105aa120f62121f3fdf078ab61537c852b1cdbb85d428043226ddd659989c85
+Description: the EGL API and Extension Registry
+Type: Port
+Status: install ok installed
+
+Package: opengl-registry
+Version: 2022-09-29
+Depends: egl-registry
+Architecture: x64-linux
+Multi-Arch: same
+Abi: f4968607de66d915c57079fc94d314491610ef2cd33fec03e36815b969c7a644
+Description: the API and Extension registries for the OpenGL family APIs
+Type: Port
+Status: install ok installed
+
+Package: opengl
+Version: 2022-12-04
+Port-Version: 1
+Depends: opengl-registry
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 09bd6cd20897300bc39f7c80b2158dc87017dac92d4ffcff9fcb09db9d8fba52
+Description: Open Graphics Library (OpenGL)[3][4][5] is a cross-language, cross-platform application programming interface (API) for rendering 2D and 3D vector graphics.
+Type: Port
+Status: install ok installed
+
+Package: glew
+Version: 2.2.0
+Depends: opengl, vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-linux
+Multi-Arch: same
+Abi: d656f7da82e2b6db631166ddda99ecc50cf131443ff296052554cc1fc8cc47a2
+Description: The OpenGL Extension Wrangler Library (GLEW) is a cross-platform open-source C/C++ extension loading library.
+Type: Port
+Status: install ok installed
+
+Package: fmt
+Version: 9.1.0
+Port-Version: 1
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-linux
+Multi-Arch: same
+Abi: abf424dabdc1e2de1206ac14cad06585831d30ae6bd389647ea9354cbaa2a15b
+Description: Formatting library for C++. It can be used as a safe alternative to printf or as a fast alternative to IOStreams.
+Type: Port
+Status: install ok installed
+
+Package: spdlog
+Version: 1.11.0
+Depends: fmt, vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-linux
+Multi-Arch: same
+Abi: af78000326a48eeea26efdca7d575cd7b2fbc491d6bf6b880977c0e19a7e1fe8
+Description: Very fast, header only, C++ logging library
+Type: Port
+Status: install ok installed
+

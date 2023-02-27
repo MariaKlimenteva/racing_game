@@ -1,0 +1,16 @@
+{
+    "name": "vcpkgdemo",
+    "version-string": "0.1.0",
+    "license": "MIT",
+    "dependencies": [
+        "spdlog",
+        "opengl",
+        "glew",
+        {
+            "name": "abseil",
+            "features": [
+                "cxx17"
+            ]
+        }
+    ]
+}

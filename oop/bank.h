@@ -1,6 +1,7 @@
 #include <string>
 
 class Account {
+  friend class Check;
  private:
   const std::string name_;
   // disable copy and assignment to make a copy of initial object
@@ -46,6 +47,13 @@ class Bank {
 
 class Check {
  public: 
-  check(int amount, std::string currency, bool flag) : ;
-  friend class Account;
-}
+  int amount_;
+  std::string currency_;
+  bool flag_;
+
+ protected:
+  Check(int amount, std::string currency): amount_(amount), currency_(currency), flag_(true){};
+
+ private:
+  friend class Account; 
+};
