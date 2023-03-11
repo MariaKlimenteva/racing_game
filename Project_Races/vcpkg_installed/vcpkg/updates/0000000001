@@ -1,9 +1,10 @@
-Package: glew
-Version: 2.2.0
-Depends: opengl, vcpkg-cmake, vcpkg-cmake-config
+Package: glfw3
+Version: 3.3.8
+Port-Version: 2
+Depends: vcpkg-cmake, vcpkg-cmake-config
 Architecture: x64-linux
 Multi-Arch: same
-Abi: d656f7da82e2b6db631166ddda99ecc50cf131443ff296052554cc1fc8cc47a2
-Description: The OpenGL Extension Wrangler Library (GLEW) is a cross-platform open-source C/C++ extension loading library.
+Abi: 605404fb3ca61004b79febb55f5091ad669ff10cc7cf821d64136c900e881786
+Description: GLFW is a free, Open Source, multi-platform library for OpenGL, OpenGL ES and Vulkan application development. It provides a simple, platform-independent API for creating windows, contexts and surfaces, reading input, handling events, etc.
 Type: Port
 Status: install ok installed
