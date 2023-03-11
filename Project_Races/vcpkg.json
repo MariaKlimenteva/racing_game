@@ -6,6 +6,7 @@
         "spdlog",
         "opengl",
         "glew",
+        "glfw3",
         {
             "name": "abseil",
             "features": [
