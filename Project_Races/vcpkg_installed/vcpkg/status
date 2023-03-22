@@ -97,3 +97,282 @@ Description: Very fast, header only, C++ logging library
 Type: Port
 Status: install ok installed
 
+Package: glfw3
+Version: 3.3.8
+Port-Version: 2
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 605404fb3ca61004b79febb55f5091ad669ff10cc7cf821d64136c900e881786
+Description: GLFW is a free, Open Source, multi-platform library for OpenGL, OpenGL ES and Vulkan application development. It provides a simple, platform-independent API for creating windows, contexts and surfaces, reading input, handling events, etc.
+Type: Port
+Status: install ok installed
+
+Package: stb
+Version: 2022-09-09
+Architecture: x64-linux
+Multi-Arch: same
+Abi: f38e205c1693f47ca1dcc2f17040d4735fceff2545a7a112b68c8e033e1b2780
+Description: public domain header-only libraries
+Type: Port
+Status: purge ok not-installed
+
+Package: zlib
+Version: 1.2.13
+Depends: vcpkg-cmake
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 5e34ef3ddcc0edd0e798f839f17aa1ce3edfd0cbfdfb1370853745374fa4740c
+Description: A compression library
+Type: Port
+Status: purge ok not-installed
+
+Package: liblzma
+Version: 5.4.1
+Port-Version: 1
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-linux
+Multi-Arch: same
+Abi: c8719bbe0898283b73709be4dabfa568a7dd8cefdd80084cba287584ea4f5fd2
+Description: Compression library with an API similar to that of zlib.
+Type: Port
+Status: purge ok not-installed
+
+Package: libjpeg-turbo
+Version: 2.1.5
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 745a8c3c248403cb1a608b3240139d4d95468e6c7b05df081c70663be39e6afd
+Description: libjpeg-turbo is a JPEG image codec that uses SIMD instructions (MMX, SSE2, NEON, AltiVec) to accelerate baseline JPEG compression and decompression on x86, x86-64, ARM, and PowerPC systems.
+Type: Port
+Status: purge ok not-installed
+
+Package: tiff
+Version: 4.5.0
+Port-Version: 2
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 24987bb877f3179ba3147e337bbd73bc63f68f0d35af9361f409f2cc73e875af
+Description: A library that supports the manipulation of TIFF image files
+Type: Port
+Default-Features: jpeg, lzma, zip
+Status: purge ok not-installed
+
+Package: tiff
+Feature: jpeg
+Depends: libjpeg-turbo
+Architecture: x64-linux
+Multi-Arch: same
+Description: Support JPEG compression in TIFF image files
+Type: Port
+Status: purge ok not-installed
+
+Package: tiff
+Feature: lzma
+Depends: liblzma
+Architecture: x64-linux
+Multi-Arch: same
+Description: Support LZMA compression in TIFF image files
+Type: Port
+Status: purge ok not-installed
+
+Package: tiff
+Feature: zip
+Depends: zlib
+Architecture: x64-linux
+Multi-Arch: same
+Description: Support ZIP/deflate compression in TIFF image files
+Type: Port
+Status: purge ok not-installed
+
+Package: imath
+Version: 3.1.5
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 17e34fc44eca44017d6abacd1f666c0fff526f444cb08970eace14cd37fb4b50
+Description: Imath is a C++ and Python library of 2D and 3D vector, matrix, and math operations for computer graphics.
+Type: Port
+Status: purge ok not-installed
+
+Package: openexr
+Version: 3.1.5
+Depends: imath, vcpkg-cmake, vcpkg-cmake-config, zlib
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 6436662983dc114cf46d52b456ac1dad8211cbe4dc79fbaa5bfa5b40c0b4d1f4
+Description: OpenEXR is a high dynamic-range (HDR) image file format developed by Industrial Light & Magic for use in computer imaging applications
+Type: Port
+Status: purge ok not-installed
+
+Package: libpng
+Version: 1.6.39
+Depends: vcpkg-cmake, vcpkg-cmake-config, zlib
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 2c17ae98c8b1f07db47432f5ca2cbfc5e5df23173b25a6b2b33619acce3232c4
+Description: libpng is a library implementing an interface for reading and writing PNG (Portable Network Graphics) format files
+Type: Port
+Status: purge ok not-installed
+
+Package: lcms
+Version: 2.14
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 0450fef9514e7ca7db7d14e7a80f2b4e0dcd0a5b9047db0f782a63613db87f31
+Description: Little CMS.
+Type: Port
+Status: purge ok not-installed
+
+Package: freeglut
+Version: 3.4.0
+Depends: opengl, vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 5d9a16fb276358518134a4bb77592b8cc4f9dc5dd55831c43fbab1959e4877d6
+Description: A free OpenGL utility toolkit, the open-sourced alternative to the GLUT library.
+Type: Port
+Status: purge ok not-installed
+
+Package: jasper
+Version: 4.0.0
+Depends: libjpeg-turbo, vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-linux
+Multi-Arch: same
+Abi: ce4c929c2eb3b1cec68cd87249df2258701d970bd3c60eee31ea0b05484e371c
+Description: Open source implementation of the JPEG-2000 Part-1 standard
+Type: Port
+Default-Features: default-features
+Status: purge ok not-installed
+
+Package: jasper
+Feature: default-features
+Depends: jasper
+Architecture: x64-linux
+Multi-Arch: same
+Description: Platform-dependent default features
+Type: Port
+Status: purge ok not-installed
+
+Package: jasper
+Feature: opengl
+Depends: freeglut, opengl
+Architecture: x64-linux
+Multi-Arch: same
+Description: Enable the use of the OpenGL/GLUT Library
+Type: Port
+Status: purge ok not-installed
+
+Package: devil
+Version: 1.8.0
+Port-Version: 9
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 151acad33f63743453103523a29dfcdde00bcf19d6bb37b8ce8d89f45fecaa83
+Description: A full featured cross-platform image library
+Type: Port
+Default-Features: jasper, lcms, libjpeg, libpng, openexr, tiff
+Status: purge ok not-installed
+
+Package: devil
+Feature: jasper
+Depends: jasper
+Architecture: x64-linux
+Multi-Arch: same
+Description: Use JasPer for .jp2 (and some .icns) support
+Type: Port
+Status: purge ok not-installed
+
+Package: devil
+Feature: lcms
+Depends: lcms
+Architecture: x64-linux
+Multi-Arch: same
+Description: Use Little CMS for color profiles
+Type: Port
+Status: purge ok not-installed
+
+Package: devil
+Feature: libjpeg
+Depends: libjpeg-turbo
+Architecture: x64-linux
+Multi-Arch: same
+Description: Use Libjpeg for .jpg (and some .blp) support
+Type: Port
+Status: purge ok not-installed
+
+Package: devil
+Feature: libpng
+Depends: libpng
+Architecture: x64-linux
+Multi-Arch: same
+Description: Use Libpng for .png (and some .ico)
+Type: Port
+Status: purge ok not-installed
+
+Package: devil
+Feature: openexr
+Depends: openexr
+Architecture: x64-linux
+Multi-Arch: same
+Description: Use openexr
+Type: Port
+Status: purge ok not-installed
+
+Package: devil
+Feature: tiff
+Depends: tiff
+Architecture: x64-linux
+Multi-Arch: same
+Description: Use Libtiff for .tif support
+Type: Port
+Status: purge ok not-installed
+
+Package: sdl2
+Version: 2.26.3
+Port-Version: 1
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-linux
+Multi-Arch: same
+Abi: bded2fa6271105a1f2445a09d18b082b36c70b09ce19ce7c0856a2a8af6e0d9d
+Description: Simple DirectMedia Layer is a cross-platform development library designed to provide low level access to audio, keyboard, mouse, joystick, and graphics hardware via OpenGL and Direct3D.
+Type: Port
+Default-Features: base
+Status: install ok installed
+
+Package: sdl2
+Feature: base
+Depends: sdl2
+Architecture: x64-linux
+Multi-Arch: same
+Description: Base functionality for SDL
+Type: Port
+Status: install ok installed
+
+Package: sdl2
+Feature: ibus
+Architecture: x64-linux
+Multi-Arch: same
+Description: Build with ibus IME support
+Type: Port
+Status: install ok installed
+
+Package: sdl2
+Feature: wayland
+Architecture: x64-linux
+Multi-Arch: same
+Description: Build with Wayland support
+Type: Port
+Status: install ok installed
+
+Package: sdl2
+Feature: x11
+Architecture: x64-linux
+Multi-Arch: same
+Description: Build with X11 support
+Type: Port
+Status: install ok installed
+

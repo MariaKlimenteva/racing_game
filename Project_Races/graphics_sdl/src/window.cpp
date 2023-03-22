@@ -1,7 +1,5 @@
 #include "window.h"
 
-
-
 void window::loop(SDL_Renderer *renderer) 
 {
     while (true) 
@@ -34,11 +32,15 @@ window::window()
 {
     SDL_Window   *window   = nullptr;
     SDL_Renderer *renderer = nullptr;
+
     if (SDL_CreateWindowAndRenderer(1024, 768, SDL_WINDOW_SHOWN | SDL_WINDOW_INPUT_FOCUS, &window, &renderer)) 
     {
         std::cerr << "Failed to create window and renderer: " << SDL_GetError() << std::endl;
         exit(EXIT_FAILURE);
     }
-    SDL_SetWindowTitle(window, "SDL2 game blank");
+
+    SDL_SetWindowTitle(window, "Races");
     SDL_SetRenderDrawColor(renderer, 210, 255, 179, 255);
+
+    SDL_Surface* temp = SDL_LoadBMP("test_picture.bmp");
 }
