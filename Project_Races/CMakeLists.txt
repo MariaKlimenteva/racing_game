@@ -17,6 +17,10 @@ target_include_directories(main PRIVATE ${OPENGL_INCLUDE_DIR})
 find_package(OpenGL REQUIRED)
 target_link_libraries(main PRIVATE OpenGL::GL)
 
+# add add_executable()
+find_package(Catch2 CONFIG REQUIRED)
+target_link_libraries(main PRIVATE Catch2::Catch2 Catch2::Catch2WithMain)
+
 #find_package(OpenGL REQUIRED COMPONENTS GL      # v3.8
  #                                       GLU     # v3.8
   #                                      GLX     # v3.10

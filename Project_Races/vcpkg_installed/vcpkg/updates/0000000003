@@ -1,10 +1,10 @@
-Package: fmt
-Version: 9.1.0
-Port-Version: 1
+Package: glfw3
+Version: 3.3.8
+Port-Version: 2
 Depends: vcpkg-cmake, vcpkg-cmake-config
 Architecture: x64-linux
 Multi-Arch: same
-Abi: abf424dabdc1e2de1206ac14cad06585831d30ae6bd389647ea9354cbaa2a15b
-Description: Formatting library for C++. It can be used as a safe alternative to printf or as a fast alternative to IOStreams.
+Abi: 605404fb3ca61004b79febb55f5091ad669ff10cc7cf821d64136c900e881786
+Description: GLFW is a free, Open Source, multi-platform library for OpenGL, OpenGL ES and Vulkan application development. It provides a simple, platform-independent API for creating windows, contexts and surfaces, reading input, handling events, etc.
 Type: Port
 Status: install ok installed

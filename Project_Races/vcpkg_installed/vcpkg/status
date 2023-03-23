@@ -66,3 +66,34 @@ Description: Open Graphics Library (OpenGL)[3][4][5] is a cross-language, cross-
 Type: Port
 Status: install ok installed
 
+Package: glew
+Version: 2.2.0
+Depends: opengl, vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-linux
+Multi-Arch: same
+Abi: d656f7da82e2b6db631166ddda99ecc50cf131443ff296052554cc1fc8cc47a2
+Description: The OpenGL Extension Wrangler Library (GLEW) is a cross-platform open-source C/C++ extension loading library.
+Type: Port
+Status: install ok installed
+
+Package: fmt
+Version: 9.1.0
+Port-Version: 1
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-linux
+Multi-Arch: same
+Abi: abf424dabdc1e2de1206ac14cad06585831d30ae6bd389647ea9354cbaa2a15b
+Description: Formatting library for C++. It can be used as a safe alternative to printf or as a fast alternative to IOStreams.
+Type: Port
+Status: install ok installed
+
+Package: spdlog
+Version: 1.11.0
+Depends: fmt, vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-linux
+Multi-Arch: same
+Abi: af78000326a48eeea26efdca7d575cd7b2fbc491d6bf6b880977c0e19a7e1fe8
+Description: Very fast, header only, C++ logging library
+Type: Port
+Status: install ok installed
+
