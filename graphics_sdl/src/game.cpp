@@ -5,6 +5,7 @@
 //--------------------------------------------------------------------------
 Game::Game()
 {
+    Surf_Test = NULL; //тестовая поверхность
     Surf_Display = NULL;
     Running = true;
 }
@@ -18,11 +19,18 @@ void Game::OnEvent(SDL_Event* Event)
 }
 //--------------------------------------------------------------------------
 void Game::Loop(){}
-void Game::Render(){}
+void Game::Render()
+{
+    Surface::Draw(Surf_Display, Surf_Test, 0, 0);
+ 
+    SDL_Flip(Surf_Display);
+}
 
 //--------------------------------------------------------------------------
 void Game::Cleanup()
 {
+    SDL_FreeSurface(Surf_Test);
+    SDL_FreeSurface(Surf_Display);
     SDL_Quit();
 }
 //--------------------------------------------------------------------------
@@ -80,6 +88,10 @@ bool Game::Init()
         return false;
     }
 
+    if((Surf_Test = Surface::OnLoad("myimage.bmp")) == NULL) //тестовая загрузка поверхности
+    {
+        return false;
+    }
     return true;
 }
 

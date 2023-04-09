@@ -4,25 +4,26 @@
 #include <SDL.h>
 
 #include "define.h"
+#include "surface.h"
 
 //--------------------------------------------------------------------------
-
 class Game
 {
     private:
     bool            Running;
     SDL_Surface*    Surf_Display;
+    SDL_Surface*    Surf_Test; // сщздали тестовую поверхность чтоб проверить, работает ли
 
     public:
     Game();
+
     int  Execute(); //выполняет основной цикл игры 
-    bool Init(); //Инициализация игры и в том числе используемой библиотеки
+    bool Init();    //Инициализация игры и в том числе используемой библиотеки
     void OnEvent(SDL_Event* Event);
     void Loop();
     void Render();
     void Cleanup();
 };
-
 //--------------------------------------------------------------------------
 
 #endif
