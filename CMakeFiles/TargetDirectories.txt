@@ -1,3 +1,0 @@
-/home/masha/code_projects/mipt-cs-cpp/CMakeFiles/rebuild_cache.dir
-/home/masha/code_projects/mipt-cs-cpp/CMakeFiles/edit_cache.dir
-/home/masha/code_projects/mipt-cs-cpp/CMakeFiles/bank.dir

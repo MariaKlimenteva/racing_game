@@ -1,8 +1,10 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
-#include <iostream>
+// #include <iostream>
 #include <SDL.h>
+// #include <SDL2.h>
+// #include <SDL2/SDL_image.h>
 
 class sdl
 {

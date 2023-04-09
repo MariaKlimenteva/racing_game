@@ -1,5 +1,6 @@
 #include "window.h"
-#include <SDL_image.h>
+#include <iostream>
+// #include <SDL_image.h>
 
 
 int main() 
@@ -10,6 +11,6 @@ int main()
     SDL_Renderer *renderer = nullptr;
     window.loop(renderer);
 
-    IMG_LoadTexture
+    // IMG_LoadTexture
     exit(EXIT_SUCCESS);
 }
