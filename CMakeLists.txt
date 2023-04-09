@@ -31,8 +31,8 @@ target_link_libraries(main PRIVATE OpenGL::GL)
 #find_package(GLEW REQUIRED)
 #target_link_libraries(main PRIVATE GLEW::GLEW)
 
-find_package(glfw3 CONFIG REQUIRED)
-target_link_libraries(main PRIVATE glfw)
+# find_package(glfw3 CONFIG REQUIRED)
+# target_link_libraries(main PRIVATE glfw)
 
 find_package(SDL2 CONFIG REQUIRED)
 target_link_libraries(main

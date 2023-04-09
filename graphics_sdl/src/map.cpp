@@ -1,4 +1,4 @@
-#include "track.h"
+#include "map.h"
 
 #include <iostream>
 
@@ -34,5 +34,29 @@ bool Map::OnLoad(char* File)
 
 void Map::OnRender(SDL_Surface* Surf_Display, int MapX, int MapY)
 {
-
+    if(Surf_Tileset == NULL) return;
+ 
+    int TilesetWidth  = Surf_Tileset->w / TILE_SIZE;
+    int TilesetHeight = Surf_Tileset->h / TILE_SIZE;
+ 
+    int ID = 0;
+ 
+    for(int Y = 0;Y < MAP_HEIGHT;Y++) {
+        for(int X = 0;X < MAP_WIDTH;X++) {
+            if(TileList[ID].TileType == TILE_TYPE_NONE) {
+                ID++;
+                continue;
+            }
+ 
+            int tX = MapX + (X * TILE_SIZE);
+            int tY = MapY + (Y * TILE_SIZE);
+ 
+            int TilesetX = (TileList[ID].TileID % TilesetWidth) * TILE_SIZE;
+            int TilesetY = (TileList[ID].TileID / TilesetWidth) * TILE_SIZE;
+ 
+            CSurface::OnDraw(Surf_Display, Surf_Tileset, tX, tY, TilesetX, TilesetY, TILE_SIZE, TILE_SIZE);
+ 
+            ID++;
+        }
+    }
 }

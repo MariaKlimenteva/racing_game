@@ -1,5 +1,5 @@
-#ifndef TRACK_H
-#define TRACK_H
+#ifndef MAP_H
+#define MAP_H
 
 #include <SDL.h>
 #include <vector>
@@ -20,4 +20,4 @@ class Map
     std::vector<Tile> TileList;//хранит список всех плиток карты
 };
 
-#endif // TRACK_H
+#endif // MAP_H
