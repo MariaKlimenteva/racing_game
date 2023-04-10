@@ -18,14 +18,17 @@ void Game::OnEvent(SDL_Event* Event)
     }
 }
 //--------------------------------------------------------------------------
-void Game::Loop(){}
+void Game::Loop()
+{
+
+}
+//--------------------------------------------------------------------------
 void Game::Render()
 {
     Surface::Draw(Surf_Display, Surf_Test, 0, 0);
  
-    SDL_Flip(Surf_Display);
+    // SDL_RendererFlip(Surf_Display); // ??????? мб не верно сделала, т к изменился стандарт библиотеки
 }
-
 //--------------------------------------------------------------------------
 void Game::Cleanup()
 {
@@ -88,7 +91,7 @@ bool Game::Init()
         return false;
     }
 
-    if((Surf_Test = Surface::OnLoad("myimage.bmp")) == NULL) //тестовая загрузка поверхности
+    if((Surf_Test = Surface::OnLoad("roadmarkings-14.jpg", window)) == NULL) //тестовая загрузка поверхности
     {
         return false;
     }
