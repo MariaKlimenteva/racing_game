@@ -1,3 +1,3 @@
-[submodule "Project \"Races"/vcpkg"]
+[submodule "Project \"Races"\vcpkg"]
 	path = Project \"Races"/vcpkg
 	url = https://github.com/microsoft/vcpkg
