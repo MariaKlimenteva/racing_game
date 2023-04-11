@@ -1,4 +1,5 @@
 #include "map.h"
+#include "surface.h"
 
 #include <iostream>
 
@@ -54,7 +55,7 @@ void Map::OnRender(SDL_Surface* Surf_Display, int MapX, int MapY)
             int TilesetX = (TileList[ID].TileID % TilesetWidth) * TILE_SIZE;
             int TilesetY = (TileList[ID].TileID / TilesetWidth) * TILE_SIZE;
  
-            CSurface::OnDraw(Surf_Display, Surf_Tileset, tX, tY, TilesetX, TilesetY, TILE_SIZE, TILE_SIZE);
+            Surface::Draw(Surf_Display, Surf_Tileset, tX, tY, TilesetX, TilesetY, TILE_SIZE, TILE_SIZE);
  
             ID++;
         }

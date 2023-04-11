@@ -1,0 +1,594 @@
+A suitable version of cmake was not found (required v3.25.1) Downloading portable cmake 3.25.1...
+Downloading cmake...
+https://github.com/Kitware/CMake/releases/download/v3.25.1/cmake-3.25.1-linux-x86_64.tar.gz->/home/masha/code_projects/racing_game/vcpkg/downloads/cmake-3.25.1-linux-x86_64.tar.gz
+Extracting cmake...
+Detecting compiler hash for triplet x64-linux...
+The following packages will be built and installed:
+    abseil[core,cxx17]:x64-linux -> 20230125.0#1
+  * egl-registry[core]:x64-linux -> 2022-09-20
+  * fmt[core]:x64-linux -> 9.1.0#1
+    glew[core]:x64-linux -> 2.2.0
+    glfw3[core]:x64-linux -> 3.3.8#2
+    opengl[core]:x64-linux -> 2022-12-04#3
+  * opengl-registry[core]:x64-linux -> 2022-09-29#1
+    sdl2[base,core,ibus,wayland,x11]:x64-linux -> 2.26.5
+    spdlog[core]:x64-linux -> 1.11.0
+  * vcpkg-cmake[core]:x64-linux -> 2022-12-22
+  * vcpkg-cmake-config[core]:x64-linux -> 2022-02-06#1
+Additional packages (*) will be modified to complete this operation.
+Restored 3 package(s) from /home/masha/.cache/vcpkg/archives in 21.4 ms. Use --debug to see more details.
+Installing 1/11 vcpkg-cmake-config:x64-linux...
+Elapsed time to handle vcpkg-cmake-config:x64-linux: 1.63 ms
+Installing 2/11 vcpkg-cmake:x64-linux...
+Elapsed time to handle vcpkg-cmake:x64-linux: 1.15 ms
+Installing 3/11 abseil:x64-linux...
+Building abseil[core,cxx17]:x64-linux...
+-- Downloading https://github.com/abseil/abseil-cpp/archive/20230125.0.tar.gz -> abseil-abseil-cpp-20230125.0.tar.gz...
+-- Extracting source /home/masha/code_projects/racing_game/vcpkg/downloads/abseil-abseil-cpp-20230125.0.tar.gz
+-- Applying patch fix-dll-support.patch
+-- Using source at /home/masha/code_projects/racing_game/vcpkg/buildtrees/abseil/src/20230125.0-ef0a6f1f30.clean
+-- Configuring x64-linux-dbg
+-- Configuring x64-linux-rel
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_absl_check.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_absl_log.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_algorithm.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_algorithm_container.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_any.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_any_invocable.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_atomic_hook.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_bad_any_cast.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_bad_any_cast_impl.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_bad_optional_access.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_bad_variant_access.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_base.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_base_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_bind_front.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_bits.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_btree.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_check.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_city.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_civil_time.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_cleanup.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_cleanup_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_common_policy_traits.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_compare.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_compressed_tuple.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_config.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_container_common.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_container_memory.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_cord.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_cord_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_cordz_functions.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_cordz_handle.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_cordz_info.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_cordz_sample_token.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_cordz_statistics.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_cordz_update_scope.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_cordz_update_tracker.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_core_headers.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_counting_allocator.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_crc32c.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_crc_cord_state.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_crc_cpu_detect.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_crc_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_debugging.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_debugging_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_demangle_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_die_if_null.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_dynamic_annotations.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_endian.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_errno_saver.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_examine_stack.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_exponential_biased.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_failure_signal_handler.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_fast_type_id.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_fixed_array.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_flags.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_flags_commandlineflag.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_flags_commandlineflag_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_flags_config.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_flags_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_flags_marshalling.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_flags_parse.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_flags_path_util.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_flags_private_handle_accessor.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_flags_program_name.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_flags_reflection.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_flags_usage.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_flags_usage_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_flat_hash_map.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_flat_hash_set.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_function_ref.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_graphcycles_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_hash.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_hash_function_defaults.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_hash_policy_traits.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_hashtable_debug.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_hashtable_debug_hooks.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_hashtablez_sampler.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_inlined_vector.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_inlined_vector_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_int128.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_kernel_timeout_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_layout.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_leak_check.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_log.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_log_entry.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_log_flags.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_log_globals.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_log_initialize.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_log_internal_append_truncated.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_log_internal_check_impl.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_log_internal_check_op.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_log_internal_conditions.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_log_internal_config.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_log_internal_flags.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_log_internal_format.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_log_internal_globals.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_log_internal_log_impl.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_log_internal_log_sink_set.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_log_internal_message.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_log_internal_nullguard.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_log_internal_nullstream.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_log_internal_proto.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_log_internal_strip.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_log_internal_structured.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_log_internal_voidify.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_log_severity.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_log_sink.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_log_sink_registry.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_log_streamer.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_log_structured.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_low_level_hash.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_malloc_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_memory.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_meta.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_node_hash_map.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_node_hash_set.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_node_slot_policy.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_non_temporal_arm_intrinsics.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_non_temporal_memcpy.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_numeric.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_numeric_representation.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_optional.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_periodic_sampler.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_prefetch.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_pretty_function.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_random_bit_gen_ref.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_random_distributions.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_random_internal_distribution_caller.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_random_internal_distribution_test_util.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_random_internal_fast_uniform_bits.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_random_internal_fastmath.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_random_internal_generate_real.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_random_internal_iostream_state_saver.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_random_internal_mock_helpers.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_random_internal_nonsecure_base.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_random_internal_pcg_engine.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_random_internal_platform.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_random_internal_pool_urbg.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_random_internal_randen.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_random_internal_randen_engine.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_random_internal_randen_hwaes.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_random_internal_randen_hwaes_impl.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_random_internal_randen_slow.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_random_internal_salted_seed_seq.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_random_internal_seed_material.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_random_internal_traits.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_random_internal_uniform_helper.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_random_internal_wide_multiply.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_random_random.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_random_seed_gen_exception.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_random_seed_sequences.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_raw_hash_map.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_raw_hash_set.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_raw_logging_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_sample_recorder.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_scoped_set_env.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_span.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_spinlock_wait.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_stacktrace.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_status.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_statusor.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_str_format.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_str_format_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_strerror.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_strings.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_strings_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_symbolize.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_synchronization.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_throw_delegate.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_time.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_time_zone.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_type_traits.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_utility.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/lib/pkgconfig/absl_variant.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_absl_check.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_absl_log.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_algorithm.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_algorithm_container.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_any.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_any_invocable.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_atomic_hook.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_bad_any_cast.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_bad_any_cast_impl.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_bad_optional_access.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_bad_variant_access.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_base.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_base_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_bind_front.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_bits.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_btree.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_check.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_city.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_civil_time.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_cleanup.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_cleanup_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_common_policy_traits.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_compare.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_compressed_tuple.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_config.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_container_common.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_container_memory.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_cord.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_cord_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_cordz_functions.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_cordz_handle.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_cordz_info.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_cordz_sample_token.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_cordz_statistics.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_cordz_update_scope.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_cordz_update_tracker.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_core_headers.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_counting_allocator.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_crc32c.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_crc_cord_state.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_crc_cpu_detect.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_crc_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_debugging.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_debugging_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_demangle_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_die_if_null.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_dynamic_annotations.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_endian.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_errno_saver.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_examine_stack.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_exponential_biased.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_failure_signal_handler.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_fast_type_id.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_fixed_array.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_flags.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_flags_commandlineflag.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_flags_commandlineflag_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_flags_config.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_flags_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_flags_marshalling.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_flags_parse.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_flags_path_util.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_flags_private_handle_accessor.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_flags_program_name.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_flags_reflection.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_flags_usage.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_flags_usage_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_flat_hash_map.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_flat_hash_set.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_function_ref.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_graphcycles_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_hash.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_hash_function_defaults.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_hash_policy_traits.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_hashtable_debug.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_hashtable_debug_hooks.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_hashtablez_sampler.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_inlined_vector.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_inlined_vector_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_int128.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_kernel_timeout_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_layout.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_leak_check.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_log.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_log_entry.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_log_flags.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_log_globals.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_log_initialize.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_log_internal_append_truncated.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_log_internal_check_impl.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_log_internal_check_op.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_log_internal_conditions.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_log_internal_config.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_log_internal_flags.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_log_internal_format.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_log_internal_globals.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_log_internal_log_impl.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_log_internal_log_sink_set.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_log_internal_message.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_log_internal_nullguard.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_log_internal_nullstream.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_log_internal_proto.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_log_internal_strip.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_log_internal_structured.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_log_internal_voidify.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_log_severity.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_log_sink.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_log_sink_registry.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_log_streamer.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_log_structured.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_low_level_hash.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_malloc_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_memory.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_meta.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_node_hash_map.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_node_hash_set.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_node_slot_policy.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_non_temporal_arm_intrinsics.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_non_temporal_memcpy.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_numeric.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_numeric_representation.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_optional.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_periodic_sampler.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_prefetch.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_pretty_function.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_random_bit_gen_ref.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_random_distributions.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_random_internal_distribution_caller.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_random_internal_distribution_test_util.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_random_internal_fast_uniform_bits.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_random_internal_fastmath.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_random_internal_generate_real.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_random_internal_iostream_state_saver.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_random_internal_mock_helpers.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_random_internal_nonsecure_base.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_random_internal_pcg_engine.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_random_internal_platform.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_random_internal_pool_urbg.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_random_internal_randen.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_random_internal_randen_engine.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_random_internal_randen_hwaes.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_random_internal_randen_hwaes_impl.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_random_internal_randen_slow.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_random_internal_salted_seed_seq.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_random_internal_seed_material.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_random_internal_traits.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_random_internal_uniform_helper.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_random_internal_wide_multiply.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_random_random.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_random_seed_gen_exception.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_random_seed_sequences.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_raw_hash_map.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_raw_hash_set.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_raw_logging_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_sample_recorder.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_scoped_set_env.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_span.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_spinlock_wait.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_stacktrace.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_status.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_statusor.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_str_format.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_str_format_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_strerror.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_strings.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_strings_internal.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_symbolize.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_synchronization.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_throw_delegate.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_time.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_time_zone.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_type_traits.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_utility.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/debug/lib/pkgconfig/absl_variant.pc
+-- Installing: /home/masha/code_projects/racing_game/vcpkg/packages/abseil_x64-linux/share/abseil/copyright
+-- Performing post-build validation
+Stored binary cache: "/home/masha/.cache/vcpkg/archives/f2/f2e0be353c2d536132586acbcb9cd4e038c52c2b14e0276f281a889dc0f67f95.zip"
+Elapsed time to handle abseil:x64-linux: 1.1 min
+Installing 4/11 egl-registry:x64-linux...
+Elapsed time to handle egl-registry:x64-linux: 3.11 ms
+Installing 5/11 opengl-registry:x64-linux...
+Building opengl-registry[core]:x64-linux...
+-- Downloading https://github.com/KhronosGroup/OpenGL-Registry/archive/5bae8738b23d06968e7c3a41308568120943ae77.tar.gz -> KhronosGroup-OpenGL-Registry-5bae8738b23d06968e7c3a41308568120943ae77.tar.gz...
+-- Extracting source /home/masha/code_projects/racing_game/vcpkg/downloads/KhronosGroup-OpenGL-Registry-5bae8738b23d06968e7c3a41308568120943ae77.tar.gz
+-- Using source at /home/masha/code_projects/racing_game/vcpkg/buildtrees/opengl-registry/src/120943ae77-d1a12ea691.clean
+-- Installing: /home/masha/code_projects/racing_game/vcpkg/packages/opengl-registry_x64-linux/share/opengl-registry/copyright
+-- Performing post-build validation
+Stored binary cache: "/home/masha/.cache/vcpkg/archives/02/027711fd5b680b6309c5cc40fd50fca1ee10f9b74d84cd1f0a63d4a429d4d1e7.zip"
+Elapsed time to handle opengl-registry:x64-linux: 1 min
+Installing 6/11 opengl:x64-linux...
+Building opengl[core]:x64-linux...
+-- Installing: /home/masha/code_projects/racing_game/vcpkg/packages/opengl_x64-linux/share/opengl/usage
+-- Performing post-build validation
+Stored binary cache: "/home/masha/.cache/vcpkg/archives/cd/cd9ab96b49c516662e339248f7a966d617799b86257fd11559eb683acc67609a.zip"
+Elapsed time to handle opengl:x64-linux: 39.6 ms
+Installing 7/11 glew:x64-linux...
+Building glew[core]:x64-linux...
+CMake Warning at ports/glew/portfile.cmake:2 (message):
+  glew requires the following libraries from the system package manager:
+
+      libxmu-dev
+      libxi-dev
+      libgl-dev
+
+  
+
+  These can be installed on Ubuntu systems via apt-get install libxmu-dev
+  libxi-dev libgl-dev.
+Call Stack (most recent call first):
+  scripts/ports.cmake:147 (include)
+
+
+-- Downloading https://github.com/nigels-com/glew/releases/download/glew-2.2.0/glew-2.2.0.tgz -> glew-2.2.0.tgz...
+-- Extracting source /home/masha/code_projects/racing_game/vcpkg/downloads/glew-2.2.0.tgz
+-- Applying patch fix-LNK2019.patch
+-- Using source at /home/masha/code_projects/racing_game/vcpkg/buildtrees/glew/src/glew-7f0b9182fc.clean
+-- Configuring x64-linux-dbg
+-- Configuring x64-linux-rel
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/glew_x64-linux/lib/pkgconfig/glew.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/glew_x64-linux/debug/lib/pkgconfig/glew.pc
+-- Installing: /home/masha/code_projects/racing_game/vcpkg/packages/glew_x64-linux/share/glew/vcpkg-cmake-wrapper.cmake
+-- Installing: /home/masha/code_projects/racing_game/vcpkg/packages/glew_x64-linux/share/glew/copyright
+-- Performing post-build validation
+Stored binary cache: "/home/masha/.cache/vcpkg/archives/d4/d4fa159bc5cf1aa9fb8f1dbfe17a92fb973039b3cb94b69818a4b437274fb5f6.zip"
+Elapsed time to handle glew:x64-linux: 1.7 min
+Installing 8/11 glfw3:x64-linux...
+Building glfw3[core]:x64-linux...
+-- Downloading https://github.com/glfw/glfw/archive/7482de6071d21db77a7236155da44c172a7f6c9e.tar.gz -> glfw-glfw-7482de6071d21db77a7236155da44c172a7f6c9e.tar.gz...
+-- Extracting source /home/masha/code_projects/racing_game/vcpkg/downloads/glfw-glfw-7482de6071d21db77a7236155da44c172a7f6c9e.tar.gz
+-- Using source at /home/masha/code_projects/racing_game/vcpkg/buildtrees/glfw3/src/172a7f6c9e-7678776297.clean
+GLFW3 currently requires the following libraries from the system package manager:
+    xinerama
+    xcursor
+    xorg
+    libglu1-mesa
+    pkg-config
+
+These can be installed on Ubuntu systems via sudo apt install libxinerama-dev libxcursor-dev xorg-dev libglu1-mesa-dev pkg-config
+
+Alternatively, when targeting the Wayland display server, use the packages listed in the GLFW documentation here:
+
+https://www.glfw.org/docs/3.3/compile.html#compile_deps_wayland
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/glfw3_x64-linux/lib/pkgconfig/glfw3.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/glfw3_x64-linux/debug/lib/pkgconfig/glfw3.pc
+-- Installing: /home/masha/code_projects/racing_game/vcpkg/packages/glfw3_x64-linux/share/glfw3/copyright
+-- Performing post-build validation
+Stored binary cache: "/home/masha/.cache/vcpkg/archives/26/2660d38a3c1e3ad82795768ef5d3786c34bf948a355c6168fad2cb732735b0b6.zip"
+Elapsed time to handle glfw3:x64-linux: 17 s
+Installing 9/11 sdl2:x64-linux...
+Building sdl2[base,core,ibus,wayland,x11]:x64-linux...
+-- Downloading https://github.com/libsdl-org/SDL/archive/release-2.26.5.tar.gz -> libsdl-org-SDL-release-2.26.5.tar.gz...
+-- Extracting source /home/masha/code_projects/racing_game/vcpkg/downloads/libsdl-org-SDL-release-2.26.5.tar.gz
+-- Applying patch deps.patch
+-- Using source at /home/masha/code_projects/racing_game/vcpkg/buildtrees/sdl2/src/ase-2.26.5-fdc15bb8fb.clean
+CMake Warning at ports/sdl2/portfile.cmake:25 (message):
+  You will need to install Xorg dependencies to use feature x11:
+
+  sudo apt install libx11-dev libxft-dev libxext-dev
+
+Call Stack (most recent call first):
+  scripts/ports.cmake:147 (include)
+
+
+CMake Warning at ports/sdl2/portfile.cmake:28 (message):
+  You will need to install Wayland dependencies to use feature wayland:
+
+  sudo apt install libwayland-dev libxkbcommon-dev libegl1-mesa-dev
+
+Call Stack (most recent call first):
+  scripts/ports.cmake:147 (include)
+
+
+CMake Warning at ports/sdl2/portfile.cmake:31 (message):
+  You will need to install ibus dependencies to use feature ibus:
+
+  sudo apt install libibus-1.0-dev
+
+Call Stack (most recent call first):
+  scripts/ports.cmake:147 (include)
+
+
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/sdl2_x64-linux/lib/pkgconfig/sdl2.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/sdl2_x64-linux/debug/lib/pkgconfig/sdl2.pc
+-- Installing: /home/masha/code_projects/racing_game/vcpkg/packages/sdl2_x64-linux/share/sdl2/usage
+-- Installing: /home/masha/code_projects/racing_game/vcpkg/packages/sdl2_x64-linux/share/sdl2/copyright
+-- Performing post-build validation
+Stored binary cache: "/home/masha/.cache/vcpkg/archives/da/da60b91c51c218b9b9d16c9b724fc0f75b36e804b05e3ebfc4b1745bf8a8fc1f.zip"
+Elapsed time to handle sdl2:x64-linux: 57 s
+Installing 10/11 fmt:x64-linux...
+Building fmt[core]:x64-linux...
+-- Downloading https://github.com/fmtlib/fmt/archive/9.1.0.tar.gz -> fmtlib-fmt-9.1.0.tar.gz...
+-- Extracting source /home/masha/code_projects/racing_game/vcpkg/downloads/fmtlib-fmt-9.1.0.tar.gz
+-- Applying patch fix-write-batch.patch
+-- Applying patch fix-format-conflict.patch
+-- Using source at /home/masha/code_projects/racing_game/vcpkg/buildtrees/fmt/src/9.1.0-20bc1f56f3.clean
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Installing: /home/masha/code_projects/racing_game/vcpkg/packages/fmt_x64-linux/share/fmt/copyright
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/fmt_x64-linux/lib/pkgconfig/fmt.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/fmt_x64-linux/debug/lib/pkgconfig/fmt.pc
+-- Installing: /home/masha/code_projects/racing_game/vcpkg/packages/fmt_x64-linux/share/fmt/usage
+-- Performing post-build validation
+Stored binary cache: "/home/masha/.cache/vcpkg/archives/78/78b368a4be1889eeaec9158ae6fb99962cad1064bbe7bff8ff726d6a8e40efad.zip"
+Elapsed time to handle fmt:x64-linux: 9.9 s
+Installing 11/11 spdlog:x64-linux...
+Building spdlog[core]:x64-linux...
+-- Downloading https://github.com/gabime/spdlog/archive/v1.11.0.tar.gz -> gabime-spdlog-v1.11.0.tar.gz...
+-- Extracting source /home/masha/code_projects/racing_game/vcpkg/downloads/gabime-spdlog-v1.11.0.tar.gz
+-- Applying patch fmt-header.patch
+-- Using source at /home/masha/code_projects/racing_game/vcpkg/buildtrees/spdlog/src/v1.11.0-fec8df841b.clean
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/spdlog_x64-linux/lib/pkgconfig/spdlog.pc
+-- Fixing pkgconfig file: /home/masha/code_projects/racing_game/vcpkg/packages/spdlog_x64-linux/debug/lib/pkgconfig/spdlog.pc
+-- Installing: /home/masha/code_projects/racing_game/vcpkg/packages/spdlog_x64-linux/share/spdlog/copyright
+-- Performing post-build validation
+Stored binary cache: "/home/masha/.cache/vcpkg/archives/dc/dc2e774644d754cccc2222bba1d1be4b8be865683c2cebd1c5682d6b00d1abe6.zip"
+Elapsed time to handle spdlog:x64-linux: 25 s
+Total install time: 5.6 min
+abseil provides CMake targets:
+
+    # this is heuristically generated, and may not be correct
+    find_package(absl CONFIG REQUIRED)
+    # note: 170 additional targets are not displayed.
+    target_link_libraries(main PRIVATE absl::any absl::log absl::base absl::bits)
+
+The package opengl is compatible with built-in CMake targets via CMake v3.7 and prior syntax
+
+    find_package(OpenGL REQUIRED)
+    target_link_libraries(main PRIVATE ${OPENGL_LIBRARIES})
+    target_include_directories(main PRIVATE ${OPENGL_INCLUDE_DIR})
+
+and the CMake v3.8 and beyond imported target syntax
+
+    find_package(OpenGL REQUIRED)
+    target_link_libraries(main PRIVATE OpenGL::GL)
+
+introduction of various components
+
+    find_package(OpenGL REQUIRED COMPONENTS GL      # v3.8
+                                            GLU     # v3.8
+                                            GLX     # v3.10
+                                            EGL     # v3.10
+                                            OpenGL) # v3.10
+
+The OpenGL SDK is highly platform dependent and is usually an OS component. It's not realistic to build from source for every platform.
+
+    WINDOWS: is part of the Windows SDK which this package installs.
+    LINUX: the SDK may be installed from your distro's repo or from 3rd parties manually. There are too many to count.
+    APPLE: consult your distribution vendor on the state of OpenGL support: https://support.apple.com/en-us/HT202823
+
+The package glew is compatible with built-in CMake targets:
+
+    find_package(GLEW REQUIRED)
+    target_link_libraries(main PRIVATE GLEW::GLEW)
+
+glfw3 provides CMake targets:
+
+    # this is heuristically generated, and may not be correct
+    find_package(glfw3 CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE glfw)
+
+sdl2 provides CMake targets:
+
+    find_package(SDL2 CONFIG REQUIRED)
+    target_link_libraries(main
+        PRIVATE
+        $<TARGET_NAME_IF_EXISTS:SDL2::SDL2main>
+        $<IF:$<TARGET_EXISTS:SDL2::SDL2>,SDL2::SDL2,SDL2::SDL2-static>
+    )
+
+spdlog provides CMake targets:
+
+    # this is heuristically generated, and may not be correct
+    find_package(spdlog CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE spdlog::spdlog spdlog::spdlog_header_only)
+
