@@ -3,9 +3,7 @@
 
 #include <iostream>
 #include <SDL.h>
-// #include <SDL2.h>
-// #include <SDL2/SDL_image.h>
-
+//--------------------------------------------------------------------------
 class sdl
 {
  public:
@@ -14,11 +12,12 @@ class sdl
     sdl();
     ~sdl();
 };
-
+//--------------------------------------------------------------------------
 class window
 {
  public:
     window();
     void loop(SDL_Renderer *renderer);
 };
+
 #endif //WIND0W_H
