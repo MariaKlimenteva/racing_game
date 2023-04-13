@@ -12,7 +12,7 @@ class Game
     private:
     bool            Running;
     SDL_Surface*    Surf_Display;
-    SDL_Surface*    Surf_Test; // сщздали тестовую поверхность чтоб проверить, работает ли
+    SDL_Surface*    Surf_Test; // сoздали тестовую поверхность чтоб проверить, работает ли
 
     public:
     Game();

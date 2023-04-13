@@ -2,12 +2,12 @@
 #include "surface.h"
 
 #include <iostream>
-
+//--------------------------------------------------------------------------
 Map::Map()
 {
     Surf_Tileset = NULL;
 }
-
+//--------------------------------------------------------------------------
 bool Map::OnLoad(char* File)
 {
     TileList.clear(); //очищает вектор, чтоб можно было несколько раз загружать карту не думая о том что было до этого
@@ -32,7 +32,7 @@ bool Map::OnLoad(char* File)
     
     return true;
 }
-
+//--------------------------------------------------------------------------
 void Map::OnRender(SDL_Surface* Surf_Display, int MapX, int MapY)
 {
     if(Surf_Tileset == NULL) return;

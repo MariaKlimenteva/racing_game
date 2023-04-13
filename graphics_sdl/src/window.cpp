@@ -1,5 +1,5 @@
 #include "window.h"
-
+//--------------------------------------------------------------------------
 void window::loop(SDL_Renderer *renderer) 
 {
     while (true) 
@@ -11,7 +11,7 @@ void window::loop(SDL_Renderer *renderer)
         SDL_RenderPresent(renderer);
     }
 }
-
+//--------------------------------------------------------------------------
 // sdl::sdl()
 // {
 //     if(SDL_Init(SDL_INIT_VIDEO)) 
@@ -20,14 +20,14 @@ void window::loop(SDL_Renderer *renderer)
 //         exit(EXIT_FAILURE);
 //     }
 // }
-
+//--------------------------------------------------------------------------
 sdl::~sdl()
 {
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();
 }
-
+//--------------------------------------------------------------------------
 window::window()
 {
 

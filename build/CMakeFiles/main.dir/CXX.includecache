@@ -8,6 +8,14 @@
 
 ../graphics_sdl/include/define.h
 
+../graphics_sdl/include/game.h
+SDL.h
+-
+define.h
+../graphics_sdl/include/define.h
+surface.h
+../graphics_sdl/include/surface.h
+
 ../graphics_sdl/include/map.h
 SDL.h
 -
@@ -24,6 +32,26 @@ SDL.h
 
 ../graphics_sdl/include/tile.h
 
+../graphics_sdl/include/window.h
+iostream
+-
+SDL.h
+-
+
+/home/masha/code_projects/racing_game/graphics_sdl/src/game.cpp
+iostream
+-
+game.h
+/home/masha/code_projects/racing_game/graphics_sdl/src/game.h
+
+/home/masha/code_projects/racing_game/graphics_sdl/src/main.cpp
+iostream
+-
+window.h
+/home/masha/code_projects/racing_game/graphics_sdl/src/window.h
+game.h
+/home/masha/code_projects/racing_game/graphics_sdl/src/game.h
+
 /home/masha/code_projects/racing_game/graphics_sdl/src/map.cpp
 map.h
 /home/masha/code_projects/racing_game/graphics_sdl/src/map.h
@@ -31,6 +59,16 @@ surface.h
 /home/masha/code_projects/racing_game/graphics_sdl/src/surface.h
 iostream
 -
+
+/home/masha/code_projects/racing_game/graphics_sdl/src/surface.cpp
+surface.h
+/home/masha/code_projects/racing_game/graphics_sdl/src/surface.h
+game.h
+/home/masha/code_projects/racing_game/graphics_sdl/src/game.h
+
+/home/masha/code_projects/racing_game/graphics_sdl/src/window.cpp
+window.h
+/home/masha/code_projects/racing_game/graphics_sdl/src/window.h
 
 vcpkg_installed/x64-linux/include/SDL2/SDL.h
 SDL_main.h

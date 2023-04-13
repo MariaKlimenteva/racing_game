@@ -1,18 +1,8 @@
 {
-    "name": "vcpkgdemo",
+    "name": "races",
     "version-string": "0.1.0",
     "license": "MIT",
     "dependencies": [
-        "spdlog",
-        "opengl",
-        "glew",
-        "glfw3",
-        "sdl2",
-        {
-            "name": "abseil",
-            "features": [
-                "cxx17"
-            ]
-        }
+        "sdl2"
     ]
 }

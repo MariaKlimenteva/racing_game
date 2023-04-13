@@ -1,6 +1,0 @@
-Package: abseil
-Feature: cxx17
-Architecture: x64-linux
-Multi-Arch: same
-Description: Enable compiler C++17.
-Status: install ok installed
