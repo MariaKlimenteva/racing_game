@@ -91,10 +91,10 @@ bool Game::Init()
         return false;
     }
 
-    if((Surf_Test = Surface::OnLoad("roadmarkings-14.jpg", window)) == NULL) //тестовая загрузка поверхности
-    {
-        return false;
-    }
+    // if((Surf_Test = Surface::OnLoad("roadmarkings-14.jpg", window)) == NULL) //тестовая загрузка поверхности
+    // {
+    //     return false;
+    // }
     return true;
 }
 
