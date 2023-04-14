@@ -18,6 +18,7 @@ class window
  public:
     window();
     void loop(SDL_Renderer *renderer);
+    //DSLKFLSDF
 };
 
 #endif //WIND0W_H
