@@ -1,3 +1,0 @@
-/home/masha/code_projects/racing_game/build/CMakeFiles/rebuild_cache.dir
-/home/masha/code_projects/racing_game/build/CMakeFiles/edit_cache.dir
-/home/masha/code_projects/racing_game/build/CMakeFiles/main.dir
