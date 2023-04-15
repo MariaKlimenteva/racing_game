@@ -1,0 +1,9 @@
+Package: sdl2
+Version: 2.26.5
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-linux
+Multi-Arch: same
+Abi: da60b91c51c218b9b9d16c9b724fc0f75b36e804b05e3ebfc4b1745bf8a8fc1f
+Description: Simple DirectMedia Layer is a cross-platform development library designed to provide low level access to audio, keyboard, mouse, joystick, and graphics hardware via OpenGL and Direct3D.
+Default-Features: base
+Status: install ok installed

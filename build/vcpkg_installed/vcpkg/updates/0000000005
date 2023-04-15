@@ -1,0 +1,7 @@
+Package: sdl2
+Feature: base
+Depends: sdl2
+Architecture: x64-linux
+Multi-Arch: same
+Description: Base functionality for SDL
+Status: install ok half-installed
