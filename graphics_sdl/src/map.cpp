@@ -33,7 +33,7 @@ bool Map::OnLoad(char* File)
     return true;
 }
 //--------------------------------------------------------------------------
-void Map::OnRender(SDL_Surface* Surf_Display, int MapX, int MapY)
+void Map::OnRender(SDL_Surface* Surf_Display, int MapX, int MapY) 
 {
     if(Surf_Tileset == NULL) return;
  
@@ -42,9 +42,12 @@ void Map::OnRender(SDL_Surface* Surf_Display, int MapX, int MapY)
  
     int ID = 0;
  
-    for(int Y = 0;Y < MAP_HEIGHT;Y++) {
-        for(int X = 0;X < MAP_WIDTH;X++) {
-            if(TileList[ID].TileType == TILE_TYPE_NONE) {
+    for(int Y = 0; Y < MAP_HEIGHT; Y++) 
+    {
+        for(int X = 0; X < MAP_WIDTH; X++) 
+        {
+            if(TileList[ID].TileType == TILE_TYPE_NONE) //проверка, надо ли рисовать эту плитку
+            {
                 ID++;
                 continue;
             }
@@ -52,12 +55,17 @@ void Map::OnRender(SDL_Surface* Surf_Display, int MapX, int MapY)
             int tX = MapX + (X * TILE_SIZE);
             int tY = MapY + (Y * TILE_SIZE);
  
-            int TilesetX = (TileList[ID].TileID % TilesetWidth) * TILE_SIZE;
+            int TilesetX = (TileList[ID].TileID % TilesetWidth) * TILE_SIZE; // идентификатор плитки преобразуем в ее координату
             int TilesetY = (TileList[ID].TileID / TilesetWidth) * TILE_SIZE;
  
-            // Surface::Draw(Surf_Display, Surf_Tileset, tX, tY, TilesetX, TilesetY, TILE_SIZE, TILE_SIZE);
+            // Surface::Draw(Surf_Display, Surf_Tileset, tX, tY, TilesetX, TilesetY, TILE_SIZE, TILE_SIZE); // что то для отображения
  
             ID++;
         }
     }
+}
+//--------------------------------------------------------------------------
+std::tuple<int,int> Map::GetTile()
+{
+    
 }

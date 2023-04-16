@@ -4,7 +4,9 @@
 #include <SDL.h>
 
 #include "surface.h"
-
+#include "define.h"
+#include "area.h"
+#include "camera.h"
 //--------------------------------------------------------------------------
 class Game
 {
@@ -18,10 +20,11 @@ class Game
 
     int  Execute(); //выполняет основной цикл игры 
     bool Init();    //Инициализация игры и в том числе используемой библиотеки
-    void OnEvent(SDL_Event* Event);
+    void OnEvent(SDL_Event* Event); //обработка событий (любое нажатие клавиш, мышки и тп)
     void Loop();
     void Render();
     void Cleanup();
+    void OnKeyDown(SDL_KeyCode sym, Uint16 unicode); //для перемещения камеры
 };
 //--------------------------------------------------------------------------
 #endif
