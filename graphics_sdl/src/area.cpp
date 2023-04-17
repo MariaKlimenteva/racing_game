@@ -22,12 +22,12 @@ bool Area::OnLoad(char* File)
     char TilesetFile[255];
     fscanf(FileHandle, "%s\n", TilesetFile);
  
-    if((Surf_Tileset = Surface::OnLoad(TilesetFile)) == false) 
-    {
-        fclose(FileHandle);
+    // if((Surf_Tileset = Surface::OnLoad(TilesetFile)) == false) //??????????
+    // {
+    //     fclose(FileHandle);
  
-        return false;
-    }
+    //     return false;
+    // }
  
     fscanf(FileHandle, "%d\n", &AreaSize);
  
