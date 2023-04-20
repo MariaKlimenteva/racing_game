@@ -3,9 +3,10 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake CACHE STRING "Vcpkg toolchain file")
 project("Races")
 
-file(GLOB GRAPHICS_SDL_SRC "graphics_sdl/src/*")
-add_executable(main ${GRAPHICS_SDL_SRC})
-target_include_directories(main PRIVATE "graphics_sdl/include")
+file(GLOB SRC "src/*")
+add_executable(main ${SRC})
+# add_executable(main graphics_sdl/src/main.cpp graphics_sdl/src/map.cpp)
+target_include_directories(main PRIVATE "include")
 
 find_package(SDL2 CONFIG REQUIRED)
 target_link_libraries(main
@@ -14,5 +15,5 @@ target_link_libraries(main
     $<IF:$<TARGET_EXISTS:SDL2::SDL2>,SDL2::SDL2,SDL2::SDL2-static>
 )
 
-#find_package(spdlog CONFIG REQUIRED)
-#target_link_libraries(main PRIVATE spdlog::spdlog spdlog::spdlog_header_only)
+find_package(spdlog CONFIG REQUIRED)
+target_link_libraries(main PRIVATE spdlog::spdlog spdlog::spdlog_header_only)

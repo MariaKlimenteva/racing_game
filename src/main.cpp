@@ -1,6 +1,25 @@
-#include <stdlib.h>
+#include <iostream>
 
-int main() {
+#include "game.h"
+//--------------------------------------------------------------------------
+int main() 
+{
+    Game Races;
+    
+    SDL_SetMainReady();
+    // sdl sdl;
+    // window window;
+    // SDL_Renderer *renderer = nullptr;
+    // window.loop(renderer);
 
-    return 0;
+                // Initialize();
+            
+                // while(true) {
+                //     Events();
+                //     Loop();
+                //     Render();
+                // }
+                // Cleanup();
+
+    return Races.Execute();
 }
