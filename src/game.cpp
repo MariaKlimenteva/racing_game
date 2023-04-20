@@ -22,18 +22,18 @@ void Game::OnEvent(SDL_Event* Event)
     }
 }
 //--------------------------------------------------------------------------
-void Game::OnKeyDown(SDL_KeyCode sym, Uint16 unicode) 
-{
-    switch(sym) 
-    {
-        case SDLK_UP:    Camera::CameraControl.Move( 0,  5); break;
-        case SDLK_DOWN:  Camera::CameraControl.Move( 0, -5); break;
-        case SDLK_LEFT:  Camera::CameraControl.Move( 5,  0); break;
-        case SDLK_RIGHT: Camera::CameraControl.Move(-5,  0); break;
+// void Game::OnKeyDown(SDL_KeyCode sym, Uint16 unicode) 
+// {
+//     switch(sym) 
+//     {
+//         case SDLK_UP:    Camera::CameraControl.Move( 0,  5); break;
+//         case SDLK_DOWN:  Camera::CameraControl.Move( 0, -5); break;
+//         case SDLK_LEFT:  Camera::CameraControl.Move( 5,  0); break;
+//         case SDLK_RIGHT: Camera::CameraControl.Move(-5,  0); break;
  
-        default: {}
-    }
-}
+//         default: {}
+//     }
+// }
 //--------------------------------------------------------------------------
 void Game::Loop()
 {
@@ -44,7 +44,7 @@ void Game::Render()
 {
     Surface::Draw(Surf_Display, Surf_Test, 0, 0);
     // Surface::Draw(Surf_Display, Surf_Test, 100, 100, 0, 0, 50, 50); Шаблонная функция (2)
-    Area::AreaControl.OnRender(Surf_Display, Camera::CameraControl.GetX(), Camera::CameraControl.GetY());
+    // Area::AreaControl.OnRender(Surf_Display, Camera::CameraControl.GetX(), Camera::CameraControl.GetY());
 
 
     // SDL_RendererFlip(Surf_Display); // ??????? мб не верно сделала, т к изменился стандарт библиотеки
@@ -52,7 +52,7 @@ void Game::Render()
 //--------------------------------------------------------------------------
 void Game::Cleanup()
 {
-    Area::AreaControl.OnCleanup();
+    // Area::AreaControl.OnCleanup();
     SDL_FreeSurface(Surf_Test);
     SDL_FreeSurface(Surf_Display);
 
@@ -119,10 +119,10 @@ bool Game::Init()
     //     return false;
     // }
 
-    if(!(Area::AreaControl.OnLoad("./maps/1.area"))) 
+    /*if(!(Area::AreaControl.OnLoad("./maps/1.area"))) 
     {
         return false;
-    }
+    }*/
  
     // SDL_EnableKeyRepeat(1, SDL_DEFAULT_REPEAT_INTERVAL / 3); 
     // ----------Дописать обработку клавиш с клавиатуры---------------

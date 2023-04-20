@@ -1,5 +1,5 @@
 #include "map.h"
-#include "surface.h"
+// #include "surface.h"
 
 #include <iostream>
 //--------------------------------------------------------------------------
@@ -65,7 +65,7 @@ void Map::OnRender(SDL_Surface* Surf_Display, int MapX, int MapY)
     }
 }
 //--------------------------------------------------------------------------
-std::tuple<int,int> Map::GetTile()
+/*std::tuple<int,int> Map::GetTile()
 {
     
-}
+}*/

@@ -5,8 +5,8 @@
 
 #include "surface.h"
 #include "define.h"
-#include "area.h"
-#include "camera.h"
+// #include "area.h"
+// #include "camera.h"
 //--------------------------------------------------------------------------
 class Game
 {

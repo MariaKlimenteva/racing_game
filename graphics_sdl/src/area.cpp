@@ -32,13 +32,15 @@ bool Area::OnLoad(char* File)
     fscanf(FileHandle, "%d\n", &AreaSize);
  
     for(int X = 0;X < AreaSize;X++) {
-        for(int Y = 0;Y < AreaSize;Y++) {
+        for(int Y = 0;Y < AreaSize;Y++) 
+        {
             char MapFile[255];
  
             fscanf(FileHandle, "%s ", MapFile);
  
             Map tempMap;
-            if(tempMap.OnLoad(MapFile) == false) {
+            if(tempMap.OnLoad(MapFile) == false) 
+            {
                 fclose(FileHandle);
  
                 return false;
