@@ -7,19 +7,17 @@ int main()
     Game Races;
     
     SDL_SetMainReady();
-    // sdl sdl;
-    // window window;
-    // SDL_Renderer *renderer = nullptr;
-    // window.loop(renderer);
 
-                // Initialize();
-            
-                // while(true) {
-                //     Events();
-                //     Loop();
-                //     Render();
-                // }
-                // Cleanup();
+    Races.Init();
+    while(true) 
+    {
+        SDL_Event* Event;
+        Races.OnEvent(Event);
+        Races.Loop();
+        Races.Render();
+    }
+    Races.Cleanup();
 
     return Races.Execute();
 }
+//--------------------------------------------------------------------------

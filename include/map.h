@@ -3,7 +3,7 @@
 
 #include <SDL.h>
 #include <vector>
-#include <tuple>
+#include <spdlog/spdlog.h>
 
 #include "tile.h"
 #include "define.h"
@@ -18,8 +18,7 @@ class Map
     SDL_Surface* Surf_Tileset;
     bool OnLoad(char* File);                                            //загружает карту из файла и заполняет список плиток
     void OnRender(SDL_Surface* Surf_Display, int MapX, int MapY);       //рисует карту на экран и размещает все плитки на их места
-                                                                        //MapX, MapY указывают, где отображать карту на экране
-    std::tuple<int,int> GetTile();                                      //Возвращает кортеж из координат плитки 
+                                                                        //MapX, MapY указывают, где отображать карту на экране 
 };
 //--------------------------------------------------------------------------
 #endif // MAP_H

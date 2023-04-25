@@ -2,6 +2,7 @@
 #define GAME_H
 
 #include <SDL.h>
+#include <spdlog/spdlog.h>
 
 #include "surface.h"
 #include "define.h"

@@ -19,6 +19,7 @@ void Game::OnEvent(SDL_Event* Event)
     if(Event->type == SDL_QUIT) 
     {
         Running = false;
+        SDL_Quit();
     }
 }
 //--------------------------------------------------------------------------
@@ -37,7 +38,7 @@ void Game::OnEvent(SDL_Event* Event)
 //--------------------------------------------------------------------------
 void Game::Loop()
 {
-
+    spdlog::info("The main game loop was started\n");
 }
 //--------------------------------------------------------------------------
 void Game::Render()
@@ -74,7 +75,7 @@ int Game::Execute()
         {
             OnEvent(&Event);
         }
- 
+
         Loop();
         Render();
     }

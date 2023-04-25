@@ -15,6 +15,7 @@ bool Map::OnLoad(char* File)
     FILE* FileHandle = fopen(File, "r");
     if (FileHandle == NULL)
     {
+        spdlog::error("Problems with opening a file\n");
         return false;
     }
 
@@ -23,13 +24,13 @@ bool Map::OnLoad(char* File)
         for(int x = 0; x < MAP_WIDTH; x++)
         {
             Tile TempTile;
-            fscanf(FileHandle, "%d:%d", &TempTile.TileID, &TempTile.TileType);
+            fscanf(FileHandle, "%d:%d", &TempTile.TileID, &TempTile.TileType); //заполняем TileID, TileType
             TileList.push_back(TempTile);
         }
         fscanf(FileHandle, "\n");
     }
     fclose(FileHandle);
-    
+    spdlog::info("The game map file has been read\n");
     return true;
 }
 //--------------------------------------------------------------------------
@@ -58,14 +59,11 @@ void Map::OnRender(SDL_Surface* Surf_Display, int MapX, int MapY)
             int TilesetX = (TileList[ID].TileID % TilesetWidth) * TILE_SIZE; // идентификатор плитки преобразуем в ее координату
             int TilesetY = (TileList[ID].TileID / TilesetWidth) * TILE_SIZE;
  
-            // Surface::Draw(Surf_Display, Surf_Tileset, tX, tY, TilesetX, TilesetY, TILE_SIZE, TILE_SIZE); // что то для отображения
+            // Surface::Draw(Surf_Display, Surf_Tileset, tX, tY, TilesetX, TilesetY, TILE_SIZE, TILE_SIZE);
+            // что то для отображения
  
             ID++;
         }
     }
 }
 //--------------------------------------------------------------------------
-/*std::tuple<int,int> Map::GetTile()
-{
-    
-}*/
