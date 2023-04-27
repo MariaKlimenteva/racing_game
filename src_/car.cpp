@@ -55,6 +55,12 @@ void coordinates_t::print()
     std::cout << "Direction = " << direction_ << std::endl;
 }
 
+void coordinates_t::qprint()
+{
+    std::cout << "( " << x_ << " , " << y_ << " ) " << direction_ << std::endl;
+
+}
+
 double coordinates_t::get_x()
 {
     return x_;
@@ -215,14 +221,18 @@ void car_t::move()
         double dir = coordinates_.get_direction();
         int prtime = timer_;
         timer_ = clock();
-        double dt = (timer_ - prtime) / CLOCKS_PER_SEC;
+        double dt = ((double)timer_ - (double)prtime) / CLOCKS_PER_SEC;
 
         const Uint8 * keystate = SDL_GetKeyboardState(NULL);
         for (int i = 0; i < 5; i++) {
            flags[i] = keystate[buttons[i]];
         }
+        //flags[1] = 1;
+        //flags[3] = 1;
+
 
         if (flags[4] && !(is_zero(speed_))) {
+
             if (speed_ > 0 ) {
                 speed_ -= acceleration_ * dt;
                 if(speed_ < 0)
@@ -250,6 +260,7 @@ void car_t::move()
         }
 
         if((flags[2] || flags[3]) && !(flags[2] && flags[3])) {
+
             int turning_flag;
             double radius = sp * sp / acceleration_;
             if(radius < turning_radius_)
@@ -262,7 +273,7 @@ void car_t::move()
             coordinates_.change_direction((turning_flag * (sp + speed_) / 2) / radius * dt);
         
         }
-        
+
         sp = (sp + speed_) / 2;
         dir = (dir + coordinates_.get_direction()) / 2;
 

@@ -21,6 +21,7 @@ class coordinates_t {
         coordinates_t(double x, double y, double direction);
         bool is_valid();
         void print();
+        void qprint();
         double get_x();
         double get_y();
         double get_direction();
