@@ -2,7 +2,8 @@
 #define _CSURFACE_H_
  
 #include <SDL.h>
- 
+#include <SDL2/SDL.h>
+
 class Surface 
 {
     public:

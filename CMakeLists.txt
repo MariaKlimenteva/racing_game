@@ -5,7 +5,6 @@ project("Races")
 
 file(GLOB SRC "src/*")
 add_executable(main ${SRC})
-# add_executable(main graphics_sdl/src/main.cpp graphics_sdl/src/map.cpp)
 target_include_directories(main PRIVATE "include")
 
 find_package(SDL2 CONFIG REQUIRED)
