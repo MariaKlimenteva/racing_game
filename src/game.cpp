@@ -1,5 +1,4 @@
 #include <iostream>
-// #include <SDL2/SDL_image.h>
 
 #include "game.h"
 #include "map.h"
@@ -9,7 +8,7 @@
 //--------------------------------------------------------------------------
 Game::Game()
 {
-    Surf_Test = NULL; //тестовая поверхность
+    // Surf_Test = NULL; //тестовая поверхность
     Surf_Display = NULL;
     Running = true;
 }
@@ -18,8 +17,9 @@ Game::Game()
 //--------------------------------------------------------------------------
 void Game::OnEvent(SDL_Event* Event) 
 {
-    spdlog::info("OnEvent::{} {}", Event->type, SDL_QUIT);
-    if(Event->type == SDL_QUIT) //4196274163 256
+    spdlog::info("OnEvent::{} {}", static_cast<Uint8>(Event->type), SDL_QUIT);
+
+    if(static_cast<Uint8>(Event->type) == SDL_QUIT) //4196274163 243 256
     {
         Running = false;
         spdlog::info("!!! \n");
@@ -27,18 +27,6 @@ void Game::OnEvent(SDL_Event* Event)
     }
 }
 //--------------------------------------------------------------------------
-// void Game::OnKeyDown(SDL_KeyCode sym, Uint16 unicode) 
-// {
-//     switch(sym) 
-//     {
-//         case SDLK_UP:    Camera::CameraControl.Move( 0,  5); break;
-//         case SDLK_DOWN:  Camera::CameraControl.Move( 0, -5); break;
-//         case SDLK_LEFT:  Camera::CameraControl.Move( 5,  0); break;
-//         case SDLK_RIGHT: Camera::CameraControl.Move(-5,  0); break;
- 
-//         default: {}
-//     }
-// }
 //--------------------------------------------------------------------------
 void Game::Loop()
 {
