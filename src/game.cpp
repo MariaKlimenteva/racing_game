@@ -1,13 +1,14 @@
 #include <iostream>
 
 #include "game.h"
+#include "map.h"
 #include "define.h"
 //--------------------------------------------------------------------------
 // Constructor
 //--------------------------------------------------------------------------
 Game::Game()
 {
-    Surf_Test = NULL; //тестовая поверхность
+    // Surf_Test = NULL; //тестовая поверхность
     Surf_Display = NULL;
     Running = true;
 }
@@ -16,44 +17,29 @@ Game::Game()
 //--------------------------------------------------------------------------
 void Game::OnEvent(SDL_Event* Event) 
 {
-    if(Event->type == SDL_QUIT) 
+    spdlog::info("OnEvent::{} {}", static_cast<Uint8>(Event->type), SDL_QUIT);
+
+    if(static_cast<Uint8>(Event->type) == SDL_QUIT) //4196274163 243 256
     {
         Running = false;
+        spdlog::info("!!! \n");
         SDL_Quit();
     }
 }
 //--------------------------------------------------------------------------
-// void Game::OnKeyDown(SDL_KeyCode sym, Uint16 unicode) 
-// {
-//     switch(sym) 
-//     {
-//         case SDLK_UP:    Camera::CameraControl.Move( 0,  5); break;
-//         case SDLK_DOWN:  Camera::CameraControl.Move( 0, -5); break;
-//         case SDLK_LEFT:  Camera::CameraControl.Move( 5,  0); break;
-//         case SDLK_RIGHT: Camera::CameraControl.Move(-5,  0); break;
- 
-//         default: {}
-//     }
-// }
 //--------------------------------------------------------------------------
 void Game::Loop()
 {
-    spdlog::info("The main game loop was started\n");
+
 }
 //--------------------------------------------------------------------------
 void Game::Render()
 {
     Surface::Draw(Surf_Display, Surf_Test, 0, 0);
-    // Surface::Draw(Surf_Display, Surf_Test, 100, 100, 0, 0, 50, 50); Шаблонная функция (2)
-    // Area::AreaControl.OnRender(Surf_Display, Camera::CameraControl.GetX(), Camera::CameraControl.GetY());
-
-
-    // SDL_RendererFlip(Surf_Display); // ??????? мб не верно сделала, т к изменился стандарт библиотеки
 }
 //--------------------------------------------------------------------------
 void Game::Cleanup()
 {
-    // Area::AreaControl.OnCleanup();
     SDL_FreeSurface(Surf_Test);
     SDL_FreeSurface(Surf_Display);
 
@@ -104,8 +90,7 @@ bool Game::Init()
     }
 
     SDL_SetWindowTitle(window, "Races");
-    SDL_SetRenderDrawColor(renderer, 210, 255, 179, 255);
-    //------------Создание поверхности, связанной с окном---------------------
+    //------------Создание поверхности, связанной с окном и раскрашивание окна---------------------
     screen_surface = SDL_GetWindowSurface(window);
 
     if (!screen_surface) 
@@ -114,20 +99,16 @@ bool Game::Init()
         SDL_Quit();
         return false;
     }
-    //------------Тестовая загрузка поверхности---------------------
-    // if((Surf_Test = Surface::OnLoad("roadmarkings-14.jpg", window)) == NULL) //тестовая загрузка поверхности
-    // {
-    //     return false;
-    // }
+    SDL_FillRect(screen_surface, NULL, SDL_MapRGB(screen_surface->format, 255, 255, 255));
+    SDL_UpdateWindowSurface(window);
+    // ------------Карта-------------------------------------------------------
 
-    /*if(!(Area::AreaControl.OnLoad("./maps/1.area"))) 
-    {
-        return false;
-    }*/
- 
-    // SDL_EnableKeyRepeat(1, SDL_DEFAULT_REPEAT_INTERVAL / 3); 
-    // ----------Дописать обработку клавиш с клавиатуры---------------
-
+    // ------------Картинка машинки-------------------------------------------------------
+    SDL_SetRenderDrawColor(renderer, 0, 0, 255, 0);
+    SDL_Rect car = {50, 50, 50, 50};
+    SDL_RenderFillRect(renderer, &car);
+    SDL_RenderPresent(renderer);
+    
     return true;
 }
 

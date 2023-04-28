@@ -9,9 +9,9 @@ int main()
     SDL_SetMainReady();
 
     Races.Init();
+    SDL_Event* Event;
     while(true) 
     {
-        SDL_Event* Event;
         Races.OnEvent(Event);
         Races.Loop();
         Races.Render();
