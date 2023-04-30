@@ -35,24 +35,23 @@ void Game::OnEvent(SDL_Event* Event)
 //--------------------------------------------------------------------------
 void Game::Render()
 {
-    // Surface::Draw(Surf_Display, Surf_Test, 0, 0);
-
     // ------------Картинка машинки-------------------------------------------------------
-    // SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-    // car_t car_;
-    // coordinates_t car_coordinates = car_.get_coordinates();
-    // SDL_Rect car;
-    // // car.x = car_coordinates.get_x();
-    // // car.y = car_coordinates.get_y();
-    // car.x = 150; //test "car"
-    // car.y = 50;
-    // car.w = 70;
-    // car.h = 40;
+//     int prtime1 = 0, prtime2 = 0, timer = 0;
+//     car_t car_;
+//     car_.init(0, 0, 0, 0, 4, 4, 1);
+//     car_.set_butons(SDLK_w, SDLK_s, SDLK_a, SDLK_d, SDLK_SPACE); 
+// // написать обработку клавиш из main
+//     coordinates_t car_coordinates = car_.get_coordinates();
+//     SDL_Rect car;
+    
+//     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+//     car.x = car_coordinates.get_x();
+//     car.y = car_coordinates.get_y();
+//     car.w = 70;
+//     car.h = 40;
 
-    // spdlog::info("{}{}", car.x, car.y);
-
-    // SDL_RenderFillRect(renderer, &car);
-    // SDL_RenderPresent(renderer);
+//     SDL_RenderFillRect(renderer, &car);
+//     SDL_RenderPresent(renderer);
 }
 //--------------------------------------------------------------------------
 void Game::Cleanup()
@@ -118,9 +117,12 @@ bool Game::Init()
     }
     SDL_FillRect(screen_surface, NULL, SDL_MapRGB(screen_surface->format, 0, 0, 0)); // отвечает за цвет окна
     SDL_UpdateWindowSurface(window);
-    //-------------------------------------------------------------------------
+    //-----------------------------------------------------------------------
+    int prtime1 = 0, prtime2 = 0, timer = 0;
     car_t car_;
-    car_.init(0, 0, 0, 0, 10, 10, 20);
+    car_.init(0, 0, 0, 0, 4, 4, 1);
+    car_.set_butons(SDLK_w, SDLK_s, SDLK_a, SDLK_d, SDLK_SPACE); 
+    // написать обработку клавиш из main
     coordinates_t car_coordinates = car_.get_coordinates();
     SDL_Rect car;
     
