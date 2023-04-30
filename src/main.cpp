@@ -7,7 +7,7 @@ int main()
     Game Races;
     
     SDL_SetMainReady();
-
+    
     Races.Init();
     SDL_Event* Event;
     while(true) 

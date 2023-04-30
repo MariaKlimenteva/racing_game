@@ -15,6 +15,9 @@ class Game
     bool            Running;
     SDL_Surface*    Surf_Display;
     SDL_Surface*    Surf_Test; // сoздали тестовую поверхность чтоб проверить, работает ли
+    SDL_Window*     window;
+    SDL_Renderer*   renderer;
+    SDL_Surface*    screen_surface;
 
     public:
     Game();
