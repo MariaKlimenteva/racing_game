@@ -123,6 +123,18 @@ bool Game::Init()
     car_.init(0, 0, 0, 0, 4, 4, 1);
     car_.set_butons(SDLK_w, SDLK_s, SDLK_a, SDLK_d, SDLK_SPACE); 
     // написать обработку клавиш из main
+    //     for(timer = clock(); 1; timer = clock()){
+
+
+    //     if((timer - prtime2) > CLOCKS_PER_SEC / 2) {
+    //         car_.get_coordinates().qprint();
+    //         prtime2 = timer;
+    //     }
+    //     if((timer - prtime1) > CLOCKS_PER_SEC/100) {
+    //         car_.move();
+    //         prtime1 = timer;
+    //     }
+    // }
     coordinates_t car_coordinates = car_.get_coordinates();
     SDL_Rect car;
     
