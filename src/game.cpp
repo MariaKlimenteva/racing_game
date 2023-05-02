@@ -3,46 +3,39 @@
 #include "game.h"
 #include "map.h"
 #include "define.h"
+#include "car.h"
+
 //--------------------------------------------------------------------------
 // Constructor
 //--------------------------------------------------------------------------
 Game::Game()
 {
     // Surf_Test = NULL; //тестовая поверхность
-    Surf_Display = NULL;
-    Running = true;
+    Surf_Display                = NULL;
+    Running                     = true;
+    SDL_Window *window          = nullptr;
+    SDL_Renderer *renderer      = nullptr;
+    SDL_Surface *screen_surface = nullptr;
 }
 //--------------------------------------------------------------------------
 // Обработка событий, происходящих во время игры (Нажатие кнопки выход из игры, ...)
 //--------------------------------------------------------------------------
 void Game::OnEvent(SDL_Event* Event) 
 {
-    spdlog::info("OnEvent::{} {}", static_cast<Uint8>(Event->type), SDL_QUIT);
-
-    if(static_cast<Uint8>(Event->type) == SDL_QUIT) //4196274163 243 256
+    if((Event->type) == SDL_QUIT)
     {
         Running = false;
-        spdlog::info("!!! \n");
         SDL_Quit();
     }
 }
 //--------------------------------------------------------------------------
-//--------------------------------------------------------------------------
-void Game::Loop()
-{
-
-}
-//--------------------------------------------------------------------------
 void Game::Render()
 {
-    Surface::Draw(Surf_Display, Surf_Test, 0, 0);
+    // ------------Картинка машинки-------------------------------------------------------
 }
 //--------------------------------------------------------------------------
 void Game::Cleanup()
 {
-    SDL_FreeSurface(Surf_Test);
-    SDL_FreeSurface(Surf_Display);
-
     SDL_Quit();
 }
 //--------------------------------------------------------------------------
@@ -54,7 +47,7 @@ int Game::Execute()
     }
  
     SDL_Event Event;
- 
+
     while(Running) 
     {
         while(SDL_PollEvent(&Event)) //проверяем события и передаем их по одному в OnEvent
@@ -65,9 +58,8 @@ int Game::Execute()
         Loop();
         Render();
     }
- 
+
     Cleanup();
- 
     exit(EXIT_SUCCESS);
 }
 //--------------------------------------------------------------------------
@@ -90,7 +82,7 @@ bool Game::Init()
     }
 
     SDL_SetWindowTitle(window, "Races");
-    //------------Создание поверхности, связанной с окном и раскрашивание окна---------------------
+    //---------Создание поверхности, связанной с окном и раскрашивание окна--
     screen_surface = SDL_GetWindowSurface(window);
 
     if (!screen_surface) 
@@ -99,16 +91,46 @@ bool Game::Init()
         SDL_Quit();
         return false;
     }
-    SDL_FillRect(screen_surface, NULL, SDL_MapRGB(screen_surface->format, 255, 255, 255));
+    SDL_FillRect(screen_surface, NULL, SDL_MapRGB(screen_surface->format, 0, 0, 0)); // отвечает за цвет окна
     SDL_UpdateWindowSurface(window);
-    // ------------Карта-------------------------------------------------------
+    //---------Car initialisation--------------------------------------------
+    car_t car_;
+    car_.init(0, 0, 0, 0, 4, 4, 1);
+    car_.set_butons(SDLK_w, SDLK_s, SDLK_a, SDLK_d, SDLK_SPACE);
 
-    // ------------Картинка машинки-------------------------------------------------------
-    SDL_SetRenderDrawColor(renderer, 0, 0, 255, 0);
-    SDL_Rect car = {50, 50, 50, 50};
+    coordinates_t car_coordinates = car_.get_coordinates();
+    spdlog::info("successful initialization\n");
+    SDL_Rect car;
+
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+    car.w = 70;
+    car.h = 40;
+    car.x = car_coordinates.get_x();
+    car.y = car_coordinates.get_y();
     SDL_RenderFillRect(renderer, &car);
     SDL_RenderPresent(renderer);
-    
+
+    int prtime1 = 0, prtime2 = 0, timer = 0;
+    // for(timer = clock(); 1; timer = clock())
+    // {
+    //     if((timer - prtime2) > CLOCKS_PER_SEC / 2) 
+    //     {
+    //         car_.get_coordinates().qprint();
+    //         prtime2 = timer;
+    //     }
+    //     if((timer - prtime1) > CLOCKS_PER_SEC/100) 
+    //     {
+    //         car_.move();
+    //         prtime1 = timer;
+    //     }
+    // }
+
+    //------------------------------------------------------------------------
     return true;
+}
+//--------------------------------------------------------------------------
+void Game::Loop()
+{
+    // ------------Карта-------------------------------------------------------
 }
 

@@ -24,7 +24,6 @@ int main() {
             car.move();
             prtime1 = timer;
         }
-
     }
 
     return 0;

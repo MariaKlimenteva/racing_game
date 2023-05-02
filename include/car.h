@@ -1,5 +1,4 @@
-#include <SDL2/SDL.h>
-
+#include <SDL.h>
 
 #define ACCURACY 0.00001
 
