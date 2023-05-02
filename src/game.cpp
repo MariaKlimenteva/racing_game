@@ -58,9 +58,8 @@ int Game::Execute()
         Loop();
         Render();
     }
-    // spdlog::info ("before cleanup\n");
+
     Cleanup();
-    // spdlog::info("after cleanup\n");
     exit(EXIT_SUCCESS);
 }
 //--------------------------------------------------------------------------
@@ -95,7 +94,6 @@ bool Game::Init()
     SDL_FillRect(screen_surface, NULL, SDL_MapRGB(screen_surface->format, 0, 0, 0)); // отвечает за цвет окна
     SDL_UpdateWindowSurface(window);
     //---------Car initialisation--------------------------------------------
-    int prtime1 = 0, prtime2 = 0, timer = 0;
     car_t car_;
     car_.init(0, 0, 0, 0, 4, 4, 1);
     car_.set_butons(SDLK_w, SDLK_s, SDLK_a, SDLK_d, SDLK_SPACE);
@@ -105,20 +103,14 @@ bool Game::Init()
     SDL_Rect car;
 
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-    car.x = car_coordinates.get_x();
-    car.y = car_coordinates.get_y();
     car.w = 70;
     car.h = 40;
-
+    car.x = car_coordinates.get_x();
+    car.y = car_coordinates.get_y();
     SDL_RenderFillRect(renderer, &car);
     SDL_RenderPresent(renderer);
 
-    return true;
-}
-//--------------------------------------------------------------------------
-void Game::Loop()
-{
-    // ------------Карта-------------------------------------------------------
+    int prtime1 = 0, prtime2 = 0, timer = 0;
     // for(timer = clock(); 1; timer = clock())
     // {
     //     if((timer - prtime2) > CLOCKS_PER_SEC / 2) 
@@ -132,7 +124,13 @@ void Game::Loop()
     //         prtime1 = timer;
     //     }
     // }
-    
 
+    //------------------------------------------------------------------------
+    return true;
+}
+//--------------------------------------------------------------------------
+void Game::Loop()
+{
+    // ------------Карта-------------------------------------------------------
 }
 
