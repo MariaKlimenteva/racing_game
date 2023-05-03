@@ -45,20 +45,27 @@ int Game::Execute()
     {
         return INIT_ERROR;
     }
- 
+    
     SDL_Event Event;
+//---------------------------------------------
 
+//----------------------------------------------
     while(Running) 
     {
         while(SDL_PollEvent(&Event)) //проверяем события и передаем их по одному в OnEvent
         {
             OnEvent(&Event);
         }
+        // Loop();
+        //-----------------------
 
-        Loop();
-        Render();
+        // spdlog::info("jjkgnjk\n");
+        
+
+        //-----------------------
+        // Render();
     }
-
+    spdlog::info("rrrrrrrr\n");
     Cleanup();
     exit(EXIT_SUCCESS);
 }
@@ -96,35 +103,25 @@ bool Game::Init()
     //---------Car initialisation--------------------------------------------
     car_t car_;
     car_.init(0, 0, 0, 0, 4, 4, 1);
-    car_.set_butons(SDLK_w, SDLK_s, SDLK_a, SDLK_d, SDLK_SPACE);
+    car_.set_butons(SDL_SCANCODE_W, SDL_SCANCODE_S, SDL_SCANCODE_A, SDL_SCANCODE_D, SDL_SCANCODE_SPACE);
+
+    spdlog::info("successful initialization\n");
 
     coordinates_t car_coordinates = car_.get_coordinates();
-    spdlog::info("successful initialization\n");
-    SDL_Rect car;
-
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     car.w = 70;
     car.h = 40;
     car.x = car_coordinates.get_x();
     car.y = car_coordinates.get_y();
+    
     SDL_RenderFillRect(renderer, &car);
     SDL_RenderPresent(renderer);
 
-    int prtime1 = 0, prtime2 = 0, timer = 0;
-    // for(timer = clock(); 1; timer = clock())
+    // while(1)
     // {
-    //     if((timer - prtime2) > CLOCKS_PER_SEC / 2) 
-    //     {
-    //         car_.get_coordinates().qprint();
-    //         prtime2 = timer;
-    //     }
-    //     if((timer - prtime1) > CLOCKS_PER_SEC/100) 
-    //     {
-    //         car_.move();
-    //         prtime1 = timer;
-    //     }
+    //     car_.move();
+    //     spdlog::info("rrrrrr\n");
     // }
-
     //------------------------------------------------------------------------
     return true;
 }
@@ -132,5 +129,12 @@ bool Game::Init()
 void Game::Loop()
 {
     // ------------Карта-------------------------------------------------------
+
+    // car.x = car_coordinates.get_x();
+    // car.y = car_coordinates.get_y();
+    // SDL_RenderFillRect(renderer, &car);
+    // SDL_RenderPresent(renderer);
+
+    // car_.move();
 }
 
