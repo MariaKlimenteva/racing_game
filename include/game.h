@@ -6,8 +6,7 @@
 
 // #include "surface.h"
 #include "define.h"
-// #include "area.h"
-// #include "camera.h"
+
 //--------------------------------------------------------------------------
 class Game
 {
@@ -18,6 +17,7 @@ class Game
     SDL_Window*     window;
     SDL_Renderer*   renderer;
     SDL_Surface*    screen_surface;
+    SDL_Rect        car;
 
     public:
     Game();
