@@ -3,7 +3,7 @@
 #include <cmath>
 #include <ctime>
 
-
+#include <spdlog/spdlog.h>
 #include "car.h"
 
 bool is_zero(double var)
@@ -214,6 +214,8 @@ coordinates_t car_t::get_coordinates()
 
 void car_t::move()
 {
+    bool is_pressed = false;
+
     if (timer_ == 0)
         timer_ = clock();
     else {
@@ -223,9 +225,16 @@ void car_t::move()
         timer_ = clock();
         double dt = ((double)timer_ - (double)prtime) / CLOCKS_PER_SEC;
 
+        SDL_PumpEvents();
         const Uint8 * keystate = SDL_GetKeyboardState(NULL);
+
         for (int i = 0; i < 5; i++) {
            flags[i] = keystate[buttons[i]];
+           if(flags[i])
+           {
+                // spdlog::info("keyboard pressed {}\n", i);
+                is_pressed = true;
+           }
         }
         //flags[1] = 1;
         //flags[3] = 1;
@@ -244,14 +253,14 @@ void car_t::move()
                     speed_ = 0;
             }
         } 
-        else if(flags[0] && !(is_equal(speed_, max_speed_))) {
+        else if(flags[0] && !(is_equal(speed_, max_speed_))) { //forward
             speed_ += acceleration_ * dt;
             if(sp < 0 && speed_ > 0)
                 speed_ = 0;
             else if(speed_ > max_speed_)
                 speed_ = max_speed_;
         }
-        else if(flags[1] && !(is_equal(speed_, -max_speed_))) {
+        else if(flags[1] && !(is_equal(speed_, -max_speed_))) { // backward
             speed_ -= acceleration_ * dt;
             if(sp > 0 && speed_ < 0)
                 speed_ = 0;
@@ -259,7 +268,7 @@ void car_t::move()
                 speed_ = -max_speed_;
         }
 
-        if((flags[2] || flags[3]) && !(flags[2] && flags[3])) {
+        if((flags[2] || flags[3]) && !(flags[2] && flags[3])) { //left right
 
             int turning_flag;
             double radius = sp * sp / acceleration_;
@@ -284,6 +293,10 @@ void car_t::move()
         coordinates_.change_x(std::sin(dir) * sp * dt);
         coordinates_.change_y( -(std::cos(dir) * sp * dt));
     }
-
+    if(is_pressed)
+    {
+        spdlog::info("coordinates: {} {} {}\n, speed_: {}\n, acceleration_: {}\n, timer_: {}\n", coordinates_.get_x(), coordinates_.get_y(), coordinates_.get_direction(), speed_, acceleration_, timer_);
+    }
+   
 }
 
