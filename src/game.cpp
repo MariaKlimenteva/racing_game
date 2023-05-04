@@ -11,7 +11,7 @@
 Game::Game()
 {
     // Surf_Test = NULL; //тестовая поверхность
-    Surf_Display                = NULL;
+    // Surf_Display                = NULL;
     Running                     = true;
     SDL_Window *window          = nullptr;
     SDL_Renderer *renderer      = nullptr;
@@ -47,9 +47,7 @@ int Game::Execute()
     }
     
     SDL_Event Event;
-//---------------------------------------------
 
-//----------------------------------------------
     while(Running) 
     {
         while(SDL_PollEvent(&Event)) //проверяем события и передаем их по одному в OnEvent
@@ -57,12 +55,6 @@ int Game::Execute()
             OnEvent(&Event);
         }
         // Loop();
-        //-----------------------
-
-        // spdlog::info("jjkgnjk\n");
-        
-
-        //-----------------------
         // Render();
     }
     spdlog::info("rrrrrrrr\n");
@@ -120,7 +112,6 @@ bool Game::Init()
     // while(1)
     // {
     //     car_.move();
-    //     spdlog::info("rrrrrr\n");
     // }
     //------------------------------------------------------------------------
     return true;
@@ -128,8 +119,6 @@ bool Game::Init()
 //--------------------------------------------------------------------------
 void Game::Loop()
 {
-    // ------------Карта-------------------------------------------------------
-
     // car.x = car_coordinates.get_x();
     // car.y = car_coordinates.get_y();
     // SDL_RenderFillRect(renderer, &car);
