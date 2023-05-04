@@ -4,8 +4,8 @@
 #include <SDL.h>
 #include <spdlog/spdlog.h>
 
-// #include "surface.h"
 #include "define.h"
+#include "car.h"
 
 //--------------------------------------------------------------------------
 class Game
@@ -18,6 +18,9 @@ class Game
     SDL_Renderer*   renderer;
     SDL_Surface*    screen_surface;
     SDL_Rect        car;
+    // static car_t    car_;
+    SDL_Rect        obstacles;
+    // static coordinates_t   car_coordinates;
 
     public:
     Game();
