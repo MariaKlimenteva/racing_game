@@ -59,6 +59,7 @@ void Map::OnRender(SDL_Surface* Surf_Display, int MapX, int MapY)
             int TilesetY = (TileList[ID].TileID / TilesetWidth) * TILE_SIZE;
 
             // что то для отображения
+            
  
             ID++;
         }

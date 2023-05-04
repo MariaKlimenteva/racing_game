@@ -10,12 +10,11 @@
 //--------------------------------------------------------------------------
 Game::Game()
 {
-    // Surf_Test = NULL; //тестовая поверхность
-    // Surf_Display                = NULL;
+    SDL_Surface* Surf_Display   = nullptr;
     Running                     = true;
     SDL_Window *window          = nullptr;
-    SDL_Renderer *renderer      = nullptr;
-    SDL_Surface *screen_surface = nullptr;
+    SDL_Renderer* renderer      = nullptr;
+    SDL_Surface* screen_surface = nullptr;
 }
 //--------------------------------------------------------------------------
 // Обработка событий, происходящих во время игры (Нажатие кнопки выход из игры, ...)
@@ -31,7 +30,7 @@ void Game::OnEvent(SDL_Event* Event)
 //--------------------------------------------------------------------------
 void Game::Render()
 {
-    // ------------Картинка машинки-------------------------------------------------------
+    
 }
 //--------------------------------------------------------------------------
 void Game::Cleanup()
@@ -57,7 +56,7 @@ int Game::Execute()
         // Loop();
         // Render();
     }
-    spdlog::info("rrrrrrrr\n");
+
     Cleanup();
     exit(EXIT_SUCCESS);
 }
@@ -94,36 +93,101 @@ bool Game::Init()
     SDL_UpdateWindowSurface(window);
     //---------Car initialisation--------------------------------------------
     car_t car_;
-    car_.init(0, 0, 0, 0, 4, 4, 1);
+    car_.init(0, 500, 500, 0, 500, 4, 800); //window SDL 1024*768
     car_.set_butons(SDL_SCANCODE_W, SDL_SCANCODE_S, SDL_SCANCODE_A, SDL_SCANCODE_D, SDL_SCANCODE_SPACE);
 
     spdlog::info("successful initialization\n");
 
-    coordinates_t car_coordinates = car_.get_coordinates();
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-    car.w = 70;
-    car.h = 40;
-    car.x = car_coordinates.get_x();
-    car.y = car_coordinates.get_y();
+    //--------Draw not changed map (only obstacles)---------------------------
+    obstacles.w = 20;
+    obstacles.h = 20;
     
-    SDL_RenderFillRect(renderer, &car);
-    SDL_RenderPresent(renderer);
+    for (int x = 90; x <= 1004; x += 150)
+    {
+        for (int y = 60; y <= 740; y += 100)
+        {
+            obstacles.x = x;
+            obstacles.y = y;
+            SDL_SetRenderDrawColor(renderer, 0, 255, 0, 0);
+            SDL_RenderFillRect(renderer, &obstacles);
+            SDL_RenderPresent(renderer);
+        }
+    }
 
-    // while(1)
-    // {
-    //     car_.move();
-    // }
+    while(1)
+    {
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
+        SDL_RenderClear(renderer);
+
+        coordinates_t car_coordinates = car_.get_coordinates();
+        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+        car.w = 70;
+        car.h = 40;
+        car.x = car_coordinates.get_x();
+        car.y = car_coordinates.get_y();
+        car_.move();
+        
+        SDL_RenderFillRect(renderer, &car);
+        
+        
+
+        for (int x = 90; x <= 1004; x += 150)
+        {
+            for (int y = 60; y <= 740; y += 100)
+            {
+                obstacles.x = x;
+                obstacles.y = y;
+                SDL_SetRenderDrawColor(renderer, 0, 255, 0, 0);
+                SDL_RenderFillRect(renderer, &obstacles);
+                // SDL_RenderPresent(renderer);
+            }
+        }
+        SDL_RenderPresent(renderer);
+        SDL_Delay(8);
+    }
+
+    
+    // SDL_Rect points;
+    // points.w = 2;
+    // points.h = 1;
+
+    // for ()
     //------------------------------------------------------------------------
     return true;
 }
 //--------------------------------------------------------------------------
 void Game::Loop()
 {
+    // SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
+    // SDL_RenderClear(renderer);
+
+    // coordinates_t car_coordinates = car_.get_coordinates();
+    // SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+    // car.w = 70;
+    // car.h = 40;
     // car.x = car_coordinates.get_x();
     // car.y = car_coordinates.get_y();
-    // SDL_RenderFillRect(renderer, &car);
-    // SDL_RenderPresent(renderer);
-
     // car_.move();
+    
+    // SDL_RenderFillRect(renderer, &car);
+
+    // for (int x = 90; x <= 1004; x += 150)
+    // {
+    //     for (int y = 60; y <= 740; y += 100)
+    //     {
+    //         obstacles.x = x;
+    //         obstacles.y = y;
+    //         SDL_SetRenderDrawColor(renderer, 0, 255, 0, 0);
+    //         SDL_RenderFillRect(renderer, &obstacles);
+    //         // SDL_RenderPresent(renderer);
+    //     }
+    // }
+    // SDL_RenderPresent(renderer);
+    // SDL_Delay(8);
+
 }
+//камера карта
+//порядок в коде
+//очки на экран и базу данных
+//вращение текстуры
 

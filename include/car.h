@@ -1,3 +1,6 @@
+#ifndef CAR_H
+#define CAR_H
+
 #include <SDL.h>
 
 #define ACCURACY 0.00001
@@ -69,3 +72,5 @@ class car_t {
         void print();
         void move();
 };
+
+#endif//CAR_H
