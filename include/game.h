@@ -22,9 +22,6 @@ class Game
     car_t            car_;
     coordinates_t    car_coordinates;
 
-    // std::shared_ptr<car_t>           car_;
-    // std::shared_ptr<coordinates_t>    car_coordinates;
-
     public:
     Game();
 

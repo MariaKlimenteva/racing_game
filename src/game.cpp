@@ -45,18 +45,21 @@ int Game::Execute()
         return INIT_ERROR;
     }
     
-    SDL_Event Event;
+    Map GameMap;
+    GameMap.OnLoad();
 
-    while(Running) 
-    {
-        while(SDL_PollEvent(&Event)) //проверяем события и передаем их по одному в OnEvent
-        {
-            OnEvent(&Event);
-        }
-        Loop();
+    // SDL_Event Event;
+
+    // while(Running) 
+    // {
+    //     while(SDL_PollEvent(&Event)) //проверяем события и передаем их по одному в OnEvent
+    //     {
+    //         OnEvent(&Event);
+    //     }
+    //     // Loop();
         
-        // Render();
-    }
+    //     // Render();
+    // }
 
     Cleanup();
     exit(EXIT_SUCCESS);
@@ -93,12 +96,11 @@ bool Game::Init()
     SDL_FillRect(screen_surface, NULL, SDL_MapRGB(screen_surface->format, 0, 0, 0)); // отвечает за цвет окна
     SDL_UpdateWindowSurface(window);
     //---------Car initialisation--------------------------------------------
-    // car_t car_;
     Game::car_.init(0, 500, 500, 0, 500, 4, 800); //window SDL 1024*768
     Game::car_.set_butons(SDL_SCANCODE_W, SDL_SCANCODE_S, SDL_SCANCODE_A, SDL_SCANCODE_D, SDL_SCANCODE_SPACE);
 
-    /*coordinates_t*/ Game::car_coordinates = Game::car_.get_coordinates();
-    SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
+    Game::car_coordinates = Game::car_.get_coordinates();
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     car.w = 70;
     car.h = 40;
     car.x = Game::car_coordinates.get_x();
@@ -120,73 +122,47 @@ bool Game::Init()
             SDL_RenderPresent(renderer);
         }
     }
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
-    SDL_RenderClear(renderer);
-    // while(1)
-    // {
-        // SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
-        // SDL_RenderClear(renderer);
 
-        // /*coordinates_t*/ Game::car_coordinates = Game::car_.get_coordinates();
-        // SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-        // car.w = 70;
-        // car.h = 40;
-        // car.x = Game::car_coordinates.get_x();
-        // car.y = Game::car_coordinates.get_y();
-        // Game::car_.move();
+
+    while(Running)
+    {
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
+        SDL_RenderClear(renderer);
         
-        // SDL_RenderFillRect(renderer, &car);
+        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+        Game::car_coordinates = Game::car_.get_coordinates();
+        car.x = Game::car_coordinates.get_x();
+        car.y = Game::car_coordinates.get_y();
+        Game::car_.move();
+        
+        SDL_RenderFillRect(renderer, &car);
 
-        // for (int x = 90; x <= 1004; x += 150)
-        // {
-        //     for (int y = 60; y <= 740; y += 100)
-        //     {
-        //         obstacles.x = x;
-        //         obstacles.y = y;
-        //         SDL_SetRenderDrawColor(renderer, 0, 255, 0, 0);
-        //         SDL_RenderFillRect(renderer, &obstacles);
-        //     }
-        // }
-        // SDL_RenderPresent(renderer);
-        // SDL_Delay(8);
-    // }
-    // SDL_Rect points;
-    // points.w = 2;
-    // points.h = 1;
-    
+        for (int x = 90; x <= 1004; x += 150)
+        {
+            for (int y = 60; y <= 740; y += 100)
+            {
+                obstacles.x = x;
+                obstacles.y = y;
+                SDL_SetRenderDrawColor(renderer, 0, 255, 0, 0);
+                SDL_RenderFillRect(renderer, &obstacles);
+            }
+        }
+        SDL_RenderPresent(renderer);
+        SDL_Delay(8);
+
+        SDL_Event Event;
+        while(SDL_PollEvent(&Event)) //проверяем события и передаем их по одному в OnEvent
+        {
+            OnEvent(&Event);
+        }
+    }
     //------------------------------------------------------------------------
     return true;
 }
 //--------------------------------------------------------------------------
 void Game::Loop()
 {
-    spdlog::info("loop started\n");
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
-    SDL_RenderClear(renderer);
-    
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-    /*coordinates_t*/ Game::car_coordinates = Game::car_.get_coordinates();
-    
-    // car.w = 70;
-    // car.h = 40;
-    car.x = Game::car_coordinates.get_x();
-    car.y = Game::car_coordinates.get_y();
-    Game::car_.move();
-    
-    SDL_RenderFillRect(renderer, &car);
 
-    for (int x = 90; x <= 1004; x += 150)
-    {
-        for (int y = 60; y <= 740; y += 100)
-        {
-            obstacles.x = x;
-            obstacles.y = y;
-            SDL_SetRenderDrawColor(renderer, 0, 255, 0, 0);
-            SDL_RenderFillRect(renderer, &obstacles);
-        }
-    }
-    SDL_RenderPresent(renderer);
-    SDL_Delay(8);
 }
 
 
