@@ -11,16 +11,16 @@
 class Game
 {
     private:
-    bool            Running;
-    SDL_Surface*    Surf_Display;
-    SDL_Surface*    Surf_Test; // сoздали тестовую поверхность чтоб проверить, работает ли
-    SDL_Window*     window;
-    SDL_Renderer*   renderer;
-    SDL_Surface*    screen_surface;
-    SDL_Rect        car;
-    // static car_t    car_;
-    SDL_Rect        obstacles;
-    // static coordinates_t   car_coordinates;
+    bool             Running;
+    SDL_Surface*     Surf_Display;
+    SDL_Window*      window;
+    SDL_Renderer*    renderer;
+    SDL_Surface*     screen_surface;
+    SDL_Rect         car;
+    SDL_Rect         obstacles;
+    
+    car_t            car_;
+    coordinates_t    car_coordinates;
 
     public:
     Game();

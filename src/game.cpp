@@ -45,17 +45,21 @@ int Game::Execute()
         return INIT_ERROR;
     }
     
-    SDL_Event Event;
+    Map GameMap;
+    GameMap.OnLoad();
 
-    while(Running) 
-    {
-        while(SDL_PollEvent(&Event)) //проверяем события и передаем их по одному в OnEvent
-        {
-            OnEvent(&Event);
-        }
-        // Loop();
-        // Render();
-    }
+    // SDL_Event Event;
+
+    // while(Running) 
+    // {
+    //     while(SDL_PollEvent(&Event)) //проверяем события и передаем их по одному в OnEvent
+    //     {
+    //         OnEvent(&Event);
+    //     }
+    //     // Loop();
+        
+    //     // Render();
+    // }
 
     Cleanup();
     exit(EXIT_SUCCESS);
@@ -92,12 +96,17 @@ bool Game::Init()
     SDL_FillRect(screen_surface, NULL, SDL_MapRGB(screen_surface->format, 0, 0, 0)); // отвечает за цвет окна
     SDL_UpdateWindowSurface(window);
     //---------Car initialisation--------------------------------------------
-    car_t car_;
-    car_.init(0, 500, 500, 0, 500, 4, 800); //window SDL 1024*768
-    car_.set_butons(SDL_SCANCODE_W, SDL_SCANCODE_S, SDL_SCANCODE_A, SDL_SCANCODE_D, SDL_SCANCODE_SPACE);
+    Game::car_.init(0, 500, 500, 0, 500, 4, 800); //window SDL 1024*768
+    Game::car_.set_butons(SDL_SCANCODE_W, SDL_SCANCODE_S, SDL_SCANCODE_A, SDL_SCANCODE_D, SDL_SCANCODE_SPACE);
 
-    spdlog::info("successful initialization\n");
-
+    Game::car_coordinates = Game::car_.get_coordinates();
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+    car.w = 70;
+    car.h = 40;
+    car.x = Game::car_coordinates.get_x();
+    car.y = Game::car_coordinates.get_y();
+    SDL_RenderFillRect(renderer, &car);
+    SDL_RenderPresent(renderer);
     //--------Draw not changed map (only obstacles)---------------------------
     obstacles.w = 20;
     obstacles.h = 20;
@@ -114,22 +123,19 @@ bool Game::Init()
         }
     }
 
-    while(1)
+
+    while(Running)
     {
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
         SDL_RenderClear(renderer);
-
-        coordinates_t car_coordinates = car_.get_coordinates();
+        
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-        car.w = 70;
-        car.h = 40;
-        car.x = car_coordinates.get_x();
-        car.y = car_coordinates.get_y();
-        car_.move();
+        Game::car_coordinates = Game::car_.get_coordinates();
+        car.x = Game::car_coordinates.get_x();
+        car.y = Game::car_coordinates.get_y();
+        Game::car_.move();
         
         SDL_RenderFillRect(renderer, &car);
-        
-        
 
         for (int x = 90; x <= 1004; x += 150)
         {
@@ -139,55 +145,32 @@ bool Game::Init()
                 obstacles.y = y;
                 SDL_SetRenderDrawColor(renderer, 0, 255, 0, 0);
                 SDL_RenderFillRect(renderer, &obstacles);
-                // SDL_RenderPresent(renderer);
             }
         }
         SDL_RenderPresent(renderer);
         SDL_Delay(8);
+
+        SDL_Event Event;
+        while(SDL_PollEvent(&Event)) //проверяем события и передаем их по одному в OnEvent
+        {
+            OnEvent(&Event);
+        }
     }
-
-    
-    // SDL_Rect points;
-    // points.w = 2;
-    // points.h = 1;
-
-    // for ()
     //------------------------------------------------------------------------
     return true;
 }
 //--------------------------------------------------------------------------
 void Game::Loop()
 {
-    // SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
-    // SDL_RenderClear(renderer);
-
-    // coordinates_t car_coordinates = car_.get_coordinates();
-    // SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-    // car.w = 70;
-    // car.h = 40;
-    // car.x = car_coordinates.get_x();
-    // car.y = car_coordinates.get_y();
-    // car_.move();
-    
-    // SDL_RenderFillRect(renderer, &car);
-
-    // for (int x = 90; x <= 1004; x += 150)
-    // {
-    //     for (int y = 60; y <= 740; y += 100)
-    //     {
-    //         obstacles.x = x;
-    //         obstacles.y = y;
-    //         SDL_SetRenderDrawColor(renderer, 0, 255, 0, 0);
-    //         SDL_RenderFillRect(renderer, &obstacles);
-    //         // SDL_RenderPresent(renderer);
-    //     }
-    // }
-    // SDL_RenderPresent(renderer);
-    // SDL_Delay(8);
 
 }
-//камера карта
-//порядок в коде
-//очки на экран и базу данных
-//вращение текстуры
 
+
+//--------------------------------
+// Мне:
+//  камера карта
+//  порядок в коде
+//  вращение текстуры
+
+// очки на экран и базу данных
+//--------------------------------

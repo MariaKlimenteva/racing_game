@@ -1,20 +1,23 @@
 #include "map.h"
 
 #include <iostream>
+#include <cstdio>
 //--------------------------------------------------------------------------
 Map::Map()
 {
     Surf_Tileset = NULL;
 }
 //--------------------------------------------------------------------------
-bool Map::OnLoad(char* File)
+bool Map::OnLoad()
 {
     TileList.clear(); //очищает вектор, чтоб можно было несколько раз загружать карту не думая о том что было до этого
 
     FILE* FileHandle = fopen("Map.txt", "r");
+    
     if (FileHandle == NULL)
     {
         spdlog::error("Problems with opening a file\n");
+        perror("Map.txt");
         return false;
     }
 
