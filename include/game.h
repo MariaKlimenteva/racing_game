@@ -12,12 +12,10 @@ class Game
 {
     private:
     bool             Running;
-    SDL_Surface*     Surf_Display;
     SDL_Window*      window;
     SDL_Renderer*    renderer;
     SDL_Surface*     screen_surface;
     SDL_Rect         car;
-    SDL_Rect         obstacles;
     
     car_t            car_;
     coordinates_t    car_coordinates;
@@ -32,6 +30,7 @@ class Game
     void Render();
     void Cleanup();
     void OnKeyDown(SDL_KeyCode sym, Uint16 unicode); //для перемещения камеры
+    SDL_Renderer* get_render(SDL_Renderer*    renderer);
 };
 //--------------------------------------------------------------------------
 #endif

@@ -40,13 +40,16 @@ void Game::Cleanup()
 //--------------------------------------------------------------------------
 int Game::Execute()
 {
+    Map GameMap;
+    GameMap.OnLoad();
+    GameMap.OnRender(screen_surface, 0, 0);
+
     if(Init() == false) 
     {
         return INIT_ERROR;
     }
     
-    Map GameMap;
-    GameMap.OnLoad();
+    
 
     // SDL_Event Event;
 
@@ -77,7 +80,7 @@ bool Game::Init()
     SDL_Renderer *renderer      = nullptr;
     SDL_Surface *screen_surface = nullptr;
     //-----------Создание и отображение окна---------------------------------
-    if (SDL_CreateWindowAndRenderer(1024, 768, SDL_WINDOW_SHOWN | SDL_WINDOW_INPUT_FOCUS, &window, &renderer)) 
+    if (SDL_CreateWindowAndRenderer(WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN | SDL_WINDOW_INPUT_FOCUS, &window, &renderer)) 
     {
         std::cerr << "Failed to create window and renderer: " << SDL_GetError() << std::endl;
         exit(EXIT_FAILURE);
@@ -108,21 +111,23 @@ bool Game::Init()
     SDL_RenderFillRect(renderer, &car);
     SDL_RenderPresent(renderer);
     //--------Draw not changed map (only obstacles)---------------------------
-    obstacles.w = 20;
-    obstacles.h = 20;
+    // obstacles.w = 20;
+    // obstacles.h = 20;
     
-    for (int x = 90; x <= 1004; x += 150)
-    {
-        for (int y = 60; y <= 740; y += 100)
-        {
-            obstacles.x = x;
-            obstacles.y = y;
-            SDL_SetRenderDrawColor(renderer, 0, 255, 0, 0);
-            SDL_RenderFillRect(renderer, &obstacles);
-            SDL_RenderPresent(renderer);
-        }
-    }
+    // for (int x = 90; x <= 1004; x += 150)
+    // {
+    //     for (int y = 60; y <= 740; y += 100)
+    //     {
+    //         obstacles.x = x;
+    //         obstacles.y = y;
+    //         SDL_SetRenderDrawColor(renderer, 0, 255, 0, 0);
+    //         SDL_RenderFillRect(renderer, &obstacles);
+    //         SDL_RenderPresent(renderer);
+    //     }
+    // }
 
+
+    
 
     while(Running)
     {
@@ -137,16 +142,17 @@ bool Game::Init()
         
         SDL_RenderFillRect(renderer, &car);
 
-        for (int x = 90; x <= 1004; x += 150)
-        {
-            for (int y = 60; y <= 740; y += 100)
-            {
-                obstacles.x = x;
-                obstacles.y = y;
-                SDL_SetRenderDrawColor(renderer, 0, 255, 0, 0);
-                SDL_RenderFillRect(renderer, &obstacles);
-            }
-        }
+        // for (int x = 90; x <= 1004; x += 150)
+        // {
+        //     for (int y = 60; y <= 740; y += 100)
+        //     {
+        //         obstacles.x = x;
+        //         obstacles.y = y;
+        //         SDL_SetRenderDrawColor(renderer, 0, 255, 0, 0);
+        //         SDL_RenderFillRect(renderer, &obstacles);
+        //     }
+        // }
+        
         SDL_RenderPresent(renderer);
         SDL_Delay(8);
 
@@ -165,7 +171,11 @@ void Game::Loop()
 
 }
 
-
+//--------------------------------------------------------------------------
+SDL_Renderer* Game::get_render(SDL_Renderer* renderer)
+{ 
+    return renderer;
+}
 //--------------------------------
 // Мне:
 //  камера карта
