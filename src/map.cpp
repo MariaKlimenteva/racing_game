@@ -50,12 +50,11 @@ bool Map::OnLoad()
 //--------------------------------------------------------------------------
 void Map::OnRender(SDL_Surface* screen_surface, int MapX, int MapY) 
 {
-    // SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
-    // SDL_RenderClear(renderer);
-    SDL_Rect obstacles;
-
     obstacles.h = TILE_SIZE;
     obstacles.w = TILE_SIZE;
+
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
+    SDL_RenderClear(renderer);
 
     for (int x = 90; x <= 1000; x += 150)
     {
@@ -68,6 +67,7 @@ void Map::OnRender(SDL_Surface* screen_surface, int MapX, int MapY)
             SDL_RenderPresent(renderer);
         }
     }
+    SDL_Delay(10);
  
     // int id = 0;
  
@@ -96,3 +96,9 @@ void Map::OnRender(SDL_Surface* screen_surface, int MapX, int MapY)
     // }
 }
 //--------------------------------------------------------------------------
+// 0 - ничего не рисуем - черный
+// 1 - стенка - зеленый
+// 2 - чекпоин 2 очка - желтый
+// 3 - чекпоинт 3 очка - синий
+// 4 - самы =й дорогой чекпоинт - фиолетовый
+// 5 - старт и финиш - красный

@@ -40,29 +40,29 @@ void Game::Cleanup()
 //--------------------------------------------------------------------------
 int Game::Execute()
 {
-    Map GameMap;
-    GameMap.OnLoad();
-    GameMap.OnRender(screen_surface, 0, 0);
+    // Map GameMap;
+    // GameMap.OnLoad();
+    // GameMap.OnRender(screen_surface, 0, 0);
 
     if(Init() == false) 
     {
         return INIT_ERROR;
     }
-    
-    
 
-    // SDL_Event Event;
+    Render();
 
-    // while(Running) 
-    // {
-    //     while(SDL_PollEvent(&Event)) //проверяем события и передаем их по одному в OnEvent
-    //     {
-    //         OnEvent(&Event);
-    //     }
-    //     // Loop();
+    SDL_Event Event;
+
+    while(Running) 
+    {
+        while(SDL_PollEvent(&Event)) //проверяем события и передаем их по одному в OnEvent
+        {
+            OnEvent(&Event);
+        }
         
-    //     // Render();
-    // }
+        Loop();
+        
+    }
 
     Cleanup();
     exit(EXIT_SUCCESS);
@@ -85,6 +85,7 @@ bool Game::Init()
         std::cerr << "Failed to create window and renderer: " << SDL_GetError() << std::endl;
         exit(EXIT_FAILURE);
     }
+    // SDL_CreateWindow()
 
     SDL_SetWindowTitle(window, "Races");
     //---------Создание поверхности, связанной с окном и раскрашивание окна--
@@ -99,7 +100,7 @@ bool Game::Init()
     SDL_FillRect(screen_surface, NULL, SDL_MapRGB(screen_surface->format, 0, 0, 0)); // отвечает за цвет окна
     SDL_UpdateWindowSurface(window);
     //---------Car initialisation--------------------------------------------
-    Game::car_.init(0, 500, 500, 0, 500, 4, 800); //window SDL 1024*768
+    Game::car_.init(0, 500, 500, 0, 500, 4, 800); 
     Game::car_.set_butons(SDL_SCANCODE_W, SDL_SCANCODE_S, SDL_SCANCODE_A, SDL_SCANCODE_D, SDL_SCANCODE_SPACE);
 
     Game::car_coordinates = Game::car_.get_coordinates();
@@ -111,64 +112,23 @@ bool Game::Init()
     SDL_RenderFillRect(renderer, &car);
     SDL_RenderPresent(renderer);
     //--------Draw not changed map (only obstacles)---------------------------
-    // obstacles.w = 20;
-    // obstacles.h = 20;
     
-    // for (int x = 90; x <= 1004; x += 150)
-    // {
-    //     for (int y = 60; y <= 740; y += 100)
-    //     {
-    //         obstacles.x = x;
-    //         obstacles.y = y;
-    //         SDL_SetRenderDrawColor(renderer, 0, 255, 0, 0);
-    //         SDL_RenderFillRect(renderer, &obstacles);
-    //         SDL_RenderPresent(renderer);
-    //     }
-    // }
-
-
-    
-
-    while(Running)
-    {
-        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
-        SDL_RenderClear(renderer);
-        
-        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-        Game::car_coordinates = Game::car_.get_coordinates();
-        car.x = Game::car_coordinates.get_x();
-        car.y = Game::car_coordinates.get_y();
-        Game::car_.move();
-        
-        SDL_RenderFillRect(renderer, &car);
-
-        // for (int x = 90; x <= 1004; x += 150)
-        // {
-        //     for (int y = 60; y <= 740; y += 100)
-        //     {
-        //         obstacles.x = x;
-        //         obstacles.y = y;
-        //         SDL_SetRenderDrawColor(renderer, 0, 255, 0, 0);
-        //         SDL_RenderFillRect(renderer, &obstacles);
-        //     }
-        // }
-        
-        SDL_RenderPresent(renderer);
-        SDL_Delay(8);
-
-        SDL_Event Event;
-        while(SDL_PollEvent(&Event)) //проверяем события и передаем их по одному в OnEvent
-        {
-            OnEvent(&Event);
-        }
-    }
     //------------------------------------------------------------------------
     return true;
 }
 //--------------------------------------------------------------------------
 void Game::Loop()
-{
-
+{    
+    if(SDL_RenderClear(renderer) == 0) spdlog::info("renderer is clear\n");
+    Game::car_coordinates = Game::car_.get_coordinates();
+        if(renderer == nullptr) spdlog::info("It's true renderer = null(1\n");
+    car.x = Game::car_coordinates.get_x();
+    car.y = Game::car_coordinates.get_y();
+    Game::car_.move();
+    SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+    SDL_RenderFillRect(renderer, &car);
+    SDL_RenderPresent(renderer);
+    SDL_Delay(8);
 }
 
 //--------------------------------------------------------------------------

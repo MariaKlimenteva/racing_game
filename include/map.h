@@ -12,7 +12,7 @@ class Map
 {
     private:
     std::vector<Tile> TileList;                                         //хранит список всех плиток карты                                                     
-    // SDL_Rect          obstacles;
+    SDL_Rect          obstacles;
     SDL_Renderer*     renderer;
 
     public:

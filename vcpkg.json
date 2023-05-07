@@ -4,6 +4,7 @@
     "license": "MIT",
     "dependencies": [
         "sdl2",
-        "spdlog"
+        "spdlog",
+        "sdl2-image"
     ]
 }

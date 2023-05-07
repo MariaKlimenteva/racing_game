@@ -14,5 +14,8 @@ target_link_libraries(main
     $<IF:$<TARGET_EXISTS:SDL2::SDL2>,SDL2::SDL2,SDL2::SDL2-static>
 )
 
+find_package(SDL2_image CONFIG REQUIRED)
+target_link_libraries(main PRIVATE $<IF:$<TARGET_EXISTS:SDL2_image::SDL2_image>,SDL2_image::SDL2_image,SDL2_image::SDL2_image-static>)
+
 find_package(spdlog CONFIG REQUIRED)
 target_link_libraries(main PRIVATE spdlog::spdlog spdlog::spdlog_header_only)
