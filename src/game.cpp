@@ -154,7 +154,6 @@ bool Game::Init()
 
                 SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255);
                 SDL_RenderFillRect(renderer, &points_1);
-                SDL_RenderPresent(renderer);
             }
 
             if(GameMap.TileList[id].TileType == TILE_TYPE_CHECKPOINT_2)
@@ -164,7 +163,6 @@ bool Game::Init()
 
                 SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
                 SDL_RenderFillRect(renderer, &points_2);
-                SDL_RenderPresent(renderer);
             }
 
             if(GameMap.TileList[id].TileType == TILE_TYPE_CHECKPOINT_3)
@@ -174,7 +172,6 @@ bool Game::Init()
 
                 SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
                 SDL_RenderFillRect(renderer, &points_3);
-                SDL_RenderPresent(renderer);
             }
 
             if(GameMap.TileList[id].TileType == TILE_TYPE_FINISH)
@@ -184,7 +181,6 @@ bool Game::Init()
 
                 SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
                 SDL_RenderFillRect(renderer, &finish);
-                SDL_RenderPresent(renderer);
             }
 
             id++;            
@@ -243,7 +239,6 @@ bool Game::Init()
 
                     SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255);
                     SDL_RenderFillRect(renderer, &points_1);
-                    SDL_RenderPresent(renderer);
                 } 
 
                 if(GameMap.TileList[id].TileType == TILE_TYPE_CHECKPOINT_2)
@@ -252,8 +247,7 @@ bool Game::Init()
                     points_2.y = y_;
 
                     SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
-                    SDL_RenderFillRect(renderer, &points_2);
-                    SDL_RenderPresent(renderer);
+                    SDL_RenderFillRect(renderer, &points_2);                    
                 }   
 
                 if(GameMap.TileList[id].TileType == TILE_TYPE_CHECKPOINT_3)
@@ -262,8 +256,7 @@ bool Game::Init()
                     points_3.y = y_;
 
                     SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
-                    SDL_RenderFillRect(renderer, &points_3);
-                    SDL_RenderPresent(renderer);
+                    SDL_RenderFillRect(renderer, &points_3);                    
                 }
 
                 if(GameMap.TileList[id].TileType == TILE_TYPE_FINISH)
@@ -272,8 +265,7 @@ bool Game::Init()
                     finish.y = y_;
 
                     SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
-                    SDL_RenderFillRect(renderer, &finish);
-                    SDL_RenderPresent(renderer);
+                    SDL_RenderFillRect(renderer, &finish);                    
                 }
 
                 id++;
