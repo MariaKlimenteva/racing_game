@@ -136,7 +136,7 @@ bool Game::Init()
                 id++;
                 continue;
             }
-            spdlog::info("x = {}, y = {}, id = {}, Type = {}", x, y, id, GameMap.TileList[id].TileType);
+            // spdlog::info("x = {}, y = {}, id = {}, Type = {}", x, y, id, GameMap.TileList[id].TileType);
 
             if(GameMap.TileList[id].TileType == TILE_TYPE_OBSTACLES)
             {
@@ -145,12 +145,51 @@ bool Game::Init()
 
                 SDL_SetRenderDrawColor(renderer, 100, 255, 100, 255);
                 SDL_RenderFillRect(renderer, &obstacles);
-                
-                // id++;
-            }          
+            }  
+
+            if(GameMap.TileList[id].TileType == TILE_TYPE_CHECKPOINT_1)
+            {
+                points_1.x = x_;
+                points_1.y = y_;
+
+                SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255);
+                SDL_RenderFillRect(renderer, &points_1);
+                SDL_RenderPresent(renderer);
+            }
+
+            if(GameMap.TileList[id].TileType == TILE_TYPE_CHECKPOINT_2)
+            {
+                points_2.x = x_;
+                points_2.y = y_;
+
+                SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
+                SDL_RenderFillRect(renderer, &points_2);
+                SDL_RenderPresent(renderer);
+            }
+
+            if(GameMap.TileList[id].TileType == TILE_TYPE_CHECKPOINT_3)
+            {
+                points_3.x = x_;
+                points_3.y = y_;
+
+                SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
+                SDL_RenderFillRect(renderer, &points_3);
+                SDL_RenderPresent(renderer);
+            }
+
+            if(GameMap.TileList[id].TileType == TILE_TYPE_FINISH)
+            {
+                finish.x = x_;
+                finish.y = y_;
+
+                SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+                SDL_RenderFillRect(renderer, &finish);
+                SDL_RenderPresent(renderer);
+            }
+
             id++;            
         }
-        // id++;
+        
     }
     SDL_RenderPresent(renderer);
 
@@ -195,8 +234,48 @@ bool Game::Init()
 
                     SDL_SetRenderDrawColor(renderer, 100, 255, 100, 255);
                     SDL_RenderFillRect(renderer, &obstacles);
-                    
-                }          
+                }  
+
+                if(GameMap.TileList[id].TileType == TILE_TYPE_CHECKPOINT_1)
+                {
+                    points_1.x = x_;
+                    points_1.y = y_;
+
+                    SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255);
+                    SDL_RenderFillRect(renderer, &points_1);
+                    SDL_RenderPresent(renderer);
+                } 
+
+                if(GameMap.TileList[id].TileType == TILE_TYPE_CHECKPOINT_2)
+                {
+                    points_2.x = x_;
+                    points_2.y = y_;
+
+                    SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
+                    SDL_RenderFillRect(renderer, &points_2);
+                    SDL_RenderPresent(renderer);
+                }   
+
+                if(GameMap.TileList[id].TileType == TILE_TYPE_CHECKPOINT_3)
+                {
+                    points_3.x = x_;
+                    points_3.y = y_;
+
+                    SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
+                    SDL_RenderFillRect(renderer, &points_3);
+                    SDL_RenderPresent(renderer);
+                }
+
+                if(GameMap.TileList[id].TileType == TILE_TYPE_FINISH)
+                {
+                    finish.x = x_;
+                    finish.y = y_;
+
+                    SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+                    SDL_RenderFillRect(renderer, &finish);
+                    SDL_RenderPresent(renderer);
+                }
+
                 id++;
             }
         }
