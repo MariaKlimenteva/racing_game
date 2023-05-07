@@ -23,6 +23,8 @@ The car moves across the screen by pressing the keys: W, A, D, space. Your task 
 
 Everything is very simple. In the game window you see green obstacles, hitting them takes away your points (-20). There are also multi-colored checkpoints: yellow +10, blue +20, purple +40. If you reach the finish line, you will finish the game and get +20 points.
 ### How to build and run
-Clone the repository to yourself: https://github.com/MariaKlimenteva/racing_game
-Next you need to download vcpkg using: https://vcpkg.io/en/getting-started.html
-To build, run the root cmake.
+Clone the repository to yourself: https://github.com/MariaKlimenteva/racing_game.
+
+Next you need to download vcpkg using: https://vcpkg.io/en/getting-started.html.
+
+To build, run the root cmake. It is important to run everything from the racing_game root folder.
