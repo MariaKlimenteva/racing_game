@@ -25,23 +25,16 @@ bool Map::OnLoad()
         return false;
     }
     Tile TempTile;
-    for (int i = 1; i <= 40; i++)
+    for (int i = 1; i <= MAP_WIDTH * MAP_HEIGHT; i++)
     {
         TempTile.TileID = i;
-    }
-    // spdlog::info("start\n");
-    for (int y = 1; y <= MAP_HEIGHT; y++)
-    {
-        for (int x = 1; x <= MAP_WIDTH; x++)
-        {
-            
-            file >> TempTile.TileType;
+        file >> TempTile.TileType;
 
-            TileList.push_back(TempTile);
+        TileList.push_back(TempTile);
 
-            // spdlog::info("{} {}", TempTile.TileID, TempTile.TileType);
-        }
+        // if ((TempTile.TileID <= 40) || (TempTile.TileID >= 1600 - 40)) spdlog::info("{} {}", TempTile.TileID, TempTile.TileType);
     }
+
 
     file.close();
     spdlog::info("The game map file has been read\n");
