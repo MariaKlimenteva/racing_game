@@ -1,71 +1,94 @@
 #include "map.h"
+#include "game.h"
 
 #include <iostream>
+#include <fstream>
 #include <cstdio>
 //--------------------------------------------------------------------------
 Map::Map()
 {
-    Surf_Tileset = NULL;
+    Game Game_;
+    // SDL_Renderer* renderer = Game_.get_render(renderer);
 }
 //--------------------------------------------------------------------------
 bool Map::OnLoad()
 {
     TileList.clear(); //очищает вектор, чтоб можно было несколько раз загружать карту не думая о том что было до этого
 
-    FILE* FileHandle = fopen("Map.txt", "r");
-    
-    if (FileHandle == NULL)
+    std::ifstream file;  // поток для чтения
+    file.open("Map.txt");
+
+    if(!file)
     {
         spdlog::error("Problems with opening a file\n");
         perror("Map.txt");
         return false;
     }
-
-    for(int y = 0; y < MAP_HEIGHT; y++)
+    Tile TempTile;
+    for (int i = 1; i <= MAP_WIDTH * MAP_HEIGHT; i++)
     {
-        for(int x = 0; x < MAP_WIDTH; x++)
-        {
-            Tile TempTile;
-            fscanf(FileHandle, "%d:%d", &TempTile.TileID, &TempTile.TileType); //заполняем TileID, TileType
-            TileList.push_back(TempTile);
-        }
-        fscanf(FileHandle, "\n");
+        TempTile.TileID = i;
+        file >> TempTile.TileType;
+
+        TileList.push_back(TempTile);
+
+        // if ((TempTile.TileID <= 40) || (TempTile.TileID >= 1600 - 40)) spdlog::info("{} {}", TempTile.TileID, TempTile.TileType);
     }
-    fclose(FileHandle);
+
+
+    file.close();
     spdlog::info("The game map file has been read\n");
     return true;
 }
 //--------------------------------------------------------------------------
-void Map::OnRender(SDL_Surface* Surf_Display, int MapX, int MapY) 
-{
-    if(Surf_Tileset == NULL) return;
- 
-    int TilesetWidth  = Surf_Tileset->w / TILE_SIZE;
-    int TilesetHeight = Surf_Tileset->h / TILE_SIZE;
- 
-    int ID = 0;
- 
-    for(int Y = 0; Y < MAP_HEIGHT; Y++) 
-    {
-        for(int X = 0; X < MAP_WIDTH; X++) 
-        {
-            if(TileList[ID].TileType == TILE_TYPE_NONE) //проверка, надо ли рисовать эту плитку
-            {
-                ID++;
-                continue;
-            }
- 
-            int tX = MapX + (X * TILE_SIZE);
-            int tY = MapY + (Y * TILE_SIZE);
- 
-            int TilesetX = (TileList[ID].TileID % TilesetWidth) * TILE_SIZE; // идентификатор плитки преобразуем в ее координату
-            int TilesetY = (TileList[ID].TileID / TilesetWidth) * TILE_SIZE;
+// void Map::OnRender(SDL_Surface* screen_surface, int MapX, int MapY) 
+// {
+    // SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
+    // SDL_RenderClear(renderer);
 
-            // что то для отображения
-            
+    // for (int x = 90; x <= 1000; x += 150)
+    // {
+    //     for (int y = 90; y <= 1000; y += 150)
+    //     {
+    //         obstacles.x = x;
+    //         obstacles.y = y;
+    //         SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+    //         SDL_RenderFillRect(renderer, &obstacles);
+    //         SDL_RenderPresent(renderer);
+    //     }
+    // }
+    // SDL_Delay(10);
+    
+//     int id = 0;
  
-            ID++;
-        }
-    }
-}
+//     for(int y = 0; y < MAP_HEIGHT; y++) 
+//     {
+//         for(int x = 0; x < MAP_WIDTH; x++) 
+//         {
+//             if(TileList[id].TileType == TILE_TYPE_NONE) //проверка, надо ли рисовать эту плитку
+//             {
+//                 id++;
+//                 continue;
+//             }
+ 
+//             int x_ = MapX + (x * TILE_SIZE);
+//             int y_ = MapY + (y * TILE_SIZE);
+
+//             obstacles.x = 30;
+//             obstacles.y = 30;
+            
+//             SDL_SetRenderDrawColor(renderer, 0, 255, 0, 0);
+//             SDL_RenderFillRect(renderer, &obstacles);
+//             SDL_RenderPresent(renderer);
+            
+//             id++;
+//         }
+//     }
+// }
 //--------------------------------------------------------------------------
+
+
+// std::vector<Tile> Map::
+// {
+//     return; 
+// }

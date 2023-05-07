@@ -10,14 +10,14 @@
 //--------------------------------------------------------------------------
 class Game
 {
+    friend class Map;
+
     private:
     bool             Running;
-    SDL_Surface*     Surf_Display;
     SDL_Window*      window;
     SDL_Renderer*    renderer;
     SDL_Surface*     screen_surface;
     SDL_Rect         car;
-    SDL_Rect         obstacles;
     
     car_t            car_;
     coordinates_t    car_coordinates;
@@ -28,10 +28,12 @@ class Game
     int  Execute(); //выполняет основной цикл игры 
     bool Init();    //Инициализация игры и в том числе используемой библиотеки
     void OnEvent(SDL_Event* Event); //обработка событий (любое нажатие клавиш, мышки и тп)
-    void Loop();
+    // void Loop();
     void Render();
     void Cleanup();
-    void OnKeyDown(SDL_KeyCode sym, Uint16 unicode); //для перемещения камеры
+    // void OnKeyDown(SDL_KeyCode sym, Uint16 unicode); //для перемещения камеры
+    // SDL_Renderer* get_render(SDL_Renderer*    renderer);
+
 };
 //--------------------------------------------------------------------------
 #endif
