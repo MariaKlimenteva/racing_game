@@ -10,6 +10,8 @@
 //--------------------------------------------------------------------------
 class Game
 {
+    friend class Map;
+
     private:
     bool             Running;
     SDL_Window*      window;
@@ -26,11 +28,12 @@ class Game
     int  Execute(); //выполняет основной цикл игры 
     bool Init();    //Инициализация игры и в том числе используемой библиотеки
     void OnEvent(SDL_Event* Event); //обработка событий (любое нажатие клавиш, мышки и тп)
-    void Loop();
+    // void Loop();
     void Render();
     void Cleanup();
-    void OnKeyDown(SDL_KeyCode sym, Uint16 unicode); //для перемещения камеры
-    SDL_Renderer* get_render(SDL_Renderer*    renderer);
+    // void OnKeyDown(SDL_KeyCode sym, Uint16 unicode); //для перемещения камеры
+    // SDL_Renderer* get_render(SDL_Renderer*    renderer);
+
 };
 //--------------------------------------------------------------------------
 #endif

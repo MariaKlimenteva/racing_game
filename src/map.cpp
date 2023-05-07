@@ -8,7 +8,7 @@
 Map::Map()
 {
     Game Game_;
-    SDL_Renderer* renderer = Game_.get_render(renderer);
+    // SDL_Renderer* renderer = Game_.get_render(renderer);
 }
 //--------------------------------------------------------------------------
 bool Map::OnLoad()
@@ -50,55 +50,55 @@ bool Map::OnLoad()
 //--------------------------------------------------------------------------
 void Map::OnRender(SDL_Surface* screen_surface, int MapX, int MapY) 
 {
-    obstacles.h = TILE_SIZE;
-    obstacles.w = TILE_SIZE;
+    // SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
+    // SDL_RenderClear(renderer);
 
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
-    SDL_RenderClear(renderer);
-
-    for (int x = 90; x <= 1000; x += 150)
-    {
-        for (int y = 90; y <= 1000; y += 150)
-        {
-            obstacles.x = x;
-            obstacles.y = y;
-            SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
-            SDL_RenderFillRect(renderer, &obstacles);
-            SDL_RenderPresent(renderer);
-        }
-    }
-    SDL_Delay(10);
- 
-    // int id = 0;
- 
-    // for(int y = 0; y < MAP_HEIGHT; y++) 
+    // for (int x = 90; x <= 1000; x += 150)
     // {
-    //     for(int x = 0; x < MAP_WIDTH; x++) 
+    //     for (int y = 90; y <= 1000; y += 150)
     //     {
-    //         if(TileList[id].TileType == TILE_TYPE_NONE) //проверка, надо ли рисовать эту плитку
-    //         {
-    //             id++;
-    //             continue;
-    //         }
- 
-    //         int x_ = MapX + (x * TILE_SIZE);
-    //         int y_ = MapY + (y * TILE_SIZE);
-
-    //         obstacles.x = 30;
-    //         obstacles.y = 30;
-            
-    //         SDL_SetRenderDrawColor(renderer, 0, 255, 0, 0);
+    //         obstacles.x = x;
+    //         obstacles.y = y;
+    //         SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
     //         SDL_RenderFillRect(renderer, &obstacles);
     //         SDL_RenderPresent(renderer);
-            
-    //         id++;
     //     }
     // }
+    // SDL_Delay(10);
+
+    obstacles.h = TILE_SIZE;
+    obstacles.w = TILE_SIZE;
+    
+    int id = 0;
+ 
+    for(int y = 0; y < MAP_HEIGHT; y++) 
+    {
+        for(int x = 0; x < MAP_WIDTH; x++) 
+        {
+            if(TileList[id].TileType == TILE_TYPE_NONE) //проверка, надо ли рисовать эту плитку
+            {
+                id++;
+                continue;
+            }
+ 
+            int x_ = MapX + (x * TILE_SIZE);
+            int y_ = MapY + (y * TILE_SIZE);
+
+            obstacles.x = 30;
+            obstacles.y = 30;
+            
+            SDL_SetRenderDrawColor(renderer, 0, 255, 0, 0);
+            SDL_RenderFillRect(renderer, &obstacles);
+            SDL_RenderPresent(renderer);
+            
+            id++;
+        }
+    }
 }
 //--------------------------------------------------------------------------
-// 0 - ничего не рисуем - черный
-// 1 - стенка - зеленый
-// 2 - чекпоин 2 очка - желтый
-// 3 - чекпоинт 3 очка - синий
-// 4 - самы =й дорогой чекпоинт - фиолетовый
-// 5 - старт и финиш - красный
+
+
+// std::vector<Tile> Map::
+// {
+//     return; 
+// }
