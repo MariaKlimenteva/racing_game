@@ -48,8 +48,8 @@ bool Map::OnLoad()
     return true;
 }
 //--------------------------------------------------------------------------
-void Map::OnRender(SDL_Surface* screen_surface, int MapX, int MapY) 
-{
+// void Map::OnRender(SDL_Surface* screen_surface, int MapX, int MapY) 
+// {
     // SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
     // SDL_RenderClear(renderer);
 
@@ -65,36 +65,33 @@ void Map::OnRender(SDL_Surface* screen_surface, int MapX, int MapY)
     //     }
     // }
     // SDL_Delay(10);
-
-    obstacles.h = TILE_SIZE;
-    obstacles.w = TILE_SIZE;
     
-    int id = 0;
+//     int id = 0;
  
-    for(int y = 0; y < MAP_HEIGHT; y++) 
-    {
-        for(int x = 0; x < MAP_WIDTH; x++) 
-        {
-            if(TileList[id].TileType == TILE_TYPE_NONE) //проверка, надо ли рисовать эту плитку
-            {
-                id++;
-                continue;
-            }
+//     for(int y = 0; y < MAP_HEIGHT; y++) 
+//     {
+//         for(int x = 0; x < MAP_WIDTH; x++) 
+//         {
+//             if(TileList[id].TileType == TILE_TYPE_NONE) //проверка, надо ли рисовать эту плитку
+//             {
+//                 id++;
+//                 continue;
+//             }
  
-            int x_ = MapX + (x * TILE_SIZE);
-            int y_ = MapY + (y * TILE_SIZE);
+//             int x_ = MapX + (x * TILE_SIZE);
+//             int y_ = MapY + (y * TILE_SIZE);
 
-            obstacles.x = 30;
-            obstacles.y = 30;
+//             obstacles.x = 30;
+//             obstacles.y = 30;
             
-            SDL_SetRenderDrawColor(renderer, 0, 255, 0, 0);
-            SDL_RenderFillRect(renderer, &obstacles);
-            SDL_RenderPresent(renderer);
+//             SDL_SetRenderDrawColor(renderer, 0, 255, 0, 0);
+//             SDL_RenderFillRect(renderer, &obstacles);
+//             SDL_RenderPresent(renderer);
             
-            id++;
-        }
-    }
-}
+//             id++;
+//         }
+//     }
+// }
 //--------------------------------------------------------------------------
 
 

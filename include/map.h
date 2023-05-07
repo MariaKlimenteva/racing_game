@@ -14,14 +14,14 @@ class Map
 
     private:
     std::vector<Tile> TileList;                                         //хранит список всех плиток карты                                                     
-    SDL_Rect          obstacles;
+    // SDL_Rect          obstacles;
     SDL_Renderer*     renderer;
 
     public:
     Map();
     // SDL_Surface* Surf_Tileset;
     bool OnLoad();                                            //загружает карту из файла и заполняет список плиток
-    void OnRender(SDL_Surface* screen_surface, int MapX, int MapY);       //рисует карту на экран и размещает все плитки на их места
+    // void OnRender(SDL_Surface* screen_surface, int MapX, int MapY);       //рисует карту на экран и размещает все плитки на их места
                                                //MapX, MapY указывают, начиная откуда надо отображать карту на экране 
     // std::vector<Tile> get_tilelist(); //передача вектора по ссылке
 };
