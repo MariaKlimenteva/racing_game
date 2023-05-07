@@ -128,8 +128,6 @@ bool Game::Init()
     {
         for(int x = 0; x < MAP_WIDTH; x++) 
         {
-            // for(id = 1; id <= MAP_HEIGHT * MAP_WIDTH; id++)
-            // {
             int x_ = x * TILE_SIZE;
             int y_ = y * TILE_SIZE; //Пусть пока что MapX и MapY = 0
 
@@ -138,7 +136,7 @@ bool Game::Init()
                 id++;
                 continue;
             }
-            // spdlog::info("x = {}, y = {}, ID = {}, Type = {}",x_, y_, GameMap.TileList[id].TileID, GameMap.TileList[id].TileType);
+            spdlog::info("x = {}, y = {}, id = {}, Type = {}", x, y, id, GameMap.TileList[id].TileType);
 
             if(GameMap.TileList[id].TileType == TILE_TYPE_OBSTACLES)
             {
@@ -148,14 +146,15 @@ bool Game::Init()
                 SDL_SetRenderDrawColor(renderer, 100, 255, 100, 255);
                 SDL_RenderFillRect(renderer, &obstacles);
                 
-                id++;
+                // id++;
             }          
-            id++;
-            // }
-            
+            id++;            
         }
+        id++;
     }
     SDL_RenderPresent(renderer);
+
+    //------------------------------------------------------------------------------------
     while(Running) 
     {
         while(SDL_PollEvent(&Event)) //проверяем события и передаем их по одному в OnEvent
