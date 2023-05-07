@@ -150,7 +150,7 @@ bool Game::Init()
             }          
             id++;            
         }
-        id++;
+        // id++;
     }
     SDL_RenderPresent(renderer);
 
