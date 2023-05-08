@@ -4,6 +4,7 @@
 #include "map.h"
 #include "define.h"
 #include "car.h"
+#include "car_image.h"
 
 //--------------------------------------------------------------------------
 // Constructor
@@ -20,9 +21,6 @@ Game::Game()
     points_2.h  = points_2.w    = TILE_SIZE;
     points_3.h  = points_3.w    = TILE_SIZE;
     finish.h    = finish.w      = TILE_SIZE; 
-
-    car.w = 70;
-    car.h = 40;
 }
 //--------------------------------------------------------------------------
 // Обработка событий, происходящих во время игры (Нажатие кнопки выход из игры, ...)
@@ -99,7 +97,7 @@ bool Game::Init()
     SDL_FillRect(screen_surface, NULL, SDL_MapRGB(screen_surface->format, 0, 0, 0)); // отвечает за цвет окна
     SDL_UpdateWindowSurface(window);
     //---------Car initialisation--------------------------------------------
-    Game::car_.init(0, 500, 500, 0, 500, 4, 800); 
+    Game::car_.init(0, 40, 1100, 0, 500, 4, 800); 
     Game::car_.set_butons(SDL_SCANCODE_W, SDL_SCANCODE_S, SDL_SCANCODE_A, SDL_SCANCODE_D, SDL_SCANCODE_SPACE);
 
     return true;
@@ -108,8 +106,8 @@ bool Game::Init()
 void Game::Loop()
 {    
         //---------ОТРИСОВКА МАШИНЫ + ДВИЖЕНИЕ---------------
-        // SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-        // SDL_RenderClear(renderer);
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+        SDL_RenderClear(renderer);
 
         Game::CarRender();
         Game::car_.move();
@@ -191,10 +189,8 @@ void Game::CarRender()
 {
     Game::car_coordinates = Game::car_.get_coordinates();
 
-    car.x = Game::car_coordinates.get_x();
-    car.y = Game::car_coordinates.get_y();
-
-    SDL_SetRenderDrawColor(Game::renderer, 255, 255, 255, 255);
-    SDL_RenderFillRect(Game::renderer, &car);
+    Texture image;
+    SDL_Texture* car_texture = image.LoadImage("car_image.png", renderer);
+    image.RenderTexture(car_texture, renderer, Game::car_coordinates.get_direction(), Game::car_coordinates.get_x(), Game::car_coordinates.get_y(), 50, 70);
 }
 //--------------------------------------------------------------------------
