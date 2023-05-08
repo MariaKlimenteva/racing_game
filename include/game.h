@@ -34,9 +34,11 @@ class Game
     int  Execute(); //выполняет основной цикл игры 
     bool Init();    //Инициализация игры и в том числе используемой библиотеки
     void OnEvent(SDL_Event* Event); //обработка событий (любое нажатие клавиш, мышки и тп)
-    void Loop(int id);
+    void Loop();
     void Render();
     void Cleanup();
+    void MapRender(int id);
+    void CarRender();
     // void OnKeyDown(SDL_KeyCode sym, Uint16 unicode); //для перемещения камеры
 };
 //--------------------------------------------------------------------------

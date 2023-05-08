@@ -20,6 +20,9 @@ Game::Game()
     points_2.h  = points_2.w    = TILE_SIZE;
     points_3.h  = points_3.w    = TILE_SIZE;
     finish.h    = finish.w      = TILE_SIZE; 
+
+    car.w = 70;
+    car.h = 40;
 }
 //--------------------------------------------------------------------------
 // Обработка событий, происходящих во время игры (Нажатие кнопки выход из игры, ...)
@@ -35,81 +38,8 @@ void Game::OnEvent(SDL_Event* Event)
 //--------------------------------------------------------------------------
 void Game::Render()
 {
-    int id = 0;
-    Map GameMap;
-    GameMap.OnLoad();
-    //--------------------------------------------------------
-    Game::car_coordinates = Game::car_.get_coordinates();
-    SDL_SetRenderDrawColor(Game::renderer, 255, 255, 255, 255);
-    car.w = 70;
-    car.h = 40;
-    car.x = Game::car_coordinates.get_x();
-    car.y = Game::car_coordinates.get_y();
-    SDL_RenderFillRect(Game::renderer, &car);
-    //---------------------------------------------------------
-    for(int y = 0; y < MAP_HEIGHT; y++) 
-    {
-        for(int x = 0; x < MAP_WIDTH; x++) 
-        {
-            int x_ = x * TILE_SIZE;
-            int y_ = y * TILE_SIZE; //Пусть пока что MapX и MapY = 0
-
-            if(GameMap.TileList[id].TileType == TILE_TYPE_NONE)
-            {
-                id++;
-                continue;
-            }
-
-            if(GameMap.TileList[id].TileType == TILE_TYPE_OBSTACLES)
-            {
-                obstacles.x = x_;
-                obstacles.y = y_;
-
-                SDL_SetRenderDrawColor(Game::renderer, 100, 255, 100, 255);
-                SDL_RenderFillRect(Game::renderer, &obstacles);
-            }  
-
-            if(GameMap.TileList[id].TileType == TILE_TYPE_CHECKPOINT_1)
-            {
-                points_1.x = x_;
-                points_1.y = y_;
-
-                SDL_SetRenderDrawColor(Game::renderer, 255, 255, 0, 255);
-                SDL_RenderFillRect(Game::renderer, &points_1);
-            }
-
-            if(GameMap.TileList[id].TileType == TILE_TYPE_CHECKPOINT_2)
-            {
-                points_2.x = x_;
-                points_2.y = y_;
-
-                SDL_SetRenderDrawColor(Game::renderer, 0, 0, 255, 255);
-                SDL_RenderFillRect(Game::renderer, &points_2);
-            }
-
-            if(GameMap.TileList[id].TileType == TILE_TYPE_CHECKPOINT_3)
-            {
-                points_3.x = x_;
-                points_3.y = y_;
-
-                SDL_SetRenderDrawColor(Game::renderer, 255, 0, 255, 255);
-                SDL_RenderFillRect(Game::renderer, &points_3);
-            }
-
-            if(GameMap.TileList[id].TileType == TILE_TYPE_FINISH)
-            {
-                finish.x = x_;
-                finish.y = y_;
-
-                SDL_SetRenderDrawColor(Game::renderer, 255, 0, 0, 255);
-                SDL_RenderFillRect(Game::renderer, &finish);
-            }
-
-            id++;            
-        }
-        
-    }
-    SDL_RenderPresent(Game::renderer);
+    Game::CarRender();
+    Game::MapRender(0);
 }
 //--------------------------------------------------------------------------
 void Game::Cleanup()
@@ -123,8 +53,9 @@ int Game::Execute()
     {
         return INIT_ERROR;
     }
-    Map GameMap;
-    GameMap.OnLoad();
+
+    // Map GameMap;
+    // GameMap.OnLoad();
 
     SDL_Event Event;
 
@@ -135,9 +66,7 @@ int Game::Execute()
         {
             OnEvent(&Event);
         }
-
-        Loop(0);
-    
+        Loop();
     }
     Cleanup();
     exit(EXIT_SUCCESS);
@@ -176,93 +105,96 @@ bool Game::Init()
     return true;
 }
 //--------------------------------------------------------------------------
-void Game::Loop(int id)
+void Game::Loop()
 {    
-        Map GameMap;
-        GameMap.OnLoad();
         //---------ОТРИСОВКА МАШИНЫ + ДВИЖЕНИЕ---------------
         // SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         // SDL_RenderClear(renderer);
 
-        Game::car_coordinates = Game::car_.get_coordinates();
-
-        car.x = Game::car_coordinates.get_x();
-        car.y = Game::car_coordinates.get_y();
+        Game::CarRender();
         Game::car_.move();
-
-        SDL_SetRenderDrawColor(Game::renderer, 255, 255, 255, 255);
-        SDL_RenderFillRect(Game::renderer, &car);
         //---------ОТРИСОВКА КАРТЫ---------------------------
-        for(int y = 0; y < MAP_HEIGHT; y++) 
-        {
-            for(int x = 0; x < MAP_WIDTH; x++) 
-            {
-                int x_ = x * TILE_SIZE;
-                int y_ = y * TILE_SIZE; //Пусть пока что MapX и MapY = 0
-
-                if(GameMap.TileList[id].TileType == TILE_TYPE_NONE)
-                {
-                    continue;
-                }
-
-                if(GameMap.TileList[id].TileType == TILE_TYPE_OBSTACLES)
-                {
-                    obstacles.x = x_;
-                    obstacles.y = y_;
-
-                    SDL_SetRenderDrawColor(Game::renderer, 100, 255, 100, 255);
-                    SDL_RenderFillRect(Game::renderer, &obstacles);
-                }  
-
-                if(GameMap.TileList[id].TileType == TILE_TYPE_CHECKPOINT_1)
-                {
-                    points_1.x = x_;
-                    points_1.y = y_;
-
-                    SDL_SetRenderDrawColor(Game::renderer, 255, 255, 0, 255);
-                    SDL_RenderFillRect(Game::renderer, &points_1);
-                } 
-
-                if(GameMap.TileList[id].TileType == TILE_TYPE_CHECKPOINT_2)
-                {
-                    points_2.x = x_;
-                    points_2.y = y_;
-
-                    SDL_SetRenderDrawColor(Game::renderer, 0, 0, 255, 255);
-                    SDL_RenderFillRect(Game::renderer, &points_2);
-                }   
-
-                if(GameMap.TileList[id].TileType == TILE_TYPE_CHECKPOINT_3)
-                {
-                    points_3.x = x_;
-                    points_3.y = y_;
-
-                    SDL_SetRenderDrawColor(Game::renderer, 255, 0, 255, 255);
-                    SDL_RenderFillRect(Game::renderer, &points_3);
-                }
-
-                if(GameMap.TileList[id].TileType == TILE_TYPE_FINISH)
-                {
-                    finish.x = x_;
-                    finish.y = y_;
-
-                    SDL_SetRenderDrawColor(Game::renderer, 255, 0, 0, 255);
-                    SDL_RenderFillRect(Game::renderer, &finish);
-                }
-
-                id++;
-            }
-        }
-        SDL_RenderPresent(Game::renderer);
-
-        // Game::Render();
+        Game::MapRender(0);
         SDL_Delay(8);
 }
-//--------------------------------
-// Мне:
-//  камера карта
-//  порядок в коде
-//  вращение текстуры
+//--------------------------------------------------------------------------
+void Game::MapRender(int id)
+{
+    Map GameMap;
+    GameMap.OnLoad();
 
-// очки на экран и базу данных
-//--------------------------------
+    for(int y = 0; y < MAP_HEIGHT; y++) 
+    {
+        for(int x = 0; x < MAP_WIDTH; x++) 
+        {
+            int x_ = x * TILE_SIZE;
+            int y_ = y * TILE_SIZE; //Пусть пока что MapX и MapY = 0
+
+            if(GameMap.TileList[id].TileType == TILE_TYPE_NONE)
+            {
+                id++;
+                continue;
+            }
+
+            if(GameMap.TileList[id].TileType == TILE_TYPE_OBSTACLES)
+            {
+                obstacles.x = x_;
+                obstacles.y = y_;
+
+                SDL_SetRenderDrawColor(Game::renderer, 100, 255, 100, 255);
+                SDL_RenderFillRect(Game::renderer, &obstacles);
+            }  
+
+            if(GameMap.TileList[id].TileType == TILE_TYPE_CHECKPOINT_1)
+            {
+                points_1.x = x_;
+                points_1.y = y_;
+
+                SDL_SetRenderDrawColor(Game::renderer, 255, 255, 0, 255);
+                SDL_RenderFillRect(Game::renderer, &points_1);
+            } 
+
+            if(GameMap.TileList[id].TileType == TILE_TYPE_CHECKPOINT_2)
+            {
+                points_2.x = x_;
+                points_2.y = y_;
+
+                SDL_SetRenderDrawColor(Game::renderer, 0, 0, 255, 255);
+                SDL_RenderFillRect(Game::renderer, &points_2);
+            }   
+
+            if(GameMap.TileList[id].TileType == TILE_TYPE_CHECKPOINT_3)
+            {
+                points_3.x = x_;
+                points_3.y = y_;
+
+                SDL_SetRenderDrawColor(Game::renderer, 255, 0, 255, 255);
+                SDL_RenderFillRect(Game::renderer, &points_3);
+            }
+
+            if(GameMap.TileList[id].TileType == TILE_TYPE_FINISH)
+            {
+                finish.x = x_;
+                finish.y = y_;
+
+                SDL_SetRenderDrawColor(Game::renderer, 255, 0, 0, 255);
+                SDL_RenderFillRect(Game::renderer, &finish);
+            }
+
+            id++;
+        }
+    }
+    SDL_RenderPresent(Game::renderer);
+}
+//--------------------------------------------------------------------------
+void Game::CarRender()
+{
+    Game::car_coordinates = Game::car_.get_coordinates();
+
+    car.x = Game::car_coordinates.get_x();
+    car.y = Game::car_coordinates.get_y();
+
+    SDL_SetRenderDrawColor(Game::renderer, 255, 255, 255, 255);
+    SDL_RenderFillRect(Game::renderer, &car);
+}
+//--------------------------------------------------------------------------
