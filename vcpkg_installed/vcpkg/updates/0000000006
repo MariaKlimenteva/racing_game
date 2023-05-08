@@ -1,6 +1,0 @@
-Package: sdl2
-Feature: ibus
-Architecture: x64-linux
-Multi-Arch: same
-Description: Build with ibus IME support
-Status: install ok half-installed
