@@ -44,6 +44,7 @@ class Game
     void Cleanup();
     void MapRender(int id, Map& GameMap);
     void CarRender();
+    void CollectPoints(SDL_Rect points, int id, Map& GameMap);
     // void OnKeyDown(SDL_KeyCode sym, Uint16 unicode); //для перемещения камеры
 };
 //--------------------------------------------------------------------------

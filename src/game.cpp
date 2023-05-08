@@ -157,10 +157,7 @@ void Game::MapRender(int id, Map& GameMap)
                 SDL_SetRenderDrawColor(Game::renderer, 255, 255, 0, 255);
                 SDL_RenderFillRect(Game::renderer, &points_1);
 
-                if(((points_1.x <= car_coordinates.get_x()) && (car_coordinates.get_x() <= points_1.x + TILE_SIZE)) && ((points_1.y <= car_coordinates.get_y()) && (car_coordinates.get_y() <= points_1.y + TILE_SIZE)))
-                {
-                    GameMap.TileList[id].TileType = TILE_TYPE_REDRAWED;
-                }
+                Game::CollectPoints(points_1, id, GameMap);
             } 
 
             if(GameMap.TileList[id].TileType == TILE_TYPE_CHECKPOINT_2)
@@ -170,6 +167,8 @@ void Game::MapRender(int id, Map& GameMap)
 
                 SDL_SetRenderDrawColor(Game::renderer, 0, 0, 255, 255);
                 SDL_RenderFillRect(Game::renderer, &points_2);
+
+                Game::CollectPoints(points_2, id, GameMap);
             }   
 
             if(GameMap.TileList[id].TileType == TILE_TYPE_CHECKPOINT_3)
@@ -179,6 +178,8 @@ void Game::MapRender(int id, Map& GameMap)
 
                 SDL_SetRenderDrawColor(Game::renderer, 255, 0, 255, 255);
                 SDL_RenderFillRect(Game::renderer, &points_3);
+
+                Game::CollectPoints(points_3, id, GameMap);
             }
 
             if(GameMap.TileList[id].TileType == TILE_TYPE_FINISH)
@@ -211,3 +212,10 @@ void Game::CarRender()
     image.RenderTexture(car_texture, renderer, Game::car_coordinates.get_direction(), Game::car_coordinates.get_x(), Game::car_coordinates.get_y(), 50, 70);
 }
 //--------------------------------------------------------------------------
+void Game::CollectPoints(SDL_Rect points, int id, Map& GameMap)
+{
+    if(((points.x <= car_coordinates.get_x()) && (car_coordinates.get_x() <= points.x + TILE_SIZE)) && ((points.y <= car_coordinates.get_y()) && (car_coordinates.get_y() <= points.y + TILE_SIZE)))
+    {
+        GameMap.TileList[id].TileType = TILE_TYPE_NONE;
+    }
+}
