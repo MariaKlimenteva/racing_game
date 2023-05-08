@@ -26,5 +26,3 @@ Everything is very simple. In the game window you see green obstacles, hitting t
 Clone the repository to yourself: https://github.com/MariaKlimenteva/racing_game.
 
 Next you need to download vcpkg using: https://vcpkg.io/en/getting-started.html.
-
-To build, run the root cmake. It is important to run everything from the racing_game root folder.
