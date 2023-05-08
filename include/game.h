@@ -8,6 +8,8 @@
 #include "car.h"
 
 //--------------------------------------------------------------------------
+class Map;
+
 class Game
 {
     friend class Map;
@@ -15,6 +17,8 @@ class Game
 
     private:
     bool             Running;
+    bool             redraw;
+
     SDL_Window*      window;
     SDL_Renderer*    renderer;
     SDL_Surface*     screen_surface;
@@ -27,6 +31,7 @@ class Game
     SDL_Rect points_2;
     SDL_Rect points_3;
     SDL_Rect finish;
+    SDL_Rect redrawed;
 
     public:
     Game();
@@ -34,11 +39,12 @@ class Game
     int  Execute(); //выполняет основной цикл игры 
     bool Init();    //Инициализация игры и в том числе используемой библиотеки
     void OnEvent(SDL_Event* Event); //обработка событий (любое нажатие клавиш, мышки и тп)
-    void Loop();
-    void Render();
+    void Loop(Map& GameMap);
+    void Render(Map& GameMap);
     void Cleanup();
-    void MapRender(int id);
+    void MapRender(int id, Map& GameMap);
     void CarRender();
+    void CollectPoints(SDL_Rect points, int id, Map& GameMap);
     // void OnKeyDown(SDL_KeyCode sym, Uint16 unicode); //для перемещения камеры
 };
 //--------------------------------------------------------------------------

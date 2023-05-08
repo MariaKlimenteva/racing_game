@@ -295,7 +295,7 @@ void car_t::move()
     }
     if(is_pressed)
     {
-        spdlog::info("coordinates: {} {} {}\n, speed_: {}\n, acceleration_: {}\n, timer_: {}\n", coordinates_.get_x(), coordinates_.get_y(), coordinates_.get_direction(), speed_, acceleration_, timer_);
+        // spdlog::info("coordinates: {} {} {}\n, speed_: {}\n, acceleration_: {}\n, timer_: {}\n", coordinates_.get_x(), coordinates_.get_y(), coordinates_.get_direction(), speed_, acceleration_, timer_);
     }
    
 }
