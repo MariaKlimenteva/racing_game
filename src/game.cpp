@@ -11,15 +11,15 @@
 Game::Game()
 {
     Running                     = true;
-    SDL_Window *window          = nullptr;
+    SDL_Window* window          = nullptr;
     SDL_Renderer* renderer      = nullptr;
     SDL_Surface* screen_surface = nullptr;
 
-    obstacles.h = obstacles.w = TILE_SIZE;
-    points_1.h = points_1.w = TILE_SIZE;
-    points_2.h = points_2.w = TILE_SIZE;
-    points_3.h = points_3.w = TILE_SIZE;
-    finish.h = finish.w = TILE_SIZE; 
+    obstacles.h = obstacles.w   = TILE_SIZE;
+    points_1.h  = points_1.w    = TILE_SIZE;
+    points_2.h  = points_2.w    = TILE_SIZE;
+    points_3.h  = points_3.w    = TILE_SIZE;
+    finish.h    = finish.w      = TILE_SIZE; 
 }
 //--------------------------------------------------------------------------
 // Обработка событий, происходящих во время игры (Нажатие кнопки выход из игры, ...)
@@ -46,7 +46,6 @@ void Game::Render()
     car.x = Game::car_coordinates.get_x();
     car.y = Game::car_coordinates.get_y();
     SDL_RenderFillRect(Game::renderer, &car);
-    SDL_RenderPresent(Game::renderer);
     //---------------------------------------------------------
     for(int y = 0; y < MAP_HEIGHT; y++) 
     {
@@ -77,7 +76,6 @@ void Game::Render()
 
                 SDL_SetRenderDrawColor(Game::renderer, 255, 255, 0, 255);
                 SDL_RenderFillRect(Game::renderer, &points_1);
-                SDL_RenderPresent(Game::renderer);
             }
 
             if(GameMap.TileList[id].TileType == TILE_TYPE_CHECKPOINT_2)
@@ -87,7 +85,6 @@ void Game::Render()
 
                 SDL_SetRenderDrawColor(Game::renderer, 0, 0, 255, 255);
                 SDL_RenderFillRect(Game::renderer, &points_2);
-                SDL_RenderPresent(Game::renderer);
             }
 
             if(GameMap.TileList[id].TileType == TILE_TYPE_CHECKPOINT_3)
@@ -97,7 +94,6 @@ void Game::Render()
 
                 SDL_SetRenderDrawColor(Game::renderer, 255, 0, 255, 255);
                 SDL_RenderFillRect(Game::renderer, &points_3);
-                SDL_RenderPresent(Game::renderer);
             }
 
             if(GameMap.TileList[id].TileType == TILE_TYPE_FINISH)
@@ -107,7 +103,6 @@ void Game::Render()
 
                 SDL_SetRenderDrawColor(Game::renderer, 255, 0, 0, 255);
                 SDL_RenderFillRect(Game::renderer, &finish);
-                SDL_RenderPresent(Game::renderer);
             }
 
             id++;            
@@ -197,8 +192,6 @@ void Game::Loop(int id)
 
         SDL_SetRenderDrawColor(Game::renderer, 255, 255, 255, 255);
         SDL_RenderFillRect(Game::renderer, &car);
-        SDL_RenderPresent(Game::renderer);
-        SDL_Delay(8);
         //---------ОТРИСОВКА КАРТЫ---------------------------
         for(int y = 0; y < MAP_HEIGHT; y++) 
         {
@@ -228,7 +221,6 @@ void Game::Loop(int id)
 
                     SDL_SetRenderDrawColor(Game::renderer, 255, 255, 0, 255);
                     SDL_RenderFillRect(Game::renderer, &points_1);
-                    SDL_RenderPresent(Game::renderer);
                 } 
 
                 if(GameMap.TileList[id].TileType == TILE_TYPE_CHECKPOINT_2)
@@ -238,7 +230,6 @@ void Game::Loop(int id)
 
                     SDL_SetRenderDrawColor(Game::renderer, 0, 0, 255, 255);
                     SDL_RenderFillRect(Game::renderer, &points_2);
-                    SDL_RenderPresent(Game::renderer);
                 }   
 
                 if(GameMap.TileList[id].TileType == TILE_TYPE_CHECKPOINT_3)
@@ -248,7 +239,6 @@ void Game::Loop(int id)
 
                     SDL_SetRenderDrawColor(Game::renderer, 255, 0, 255, 255);
                     SDL_RenderFillRect(Game::renderer, &points_3);
-                    SDL_RenderPresent(Game::renderer);
                 }
 
                 if(GameMap.TileList[id].TileType == TILE_TYPE_FINISH)
@@ -258,7 +248,6 @@ void Game::Loop(int id)
 
                     SDL_SetRenderDrawColor(Game::renderer, 255, 0, 0, 255);
                     SDL_RenderFillRect(Game::renderer, &finish);
-                    SDL_RenderPresent(Game::renderer);
                 }
 
                 id++;
