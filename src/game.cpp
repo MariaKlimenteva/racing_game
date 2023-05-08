@@ -113,7 +113,7 @@ void Game::Loop()
         Game::car_.move();
         //---------ОТРИСОВКА КАРТЫ---------------------------
         Game::MapRender(0);
-        SDL_Delay(8);
+        SDL_Delay(20);
 }
 //--------------------------------------------------------------------------
 void Game::MapRender(int id)
@@ -134,6 +134,15 @@ void Game::MapRender(int id)
                 continue;
             }
 
+            if(GameMap.TileList[id].TileType == TILE_TYPE_REDRAWED)
+            {
+                redrawed.x = x_;
+                redrawed.y = y_;
+
+                SDL_SetRenderDrawColor(Game::renderer, 0, 0, 0, 0);
+                SDL_RenderFillRect(Game::renderer, &redrawed);
+            }
+
             if(GameMap.TileList[id].TileType == TILE_TYPE_OBSTACLES)
             {
                 obstacles.x = x_;
@@ -150,6 +159,11 @@ void Game::MapRender(int id)
 
                 SDL_SetRenderDrawColor(Game::renderer, 255, 255, 0, 255);
                 SDL_RenderFillRect(Game::renderer, &points_1);
+
+                if(((points_1.x <= car_coordinates.get_x()) && (car_coordinates.get_x() <= points_1.x + TILE_SIZE)) && ((points_1.y <= car_coordinates.get_y()) && (car_coordinates.get_y() <= points_1.y + TILE_SIZE)))
+                {
+                    GameMap.TileList[id].TileType = TILE_TYPE_REDRAWED;
+                }
             } 
 
             if(GameMap.TileList[id].TileType == TILE_TYPE_CHECKPOINT_2)
@@ -188,6 +202,12 @@ void Game::MapRender(int id)
 void Game::CarRender()
 {
     Game::car_coordinates = Game::car_.get_coordinates();
+
+    // if((obstacles.x <= car_coordinates.get_x() <= obstacles.x + TILE_SIZE) || (obstacles.y <= car_coordinates.get_y() <= obstacles.y + TILE_SIZE))
+    // {
+    //     double direction = car_coordinates.get_direction();
+    //     car_coordinates.change_direction(direction--);
+    // }
 
     Texture image;
     SDL_Texture* car_texture = image.LoadImage("car_image.png", renderer);

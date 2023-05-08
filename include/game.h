@@ -15,6 +15,8 @@ class Game
 
     private:
     bool             Running;
+    bool             redraw;
+
     SDL_Window*      window;
     SDL_Renderer*    renderer;
     SDL_Surface*     screen_surface;
@@ -27,6 +29,7 @@ class Game
     SDL_Rect points_2;
     SDL_Rect points_3;
     SDL_Rect finish;
+    SDL_Rect redrawed;
 
     public:
     Game();
