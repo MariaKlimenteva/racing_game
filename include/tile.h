@@ -8,8 +8,7 @@ enum
     TILE_TYPE_CHECKPOINT_1 = 2,
     TILE_TYPE_CHECKPOINT_2 = 3,
     TILE_TYPE_CHECKPOINT_3 = 4,
-    TILE_TYPE_FINISH = 5,
-    TILE_TYPE_REDRAWED = 6
+    TILE_TYPE_FINISH = 5
 };
 //--------------------------------------------------------------------------
 class Tile

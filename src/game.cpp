@@ -131,15 +131,6 @@ void Game::MapRender(int id, Map& GameMap)
                 continue;
             }
 
-            if(GameMap.TileList[id].TileType == TILE_TYPE_REDRAWED)
-            {
-                redrawed.x = x_;
-                redrawed.y = y_;
-
-                SDL_SetRenderDrawColor(Game::renderer, 0, 0, 0, 0);
-                SDL_RenderFillRect(Game::renderer, &redrawed);
-            }
-
             if(GameMap.TileList[id].TileType == TILE_TYPE_OBSTACLES)
             {
                 obstacles.x = x_;
@@ -214,8 +205,9 @@ void Game::CarRender()
 //--------------------------------------------------------------------------
 void Game::CollectPoints(SDL_Rect points, int id, Map& GameMap)
 {
-    if(((points.x <= car_coordinates.get_x()) && (car_coordinates.get_x() <= points.x + TILE_SIZE)) && ((points.y <= car_coordinates.get_y()) && (car_coordinates.get_y() <= points.y + TILE_SIZE)))
+    if(((points.x <= car_coordinates.get_x() + X_ERROR) && (car_coordinates.get_x() - X_ERROR <= points.x + POINTS_ERROR)) && ((points.y <= car_coordinates.get_y() + Y_ERROR) && (car_coordinates.get_y() - Y_ERROR <= points.y + POINTS_ERROR)))
     {
         GameMap.TileList[id].TileType = TILE_TYPE_NONE;
     }
 }
+//--------------------------------------------------------------------------
