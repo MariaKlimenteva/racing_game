@@ -6,8 +6,11 @@
 
 #include <string>
 
+#include "game.h"
+
 class Texture 
 {
+    friend class Game;
     public:
     Texture();
  

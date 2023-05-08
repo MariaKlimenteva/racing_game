@@ -11,6 +11,7 @@
 class Game
 {
     friend class Map;
+    friend class Texture;
 
     private:
     bool             Running;
