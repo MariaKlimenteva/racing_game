@@ -16,7 +16,7 @@ class Texture
  
     public:
     SDL_Texture* LoadImage(const std::string& file, SDL_Renderer* ren);
-    void RenderTexture(SDL_Texture *tex, SDL_Renderer *ren, int x, int y, int w, int h);
+    void RenderTexture(SDL_Texture *tex, SDL_Renderer *ren, double direction, int x, int y, int w, int h);
 };
  
 #endif //CAR_IMAGE_H

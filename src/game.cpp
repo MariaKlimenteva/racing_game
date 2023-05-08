@@ -191,6 +191,6 @@ void Game::CarRender()
 
     Texture image;
     SDL_Texture* car_texture = image.LoadImage("car_image.png", renderer);
-    image.RenderTexture(car_texture, renderer, Game::car_coordinates.get_x(), Game::car_coordinates.get_y(), 50, 70);
+    image.RenderTexture(car_texture, renderer, Game::car_coordinates.get_direction(), Game::car_coordinates.get_x(), Game::car_coordinates.get_y(), 50, 70);
 }
 //--------------------------------------------------------------------------
