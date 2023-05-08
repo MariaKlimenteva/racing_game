@@ -17,7 +17,6 @@ class Game
     SDL_Window*      window;
     SDL_Renderer*    renderer;
     SDL_Surface*     screen_surface;
-    SDL_Rect         car;
     
     car_t            car_;
     coordinates_t    car_coordinates;
