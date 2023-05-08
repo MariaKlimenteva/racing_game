@@ -35,6 +35,10 @@ void Game::OnEvent(SDL_Event* Event)
 //--------------------------------------------------------------------------
 void Game::Render()
 {
+    int id = 0;
+    Map GameMap;
+    GameMap.OnLoad();
+    //--------------------------------------------------------
     Game::car_coordinates = Game::car_.get_coordinates();
     SDL_SetRenderDrawColor(Game::renderer, 255, 255, 255, 255);
     car.w = 70;
@@ -43,11 +47,7 @@ void Game::Render()
     car.y = Game::car_coordinates.get_y();
     SDL_RenderFillRect(Game::renderer, &car);
     SDL_RenderPresent(Game::renderer);
-
-    int id = 0;
-    Map GameMap;
-    GameMap.OnLoad();
-
+    //---------------------------------------------------------
     for(int y = 0; y < MAP_HEIGHT; y++) 
     {
         for(int x = 0; x < MAP_WIDTH; x++) 
@@ -115,8 +115,6 @@ void Game::Render()
         
     }
     SDL_RenderPresent(Game::renderer);
-
-    
 }
 //--------------------------------------------------------------------------
 void Game::Cleanup()
@@ -267,6 +265,8 @@ void Game::Loop(int id)
             }
         }
         SDL_RenderPresent(Game::renderer);
+
+        // Game::Render();
         SDL_Delay(8);
 }
 //--------------------------------
