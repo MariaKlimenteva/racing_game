@@ -8,6 +8,8 @@
 #include "car.h"
 
 //--------------------------------------------------------------------------
+class Map;
+
 class Game
 {
     friend class Map;
@@ -37,10 +39,10 @@ class Game
     int  Execute(); //выполняет основной цикл игры 
     bool Init();    //Инициализация игры и в том числе используемой библиотеки
     void OnEvent(SDL_Event* Event); //обработка событий (любое нажатие клавиш, мышки и тп)
-    void Loop();
-    void Render();
+    void Loop(Map& GameMap);
+    void Render(Map& GameMap);
     void Cleanup();
-    void MapRender(int id);
+    void MapRender(int id, Map& GameMap);
     void CarRender();
     // void OnKeyDown(SDL_KeyCode sym, Uint16 unicode); //для перемещения камеры
 };

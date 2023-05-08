@@ -34,10 +34,10 @@ void Game::OnEvent(SDL_Event* Event)
     }
 }
 //--------------------------------------------------------------------------
-void Game::Render()
+void Game::Render(Map& GameMap)
 {
     Game::CarRender();
-    Game::MapRender(0);
+    Game::MapRender(0, GameMap);
 }
 //--------------------------------------------------------------------------
 void Game::Cleanup()
@@ -52,19 +52,19 @@ int Game::Execute()
         return INIT_ERROR;
     }
 
-    // Map GameMap;
-    // GameMap.OnLoad();
+    Map GameMap;
+    GameMap.OnLoad();
 
     SDL_Event Event;
 
-    Render();
+    Render(GameMap);
     while(Running) 
     {
         while(SDL_PollEvent(&Event)) //проверяем события и передаем их по одному в OnEvent
         {
             OnEvent(&Event);
         }
-        Loop();
+        Loop(GameMap);
     }
     Cleanup();
     exit(EXIT_SUCCESS);
@@ -103,7 +103,7 @@ bool Game::Init()
     return true;
 }
 //--------------------------------------------------------------------------
-void Game::Loop()
+void Game::Loop(Map& GameMap)
 {    
         //---------ОТРИСОВКА МАШИНЫ + ДВИЖЕНИЕ---------------
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
@@ -112,15 +112,12 @@ void Game::Loop()
         Game::CarRender();
         Game::car_.move();
         //---------ОТРИСОВКА КАРТЫ---------------------------
-        Game::MapRender(0);
-        SDL_Delay(20);
+        Game::MapRender(0, GameMap);
+        SDL_Delay(8);
 }
 //--------------------------------------------------------------------------
-void Game::MapRender(int id)
+void Game::MapRender(int id, Map& GameMap)
 {
-    Map GameMap;
-    GameMap.OnLoad();
-
     for(int y = 0; y < MAP_HEIGHT; y++) 
     {
         for(int x = 0; x < MAP_WIDTH; x++) 
