@@ -36,25 +36,23 @@ void Game::OnEvent(SDL_Event* Event)
     }
 }
 //--------------------------------------------------------------------------
-void Game::Render(Map& GameMap)
+void Game::Render(Map& GameMap, Camera& GameCamera, int camera_current_x, int camera_current_y, int car_x, int car_y)
 {
-    Camera GameCamera;
+    map_coordinates = GameCamera.SetPos(camera_current_x, camera_current_y);
     
-    map_coordinates = GameCamera.SetPos(CAMERA_INIT_X, CAMERA_INIT_Y);
-    int CAMERA_CURRENT_X = CAMERA_INIT_X;
-    int CAMERA_CURRENT_Y = CAMERA_INIT_Y;
-    
-    if((abs(car_coordinates.get_x() - CAR_INIT_X)) >= AREA_SIZE/2)
+    if((abs(car_coordinates.get_x() - car_x)) >= AREA_SIZE/100)
     {
         
-        map_coordinates = GameCamera.SetPos(CAMERA_CURRENT_X - AREA_SIZE/2, CAMERA_CURRENT_Y);
-        CAMERA_CURRENT_X = CAMERA_CURRENT_X - AREA_SIZE/2;
+        map_coordinates = GameCamera.SetPos(camera_current_x + AREA_SIZE/100, camera_current_y);
+        camera_current_x -= AREA_SIZE/100;
+        car_x = car_coordinates.get_x();
     }
 
-    if((abs(car_coordinates.get_y() - CAR_INIT_Y) >= AREA_SIZE/2))
+    if((abs(car_coordinates.get_y() - car_y) >= AREA_SIZE/100))
     {
-        map_coordinates = GameCamera.SetPos(CAMERA_CURRENT_X, CAMERA_CURRENT_Y + AREA_SIZE/2);
-        CAMERA_CURRENT_Y = CAMERA_CURRENT_Y + AREA_SIZE/2;
+        map_coordinates = GameCamera.SetPos(camera_current_x, camera_current_y + AREA_SIZE/100);
+        camera_current_y += AREA_SIZE/100;
+        car_y = car_coordinates.get_y();
     }
 
     int MapX = map_coordinates.first;
@@ -79,16 +77,25 @@ int Game::Execute()
     Map GameMap;
     GameMap.OnLoad();
 
+    Camera GameCamera;
+
+    int camera_current_x = CAMERA_INIT_X;
+    int camera_current_y = CAMERA_INIT_Y;
+
+    int car_x = CAR_INIT_X;
+    int car_y = CAR_INIT_Y;
+
     SDL_Event Event;
 
-    Render(GameMap);
+    Render(GameMap, GameCamera, camera_current_x, camera_current_y, car_x, car_y);
+
     while(Running) 
     {
         while(SDL_PollEvent(&Event)) //проверяем события и передаем их по одному в OnEvent
         {
             OnEvent(&Event);
         }
-        Loop(GameMap);
+        Loop(GameMap, GameCamera, camera_current_x, camera_current_y, car_x, car_y);
     }
     Cleanup();
     exit(EXIT_SUCCESS);
@@ -127,15 +134,15 @@ bool Game::Init()
     return true;
 }
 //--------------------------------------------------------------------------
-void Game::Loop(Map& GameMap)
+void Game::Loop(Map& GameMap, Camera& GameCamera, int camera_current_x, int camera_current_y, int car_x, int car_y)
 {    
         //---------ОТРИСОВКА МАШИНЫ и КАРТЫ + ДВИЖЕНИЕ---------------
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
 
-        Game::Render(GameMap);
+        Game::Render(GameMap, GameCamera, camera_current_x, camera_current_y, car_x, car_y);
         Game::car_.move();
-        SDL_Delay(8);
+        SDL_Delay(1);
 }
 //--------------------------------------------------------------------------
 void Game::MapRender(int id, Map& GameMap, int MapX, int MapY)
