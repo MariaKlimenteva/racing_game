@@ -15,6 +15,7 @@ class Game
 {
     friend class Map;
     friend class Texture;
+    friend class Camera;
 
     private:
     bool             Running;
@@ -42,8 +43,8 @@ class Game
     int  Execute(); //выполняет основной цикл игры 
     bool Init();    //Инициализация игры и в том числе используемой библиотеки
     void OnEvent(SDL_Event* Event); //обработка событий (любое нажатие клавиш, мышки и тп)
-    void Loop  (Map& GameMap, Camera& GameCamera, int camera_current_x, int camera_current_y, int car_x, int car_y);
-    void Render(Map& GameMap, Camera& GameCamera, int camera_current_x, int camera_current_y, int car_x, int car_y);
+    void Loop  (Map& GameMap, Camera& GameCamera);
+    void Render(Map& GameMap, Camera& GameCamera);
     void Cleanup();
     void MapRender(int id, Map& GameMap, int MapX, int MapY);
     void CarRender();
