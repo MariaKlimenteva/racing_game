@@ -81,6 +81,8 @@ int Game::Execute()
 
     Render(GameMap, GameCamera);
 
+    // spdlog::info("is coordinate a wall? {}", Game::IsWall(GameMap, 0, ));
+
     while(Running) 
     {
         while(SDL_PollEvent(&Event)) //проверяем события и передаем их по одному в OnEvent
@@ -223,6 +225,23 @@ void Game::CollectPoints(SDL_Rect points, int id, Map& GameMap)
     if(((points.x <= car_coordinates.get_x() + X_ERROR) && (car_coordinates.get_x() - X_ERROR <= points.x + POINTS_ERROR)) && ((points.y <= car_coordinates.get_y() + Y_ERROR) && (car_coordinates.get_y() - Y_ERROR <= points.y + POINTS_ERROR)))
     {
         GameMap.TileList[id].TileType = TILE_TYPE_NONE;
+    }
+}
+//--------------------------------------------------------------------------
+bool Game::IsWall(Map& GameMap, int id, coordinates_t coordinates)
+{
+    for(int y = 0; y < MAP_HEIGHT; y++) 
+    {
+        for(int x = 0; x < MAP_WIDTH; x++) 
+        {
+            int x_ = x * TILE_SIZE;
+            int y_ = y * TILE_SIZE;
+            if((GameMap.TileList[id].TileType == TILE_TYPE_OBSTACLES) && (coordinates.get_x() == x_) && (coordinates.get_y() == y_))
+            {
+                return true;
+            }
+            else return false;
+        }
     }
 }
 //--------------------------------------------------------------------------

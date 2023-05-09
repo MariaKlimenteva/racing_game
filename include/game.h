@@ -49,7 +49,7 @@ class Game
     void MapRender(int id, Map& GameMap, int MapX, int MapY);
     void CarRender();
     void CollectPoints(SDL_Rect points, int id, Map& GameMap);
-    void CameraMove(int x, int y, Camera& GameCamera);
+    bool IsWall(Map& GameMap, int id, coordinates_t coordinates);
 };
 //--------------------------------------------------------------------------
 #endif
