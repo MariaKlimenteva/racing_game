@@ -12,20 +12,8 @@ enum Size
     AREA_SIZE         = 300,
     MAP_WIDTH         = 40,
     MAP_HEIGHT        = 40,
-    WINDOW_WIDTH      = 2*AREA_SIZE+30,
-    WINDOW_HEIGHT     = 2*AREA_SIZE+30
-};
-//--------------------------------------------------------------------------
-enum TargetMode
-{
-    NORMAL = 0,
-    CENTER
-};
-//--------------------------------------------------------------------------
-enum CameraPosition
-{
-    CAMERA_INIT_X = 1,
-    CAMERA_INIT_Y = -600
+    WINDOW_WIDTH      = 2*AREA_SIZE + TILE_SIZE,
+    WINDOW_HEIGHT     = 2*AREA_SIZE + TILE_SIZE
 };
 //--------------------------------------------------------------------------
 enum CarCharacteristics
@@ -41,8 +29,6 @@ enum Inaccuracy
     X_ERROR      = 30,
     Y_ERROR      = 20,
     POINTS_ERROR = TILE_SIZE,
-    VISIBLE_PART_X = WINDOW_WIDTH - CAR_WIDTH,
-    VISIBLE_PART_Y = WINDOW_WIDTH - CAR_HEIGHT
 };
 //--------------------------------------------------------------------------
 #endif //DEFINE_H

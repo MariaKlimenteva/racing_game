@@ -232,12 +232,3 @@ void Game::CollectPoints(SDL_Rect points, int id, Map& GameMap)
     }
 }
 //--------------------------------------------------------------------------
-// void Game::CameraMove(int x, int y, Camera& GameCamera)
-// {
-//     if(car_coordinates.get_x() >= x)
-//     {
-//         map_coordinates = GameCamera.SetPos(-x, -CAMERA_INIT_Y);
-        
-//     }
-// }
-//--------------------------------------------------------------------------
