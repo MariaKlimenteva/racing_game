@@ -42,15 +42,24 @@ void Game::Render(Map& GameMap, Camera& GameCamera, int camera_current_x, int ca
 
     for(int x = 0; x <= 615; x++)
     { 
-        if(car_coordinates.get_x() >= x)
-        {
-            map_coordinates = GameCamera.SetPos(-x, CAMERA_INIT_Y);
-        }
-    }
+        // for(int y = 500; y >= -100; y++)
+        // {
+            if(car_coordinates.get_x() >= x)
+            {
+                map_coordinates = GameCamera.SetPos(-x, CAMERA_INIT_Y);
+            }
 
-    for(int y = 500; y >= 10; y++)
+            // if(car_coordinates.get_y() <= y)
+            // {
+            //     map_coordinates = GameCamera.SetPos(CAMERA_INIT_X, -y);
+            // }
+        // }
+
+    }
+spdlog::info("{}", car_coordinates.get_y());
+    for(int y = 420; y >= 0; y--)
     {   
-        if(car_coordinates.get_x() <= y)
+        if(car_coordinates.get_y() <= y)
         {
             map_coordinates = GameCamera.SetPos(CAMERA_INIT_X, -y);
         }
