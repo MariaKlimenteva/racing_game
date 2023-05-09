@@ -19,7 +19,7 @@ bool Map::OnLoad()
 
     if(!file)
     {
-        spdlog::error("Problems with opening a file\n");
+        spdlog::error("Problems with opening a file. Try to run from root holder\n");
         perror("Map.txt");
         return false;
     }
@@ -31,9 +31,7 @@ bool Map::OnLoad()
 
         TileList.push_back(TempTile);
     }
-
-
+    
     file.close();
-    spdlog::info("The game map file has been read\n");
     return true;
 }

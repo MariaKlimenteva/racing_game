@@ -1,10 +1,12 @@
 #include <iostream>
+#include <cmath>
 
 #include "game.h"
 #include "map.h"
 #include "define.h"
 #include "car.h"
 #include "car_image.h"
+#include "camera.h"
 
 //--------------------------------------------------------------------------
 // Constructor
@@ -36,8 +38,18 @@ void Game::OnEvent(SDL_Event* Event)
 //--------------------------------------------------------------------------
 void Game::Render(Map& GameMap)
 {
+    Camera GameCamera;
+    std::pair<int, int> map = GameCamera.SetPos(CAMERA_INIT_X, CAMERA_INIT_Y);
+
+    if((abs(car_coordinates.get_x() - CAR_INIT_X) >= AREA_SIZE) && (abs(car_coordinates.get_y() - CAR_INIT_Y) >= AREA_SIZE))
+    {
+        std::pair<int, int> map = GameCamera.SetPos(CAMERA_INIT_X + AREA_SIZE/2, CAMERA_INIT_Y + AREA_SIZE/2);
+    }
+    int MapX = map.first;
+    int MapY = map.second;
+    
     Game::CarRender();
-    Game::MapRender(0, GameMap);
+    Game::MapRender(0, GameMap, MapX, MapY); 
 }
 //--------------------------------------------------------------------------
 void Game::Cleanup()
@@ -97,7 +109,7 @@ bool Game::Init()
     SDL_FillRect(screen_surface, NULL, SDL_MapRGB(screen_surface->format, 0, 0, 0)); // отвечает за цвет окна
     SDL_UpdateWindowSurface(window);
     //---------Car initialisation--------------------------------------------
-    Game::car_.init(0, 40, 1100, 0, 500, 4, 800); 
+    Game::car_.init(0, CAR_INIT_X, CAR_INIT_Y, 0, 500, 4, 800); 
     Game::car_.set_butons(SDL_SCANCODE_W, SDL_SCANCODE_S, SDL_SCANCODE_A, SDL_SCANCODE_D, SDL_SCANCODE_SPACE);
 
     return true;
@@ -105,25 +117,23 @@ bool Game::Init()
 //--------------------------------------------------------------------------
 void Game::Loop(Map& GameMap)
 {    
-        //---------ОТРИСОВКА МАШИНЫ + ДВИЖЕНИЕ---------------
+        //---------ОТРИСОВКА МАШИНЫ и КАРТЫ + ДВИЖЕНИЕ---------------
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
 
-        Game::CarRender();
+        Game::Render(GameMap);
         Game::car_.move();
-        //---------ОТРИСОВКА КАРТЫ---------------------------
-        Game::MapRender(0, GameMap);
         SDL_Delay(8);
 }
 //--------------------------------------------------------------------------
-void Game::MapRender(int id, Map& GameMap)
+void Game::MapRender(int id, Map& GameMap, int MapX, int MapY)
 {
     for(int y = 0; y < MAP_HEIGHT; y++) 
     {
         for(int x = 0; x < MAP_WIDTH; x++) 
         {
-            int x_ = x * TILE_SIZE;
-            int y_ = y * TILE_SIZE; //Пусть пока что MapX и MapY = 0
+            int x_ = MapX + (x * TILE_SIZE);
+            int y_ = MapY + (y * TILE_SIZE); //Пусть пока что MapX и MapY = 0
 
             if(GameMap.TileList[id].TileType == TILE_TYPE_NONE)
             {
@@ -200,7 +210,7 @@ void Game::CarRender()
 
     Texture image;
     SDL_Texture* car_texture = image.LoadImage("car_image.png", renderer);
-    image.RenderTexture(car_texture, renderer, Game::car_coordinates.get_direction(), Game::car_coordinates.get_x(), Game::car_coordinates.get_y(), 50, 70);
+    image.RenderTexture(car_texture, renderer, Game::car_coordinates.get_direction(), Game::car_coordinates.get_x(), Game::car_coordinates.get_y(), CAR_WIDTH, CAR_HEIGHT);
 }
 //--------------------------------------------------------------------------
 void Game::CollectPoints(SDL_Rect points, int id, Map& GameMap)
@@ -210,4 +220,20 @@ void Game::CollectPoints(SDL_Rect points, int id, Map& GameMap)
         GameMap.TileList[id].TileType = TILE_TYPE_NONE;
     }
 }
+//--------------------------------------------------------------------------
+// int Game::GetMapX()
+// {
+//     Camera GameCamera;
+//     std::pair<int, int> MapCoordinates = GameCamera.CameraMovement(Game::car_, Game::car_coordinates);
+//     int MapX = MapCoordinates.first;
+//     return MapX;
+// }
+// //--------------------------------------------------------------------------
+// int Game::GetMapY()
+// {
+//     Camera GameCamera;
+//     std::pair<int, int> MapCoordinates = GameCamera.CameraMovement(Game::car_, Game::car_coordinates);
+//     int MapY = MapCoordinates.second;
+//     return MapY;
+// }
 //--------------------------------------------------------------------------
