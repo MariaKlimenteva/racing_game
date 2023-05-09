@@ -213,12 +213,6 @@ void Game::CarRender()
 {
     Game::car_coordinates = Game::car_.get_coordinates();
 
-    // if((obstacles.x <= car_coordinates.get_x() <= obstacles.x + TILE_SIZE) || (obstacles.y <= car_coordinates.get_y() <= obstacles.y + TILE_SIZE))
-    // {
-    //     double direction = car_coordinates.get_direction();
-    //     car_coordinates.change_direction(direction--);
-    // }
-
     Texture image;
     SDL_Texture* car_texture = image.LoadImage("car_image.png", renderer);
     image.RenderTexture(car_texture, renderer, Game::car_coordinates.get_direction(), Game::car_coordinates.get_x(), Game::car_coordinates.get_y(), CAR_WIDTH, CAR_HEIGHT);
