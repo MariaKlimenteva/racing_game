@@ -24,7 +24,7 @@ enum TargetMode
 //--------------------------------------------------------------------------
 enum CameraPosition
 {
-    CAMERA_INIT_X = 0,
+    CAMERA_INIT_X = -10,
     CAMERA_INIT_Y = -600
 };
 //--------------------------------------------------------------------------
@@ -32,7 +32,7 @@ enum CarCharacteristics
 {
     CAR_WIDTH  = 50,
     CAR_HEIGHT = 70,
-    CAR_INIT_X = CAMERA_INIT_X + 40,
+    CAR_INIT_X = 20,
     CAR_INIT_Y = -CAMERA_INIT_Y - 100
 };
 //--------------------------------------------------------------------------

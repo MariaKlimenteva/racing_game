@@ -39,21 +39,23 @@ void Game::OnEvent(SDL_Event* Event)
 void Game::Render(Map& GameMap, Camera& GameCamera, int camera_current_x, int camera_current_y, int car_x, int car_y)
 {
     map_coordinates = GameCamera.SetPos(camera_current_x, camera_current_y);
-    
-    if((abs(car_coordinates.get_x() - car_x)) >= AREA_SIZE/100)
-    {
-        
-        map_coordinates = GameCamera.SetPos(camera_current_x + AREA_SIZE/100, camera_current_y);
-        camera_current_x -= AREA_SIZE/100;
-        car_x = car_coordinates.get_x();
+
+    for(int x = 0; x <= 615; x++)
+    { 
+        if(car_coordinates.get_x() >= x)
+        {
+            map_coordinates = GameCamera.SetPos(-x, CAMERA_INIT_Y);
+        }
     }
 
-    if((abs(car_coordinates.get_y() - car_y) >= AREA_SIZE/100))
-    {
-        map_coordinates = GameCamera.SetPos(camera_current_x, camera_current_y + AREA_SIZE/100);
-        camera_current_y += AREA_SIZE/100;
-        car_y = car_coordinates.get_y();
+    for(int y = 500; y >= 10; y++)
+    {   
+        if(car_coordinates.get_x() <= y)
+        {
+            map_coordinates = GameCamera.SetPos(CAMERA_INIT_X, -y);
+        }
     }
+
 
     int MapX = map_coordinates.first;
     int MapY = map_coordinates.second;
@@ -240,19 +242,12 @@ void Game::CollectPoints(SDL_Rect points, int id, Map& GameMap)
     }
 }
 //--------------------------------------------------------------------------
-// int Game::GetMapX()
+// void Game::CameraMove(int x, int y, Camera& GameCamera)
 // {
-//     Camera GameCamera;
-//     std::pair<int, int> MapCoordinates = GameCamera.CameraMovement(Game::car_, Game::car_coordinates);
-//     int MapX = MapCoordinates.first;
-//     return MapX;
-// }
-// //--------------------------------------------------------------------------
-// int Game::GetMapY()
-// {
-//     Camera GameCamera;
-//     std::pair<int, int> MapCoordinates = GameCamera.CameraMovement(Game::car_, Game::car_coordinates);
-//     int MapY = MapCoordinates.second;
-//     return MapY;
+//     if(car_coordinates.get_x() >= x)
+//     {
+//         map_coordinates = GameCamera.SetPos(-x, -CAMERA_INIT_Y);
+        
+//     }
 // }
 //--------------------------------------------------------------------------
