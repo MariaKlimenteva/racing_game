@@ -39,15 +39,27 @@ void Game::OnEvent(SDL_Event* Event)
 void Game::Render(Map& GameMap)
 {
     Camera GameCamera;
-    std::pair<int, int> map = GameCamera.SetPos(CAMERA_INIT_X, CAMERA_INIT_Y);
-
-    if((abs(car_coordinates.get_x() - CAR_INIT_X) >= AREA_SIZE) && (abs(car_coordinates.get_y() - CAR_INIT_Y) >= AREA_SIZE))
-    {
-        std::pair<int, int> map = GameCamera.SetPos(CAMERA_INIT_X + AREA_SIZE/2, CAMERA_INIT_Y + AREA_SIZE/2);
-    }
-    int MapX = map.first;
-    int MapY = map.second;
     
+    map_coordinates = GameCamera.SetPos(CAMERA_INIT_X, CAMERA_INIT_Y);
+    int CAMERA_CURRENT_X = CAMERA_INIT_X;
+    int CAMERA_CURRENT_Y = CAMERA_INIT_Y;
+    
+    if((abs(car_coordinates.get_x() - CAR_INIT_X)) >= AREA_SIZE/2)
+    {
+        
+        map_coordinates = GameCamera.SetPos(CAMERA_CURRENT_X - AREA_SIZE/2, CAMERA_CURRENT_Y);
+        CAMERA_CURRENT_X = CAMERA_CURRENT_X - AREA_SIZE/2;
+    }
+
+    if((abs(car_coordinates.get_y() - CAR_INIT_Y) >= AREA_SIZE/2))
+    {
+        map_coordinates = GameCamera.SetPos(CAMERA_CURRENT_X, CAMERA_CURRENT_Y + AREA_SIZE/2);
+        CAMERA_CURRENT_Y = CAMERA_CURRENT_Y + AREA_SIZE/2;
+    }
+
+    int MapX = map_coordinates.first;
+    int MapY = map_coordinates.second;
+
     Game::CarRender();
     Game::MapRender(0, GameMap, MapX, MapY); 
 }

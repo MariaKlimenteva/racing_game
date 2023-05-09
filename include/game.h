@@ -33,6 +33,8 @@ class Game
     SDL_Rect finish;
     SDL_Rect redrawed;
 
+    std::pair<int, int> map_coordinates;
+
     public:
     Game();
 
