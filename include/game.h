@@ -9,11 +9,13 @@
 
 //--------------------------------------------------------------------------
 class Map;
+class Camera;
 
 class Game
 {
     friend class Map;
     friend class Texture;
+    friend class Camera;
 
     private:
     bool             Running;
@@ -33,19 +35,21 @@ class Game
     SDL_Rect finish;
     SDL_Rect redrawed;
 
+    std::pair<int, int> map_coordinates;
+
     public:
     Game();
 
     int  Execute(); //выполняет основной цикл игры 
     bool Init();    //Инициализация игры и в том числе используемой библиотеки
     void OnEvent(SDL_Event* Event); //обработка событий (любое нажатие клавиш, мышки и тп)
-    void Loop(Map& GameMap);
-    void Render(Map& GameMap);
+    void Loop  (Map& GameMap, Camera& GameCamera);
+    void Render(Map& GameMap, Camera& GameCamera);
     void Cleanup();
-    void MapRender(int id, Map& GameMap);
+    void MapRender(int id, Map& GameMap, int MapX, int MapY);
     void CarRender();
     void CollectPoints(SDL_Rect points, int id, Map& GameMap);
-    // void OnKeyDown(SDL_KeyCode sym, Uint16 unicode); //для перемещения камеры
+    void CameraMove(int x, int y, Camera& GameCamera);
 };
 //--------------------------------------------------------------------------
 #endif

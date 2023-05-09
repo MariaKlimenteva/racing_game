@@ -30,4 +30,5 @@ void Texture::RenderTexture(SDL_Texture *tex, SDL_Renderer *ren, double directio
 	double angle = (direction * 180)/M_PI;
 	SDL_RenderCopyEx(ren, tex, NULL, &dst, angle, NULL, SDL_FLIP_VERTICAL);
 }
+//--------------------------------------------------------------------------
 
