@@ -52,10 +52,20 @@ void Game::Render(Map& GameMap, Camera& GameCamera)
             }
         }
     }
-
+  
     int MapX = GameCamera.MapX;
     int MapY = GameCamera.MapY;
 
+    if(MapX <= MIN_MAP_X)
+    {
+        MapX = MIN_MAP_X;
+    }
+
+    if(MapY <= MIN_MAP_Y)
+    {
+        MapY = MIN_MAP_Y;
+    }
+    
     Game::CarRender();
     Game::MapRender(0, GameMap, MapX, MapY); 
 }
@@ -242,6 +252,8 @@ bool Game::IsWall(Map& GameMap, int id, coordinates_t coordinates)
             }
             else return false;
         }
+        
     }
+    return false;
 }
 //--------------------------------------------------------------------------
