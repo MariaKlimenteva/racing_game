@@ -230,7 +230,7 @@ void car_t::move()
 
         for (int i = 0; i < 5; i++) {
            flags[i] = keystate[buttons[i]];
-           if(flags[i])
+           if(flags[i]) //bit vector
            {
                 // spdlog::info("keyboard pressed {}\n", i);
                 is_pressed = true;

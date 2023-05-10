@@ -31,4 +31,9 @@ enum Inaccuracy
     POINTS_ERROR = TILE_SIZE,
 };
 //--------------------------------------------------------------------------
+enum VisablePart
+{
+    MIN_MAP_X = -568,
+    MIN_MAP_Y = -570
+};
 #endif //DEFINE_H
