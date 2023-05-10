@@ -2,7 +2,6 @@
 #define CAMERA_H
 //--------------------------------------------------------------------------
 #include <utility>
-
 #include "car.h"
 //--------------------------------------------------------------------------
 class car_t;
@@ -18,7 +17,7 @@ class Camera
 
     public:
     Camera();
-    std::pair<int,int> SetPos(int x, int y);
+    // std::pair<int,int> SetPos(int x, int y);
 };
 //--------------------------------------------------------------------------
 #endif //CAMERA_H
