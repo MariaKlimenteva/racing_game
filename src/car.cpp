@@ -293,18 +293,18 @@ void car_t::move(Map& GameMap, int id)
         double new_x = coordinates_.get_x() + std::sin(dir) * sp * dt;
         double new_y = coordinates_.get_y() -(std::cos(dir) * sp * dt);
 
-        coordinates_t new_coordinates(new_x, new_y, coordinates_.get_direction());
+        coordinates_t new_coordinates(new_x, new_y, coordinates_.get_direction);
 
         if(IsWall(GameMap, id, new_coordinates)) {
             new_coordinates.set_y(coordinates_.get_y());
             if(IsWall(GameMap, id, new_coordinates)) {
-                coordinates_.set_direction(-(coordinates_.get_direction()));
+                coordinates_.set_direction(-(coordinates_.get_direction));
             }
 
             new_coordinates.set_x(coordinates_.get_x());
             new_coordinates.set_x(new_y);
             if(IsWall(GameMap, id, new_coordinates)) {
-                coordinates_.set_direction(sign(coordinates_.get_direction()) * (M_PI - std::abs(coordinates_.get_direction())));
+                coordinates_.set_direction(sign(coordinates_.get_direction) * (M_PI - std::abs(coordinates_.get_direction)));
             }
 
         } else {
