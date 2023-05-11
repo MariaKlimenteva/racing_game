@@ -2,6 +2,8 @@
 #define CAR_H
 
 #include <SDL.h>
+#include "game.h"
+#include "map.h"
 
 #define ACCURACY 0.00001
 

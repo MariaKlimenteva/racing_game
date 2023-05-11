@@ -5,8 +5,7 @@
 
 #include <spdlog/spdlog.h>
 #include "car.h"
-#include "game.h"
-#include "map.h"
+
 
 bool is_zero(double var)
 {
@@ -296,7 +295,7 @@ void car_t::move(Map& GameMap, int id)
         coordinates_t new_coordinates(new_x, new_y, coordinates_.get_direction());
 
         if(IsWall(GameMap, id, new_coordinates)) {
-            new_coordinates.set_y(coordinates_.get_y());
+            new_coordinates.set_y(coordinates_. ());
             if(IsWall(GameMap, id, new_coordinates)) {
                 coordinates_.set_direction(-(coordinates_.get_direction()));
             }
