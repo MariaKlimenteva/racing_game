@@ -91,6 +91,8 @@ int Game::Execute()
 
     Render(GameMap, GameCamera);
 
+    // spdlog::info("is coordinate a wall? {}", Game::IsWall(GameMap, 0, ));
+
     while(Running) 
     {
         while(SDL_PollEvent(&Event)) //проверяем события и передаем их по одному в OnEvent
