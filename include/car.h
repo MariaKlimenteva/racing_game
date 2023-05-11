@@ -70,7 +70,7 @@ class car_t {
         void set_butons(Uint8 forward, Uint8 backward, Uint8 left, Uint8 right, Uint8 breaks);
         coordinates_t get_coordinates();
         void print();
-        void move();
+        void move(Map& GameMap, int id);
 };
 
 #endif//CAR_H
