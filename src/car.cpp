@@ -5,8 +5,6 @@
 
 #include <spdlog/spdlog.h>
 #include "car.h"
-#include "game.h"
-#include "map.h"
 
 bool is_zero(double var)
 {
@@ -214,7 +212,7 @@ coordinates_t car_t::get_coordinates()
     return coordinates_;
 }
 
-void car_t::move(Map& GameMap, int id)
+void car_t::move()
 {
     bool is_pressed = false;
 
@@ -238,6 +236,8 @@ void car_t::move(Map& GameMap, int id)
                 is_pressed = true;
            }
         }
+        //flags[1] = 1;
+        //flags[3] = 1;
 
 
         if (flags[4] && !(is_zero(speed_))) {
@@ -290,26 +290,8 @@ void car_t::move(Map& GameMap, int id)
         if(std::abs(coordinates_.get_direction()) > M_PI)
             coordinates_.change_direction( -(sign(coordinates_.get_direction()) * 2 * M_PI) );
 
-        double new_x = coordinates_.get_x() + std::sin(dir) * sp * dt;
-        double new_y = coordinates_.get_y() -(std::cos(dir) * sp * dt);
-
-        coordinates_t new_coordinates(new_x, new_y, coordinates_.get_direction);
-
-        if(IsWall(GameMap, id, new_coordinates)) {
-            new_coordinates.set_y(coordinates_.get_y());
-            if(IsWall(GameMap, id, new_coordinates)) {
-                coordinates_.set_direction(-(coordinates_.get_direction));
-            }
-
-            new_coordinates.set_x(coordinates_.get_x());
-            new_coordinates.set_x(new_y);
-            if(IsWall(GameMap, id, new_coordinates)) {
-                coordinates_.set_direction(sign(coordinates_.get_direction) * (M_PI - std::abs(coordinates_.get_direction)));
-            }
-
-        } else {
-            coordinates_ = new_coordinates;
-        }
+        coordinates_.change_x(std::sin(dir) * sp * dt);
+        coordinates_.change_y( -(std::cos(dir) * sp * dt));
     }
     if(is_pressed)
     {
