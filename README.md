@@ -19,6 +19,9 @@ Alexander Kuntsevich.
 8) Points and time counter
 9) Camera (Maria)
 ### How the project works
+<img src="game.jpg" width=50% height=80%>
+<img src="game_full_map.jpg" width=38% height=80%>
+
 The car moves across the screen by pressing the keys: W, A, D, space. Your task in the game is not to run into obstacles and earn as many points as possible. In the table of records you can find your personal records.
 
 Everything is very simple. In the game window you see green obstacles, hitting them takes away your points (-20). There are also multi-colored checkpoints: yellow +10, blue +20, purple +40. If you reach the finish line, you will finish the game and get +20 points.
