@@ -67,7 +67,7 @@ void Game::Render(Map& GameMap, Camera& GameCamera)
     }
     
     Game::CarRender();
-    Game::MapRender(0, GameMap, MapX, MapY); 
+    Game::MapRender(GameMap, MapX, MapY); 
 }
 //--------------------------------------------------------------------------
 void Game::Cleanup()
@@ -86,12 +86,9 @@ int Game::Execute()
     GameMap.OnLoad();
 
     Camera GameCamera;
-
     SDL_Event Event;
 
     Render(GameMap, GameCamera);
-
-    // spdlog::info("is coordinate a wall? {}", Game::IsWall(GameMap, 0, ));
 
     while(Running) 
     {
@@ -149,8 +146,9 @@ void Game::Loop(Map& GameMap, Camera& GameCamera)
         SDL_Delay(1);
 }
 //--------------------------------------------------------------------------
-void Game::MapRender(int id, Map& GameMap, int MapX, int MapY)
+void Game::MapRender(Map& GameMap, int MapX, int MapY)
 {
+    int id = 0;
     for(int y = 0; y < MAP_HEIGHT; y++) 
     {
         for(int x = 0; x < MAP_WIDTH; x++) 

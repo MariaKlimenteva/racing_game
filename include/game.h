@@ -7,7 +7,7 @@
 #include "define.h"
 #include "car.h"
 
-//--------------------------------------------------------------------------
+// --------------------------------------------------------------------------
 class Map;
 class Camera;
 
@@ -43,10 +43,10 @@ class Game
     int  Execute(); //выполняет основной цикл игры 
     bool Init();    //Инициализация игры и в том числе используемой библиотеки
     void OnEvent(SDL_Event* Event); //обработка событий (любое нажатие клавиш, мышки и тп)
-    void Loop  (Map& GameMap, Camera& GameCamera);
+    void Loop(Map& GameMap, Camera& GameCamera);
     void Render(Map& GameMap, Camera& GameCamera);
     void Cleanup();
-    void MapRender(int id, Map& GameMap, int MapX, int MapY);
+    void MapRender(Map& GameMap, int MapX, int MapY);
     void CarRender();
     void CollectPoints(SDL_Rect points, int id, Map& GameMap);
     bool IsWall(Map& GameMap, int id, coordinates_t coordinates);

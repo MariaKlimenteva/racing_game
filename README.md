@@ -19,8 +19,8 @@ Alexander Kuntsevich.
 8) Points and time counter
 9) Camera (Maria)
 ### How the project works
-<img src="game.jpg" width=50% height=80%>
-<img src="game_full_map.jpg" width=38% height=80%>
+<img src="game.jpg" width=30% height=50%>
+<img src="game_full_map.jpg" width=38% height=50%>
 
 The car moves across the screen by pressing the keys: W, A, D, space. Your task in the game is not to run into obstacles and earn as many points as possible. In the table of records you can find your personal records.
 
